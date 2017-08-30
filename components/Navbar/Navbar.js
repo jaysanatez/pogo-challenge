@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+
 import Login from './Login'
 import Logout from './Logout'
-import { Role } from '../server/lookups'
+import { Role } from '../../server/lookups'
 
 export default class Navbar extends Component {
 
@@ -16,7 +17,7 @@ export default class Navbar extends Component {
 
     return (
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li className="nav-item active"><Link to="/Trainers" className="nav-link">Trainers</Link></li>
+        <li className="nav-item active"><Link to="/trainers" className="nav-link">Trainers</Link></li>
       </ul>
     )
   }

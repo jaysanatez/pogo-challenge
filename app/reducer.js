@@ -15,14 +15,18 @@ function authentication(state = {
     return state
   }
 
-  let user = action.user || state.user
-  if (action.type == LOGOUT_SUCCESS) { // clear user from state
-    user = null
+  let newState = {
+    ...state,
   }
 
-  let newState = {
-  	...state,
-  	user,
+  if (action.type == LOGOUT_SUCCESS) { // clear user from state
+    newState.user = null
+  } else {
+    newState.user = action.user || state.user
+  }
+
+  if (action.message) {
+    newState.message = action.message
   }
 
   return newState

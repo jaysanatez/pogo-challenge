@@ -16,9 +16,10 @@ export function loginSuccess(data) {
   }
 }
 
-export function loginFailure() {
+export function loginFailure(message) {
   return {
-  	type: LOGIN_FAILURE,
+    type: LOGIN_FAILURE,
+    message,
   }
 }
 

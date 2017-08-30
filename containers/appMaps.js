@@ -5,10 +5,11 @@ import {
 
 export const mapStateToProps = state => {
   const { authentication } = state
-  const { user } = authentication
+  const { user, message } = authentication
 
   return {
     user,
+    message,
   }
 }
 

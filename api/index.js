@@ -16,9 +16,6 @@ export function loginUser(dispatch, creds) {
 
     dispatch(loginSuccess(data))
   }, function(error) {
-    if (error.message) {
-      alert(error.message)
-    }
     dispatch(loginFailure(error.message))
   })
 }

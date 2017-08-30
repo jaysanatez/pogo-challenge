@@ -2,6 +2,7 @@ var passport = require('passport')
 var path     = require('path')
 var auth     = require('./auth')
 var User     = require('./models/user')
+var Lookups  = require('./lookups')
 
 module.exports = app => {
   // public routes
@@ -19,6 +20,16 @@ module.exports = app => {
       // incorrect password
       if (!user.validatePassword(password)) {
         return res.status(401).json({ message: 'Error! Password did not match.' })
+      }
+
+      // invalid user status
+      const statusMessages = {
+        2: 'Error! User has not been verified.',
+        3: 'Error! User is disabled.',
+      }
+
+      if (user.status != Lookups.Status.VERIFIED) {
+        return res.status(401).json({ message: statusMessages[user.status] });
       }
 
       // we got ourselves a login

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import Navbar from '../components/Navbar'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Navbar from '../components/Navbar/Navbar'
 import Dashboard from '../components/Dashboard'
 import Trainers from '../components/Trainers'
+import LoginScreen from '../components/LoginScreen'
 import NotFound from '../components/NotFound'
 
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
@@ -18,6 +19,18 @@ class App extends Component {
       onLogoutClick,
     } = this.props
 
+    const authorize = (Component) => {
+      return () => {
+        return user ? <Component {...this.props} /> : <Redirect to="/login"/>
+      }
+    }
+
+    const unauthorize = (Component) => {
+      return () => {
+        return user ? <Redirect to="/"/> : <Component {...this.props} />  
+      }
+    }
+
     return (
       <BrowserRouter>
         <div>
@@ -28,9 +41,10 @@ class App extends Component {
           />
           <div className='container'>
             <Switch>
-              <Route exact path="/" component={Dashboard}/>
-              <Route path="/Trainers" component={Trainers}/>
-              <Route path="*" component={NotFound}/>
+              <Route exact path="/" render={authorize(Dashboard)}/>
+              <Route path="/trainers" render={authorize(Trainers)}/>
+              <Route path="/login" render={unauthorize(LoginScreen)}/>
+              <Route path="*" render={NotFound}/>
             </Switch>
           </div>
         </div>
@@ -41,6 +55,7 @@ class App extends Component {
 
 App.propTypes = {
   user: PropTypes.object,
+  message: PropTypes.string,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
 }

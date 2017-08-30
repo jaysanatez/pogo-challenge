@@ -52,12 +52,6 @@ var findByName = (username, next) => {
   model.findOne({ username }, next)
 }
 
-/* var createUser = (obj, next) => {
-  var u = new model();
-  
-  u.save(next)
-} */
-
 module.exports = {
   model,
   fetchAll,
