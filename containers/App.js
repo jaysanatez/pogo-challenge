@@ -39,12 +39,12 @@ class App extends Component {
             onLoginClick={onLoginClick}
             onLogoutClick={onLogoutClick}
           />
-          <div className='container'>
+          <div className="container">
             <Switch>
               <Route exact path="/" render={authorize(Dashboard)}/>
               <Route path="/trainers" render={authorize(Trainers)}/>
               <Route path="/login" render={unauthorize(LoginScreen)}/>
-              <Route path="*" render={NotFound}/>
+              <Route path="*" component={NotFound}/>
             </Switch>
           </div>
         </div>

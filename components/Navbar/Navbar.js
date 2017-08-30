@@ -8,11 +8,23 @@ import { Role } from '../../server/lookups'
 
 export default class Navbar extends Component {
 
-  renderTabComponents() {
-    const { user } = this.props;
+  renderProfileTab() {
+    const { user } = this.props
+    if (!user) {
+      return null
+    }
 
-    if (!user || user.role != Role.ADMIN) {
-      return null;
+    return (
+      <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li className="nav-item active"><Link to="/profile" className="nav-link">Profile</Link></li>
+      </ul>
+    )
+  }
+
+  renderTrainersTab() {
+    const { user } = this.props
+    if (!user || user.role != Role.ADMIN) { // only for admins
+      return null
     }
 
     return (
@@ -38,14 +50,15 @@ export default class Navbar extends Component {
 
   render() {
     return (
-    <nav className="navbar navbar-light navbar-toggleable-md bg-faded justify-content-center">
+    <nav className="navbar navbar-light navbar-toggleable-md bg-faded justify-content-center mb-2">
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         <span className="navbar-toggler-icon"></span>
       </button>
 
       <Link to="/" className="navbar-brand">PoGo Challenge</Link>
       <div className="navbar-collapse collapse" id="collapsingNavbar">
-        { this.renderTabComponents() }
+        { this.renderProfileTab() }
+        { this.renderTrainersTab() }
         { this.renderAuthComponents() }
       </div>
     </nav>

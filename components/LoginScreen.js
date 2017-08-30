@@ -3,12 +3,18 @@ import React, { Component } from 'react'
 export default class LoginScreen extends Component {
   render() {
     const { message } = this.props
-    const flash = message ? (<h3> { message } </h3>) : null
+    const flash = message ? (
+      <div className="alert alert-danger" role="alert">
+        { message }
+      </div>
+    ) : null
 
     return (
       <div>
-        <h1>LOGIN SCREEN</h1>
         { flash }
+        <div className="jumbotron">
+          <h1>Login to begin.</h1>
+        </div>
       </div>
     )
   }
