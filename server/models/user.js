@@ -8,6 +8,8 @@ var userSchema = new Schema({
   	unique: true,
   },
   password: String,
+  role: Number,
+  status: Number,
   lastUpdated: Date,
   team: Number,
   xpUpdates: [{
@@ -28,6 +30,8 @@ userSchema.methods.validatePassword = function(password) {
 userSchema.methods.toClientDto = function() {
   return {
     username: this.username,
+    role: this.role,
+    status: this.status,
     lastUpdated: this.lastUpdated,
     team: this.team,
     xpUpdates: this.xpUpdates,
@@ -37,7 +41,7 @@ userSchema.methods.toClientDto = function() {
 var model = mongoose.model('User', userSchema)
 
 var fetchAll = (next) => {
-  model.find({}, 'username lastUpdated team xpUpdates', next)
+  model.find({}, 'username role status lastUpdated team xpUpdates', next)
 }
 
 var findById = (id, next) => {
@@ -47,6 +51,12 @@ var findById = (id, next) => {
 var findByName = (username, next) => {
   model.findOne({ username }, next)
 }
+
+/* var createUser = (obj, next) => {
+  var u = new model();
+  
+  u.save(next)
+} */
 
 module.exports = {
   model,

@@ -3,7 +3,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
-export function loginRequest(creds) {
+export function loginRequest() {
   return {
 	  type: LOGIN_REQUEST,
   }
@@ -16,7 +16,7 @@ export function loginSuccess(data) {
   }
 }
 
-export function loginFailure(message) {
+export function loginFailure() {
   return {
   	type: LOGIN_FAILURE,
   }

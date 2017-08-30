@@ -1,6 +1,7 @@
 var passport = require('passport')
+var path     = require('path')
 var auth     = require('./auth')
-var User  = require('./models/user')
+var User     = require('./models/user')
 
 module.exports = app => {
   // public routes
@@ -39,5 +40,10 @@ module.exports = app => {
 
       res.json({ users })
     });
+  })
+
+  // fall through all api routes, send everything else to the app route handling
+  app.get("*", (req,res) => {
+    res.sendFile(path.resolve('index.html'))
   })
 }

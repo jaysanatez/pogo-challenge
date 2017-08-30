@@ -13,18 +13,21 @@ export default class Login extends Component {
   }
 
   render() {
-    const style = {
-      margin: '3px',
-    }
-
     return (
-      <div className="navbar-right">
-        <input type='text' ref='username' className="form-control" style={style} placeholder='Username'/>
-        <input type='password' ref='password' className="form-control" style={style} placeholder='Password'/>
-        <button onClick={(event) => this.onClick(event)} className="btn btn-primary" style={style}>
-          Login
-        </button>
-      </div>
+      <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2" type='text' ref='username' placeholder="Username"/>
+          <input className="form-control mr-sm-2" type='password' ref='password' placeholder="Password"/>
+          <button
+            className="btn my-sm-0"
+            type="button"
+            onClick={(event) => this.onClick(event)}
+            style={{cursor:"pointer"}}
+          >
+            Login
+          </button>
+        </form>
+      </ul>
     )
   }
 }

@@ -7,19 +7,20 @@ export default class Logout extends Component {
   }
 
   render() {
-    const { name } = this.props
-    const greeting = name ? ('Hello, ' + name + '!') : ''
-    const style = {
-      margin: '3px',
-    }
-
     return (
-      <div className="navbar-right">
-        <span style={style}> { greeting } </span>
-        <button onClick={(event) => this.onClick(event)} className="btn btn-primary">
-          Logout
-        </button>
-      </div>
+      <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
+        <form className="form-inline my-2 my-lg-0">
+          <label className="mr-sm-2">{this.props.name}</label>
+          <button
+            className="btn m-2 my-sm-0"
+            type="button"
+            onClick={(event) => this.onClick(event)}
+            style={{cursor:"pointer"}}
+          >
+            Logout
+          </button>
+        </form>
+      </ul>
     )
   }
 }

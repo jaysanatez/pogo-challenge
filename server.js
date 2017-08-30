@@ -18,10 +18,6 @@ var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 
-app.get("/", (req,res) => {
-  res.sendFile(__dirname + '/index.html')
-})
-
 // BACK_END
 
 app.use(bodyParser.json())
