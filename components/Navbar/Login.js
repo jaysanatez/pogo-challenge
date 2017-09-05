@@ -16,8 +16,8 @@ export default class Login extends Component {
     return (
       <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
         <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type='text' ref='username' placeholder="Username"/>
-          <input className="form-control mr-sm-2" type='password' ref='password' placeholder="Password"/>
+          <input className="form-control mr-sm-2" type="text" ref="username" placeholder="Username"/>
+          <input className="form-control mr-sm-2" type="password" ref="password" placeholder="Password"/>
           <button
             className="btn my-sm-0"
             type="button"

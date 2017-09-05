@@ -56,6 +56,7 @@ class App extends Component {
 App.propTypes = {
   user: PropTypes.object,
   message: PropTypes.string,
+  trainers: PropTypes.array.isRequired,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
@@ -63,5 +64,5 @@ App.propTypes = {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App)

@@ -5,12 +5,14 @@ import {
 } from '../api/'
 
 export const mapStateToProps = state => {
-  const { authentication } = state
-  const { user, message } = authentication
+  const { authReducer, trainerReducer } = state
+  const { user, message } = authReducer
+  const { trainers } = trainerReducer
 
   return {
     user,
     message,
+    trainers,
   }
 }
 

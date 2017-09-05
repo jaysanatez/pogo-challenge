@@ -4,6 +4,8 @@ import {
   loginSuccess,
   loginFailure,
   logoutSuccess,
+  trainerFetchSuccess,
+  trainerFetchFailure,
 } from '../app/actions'
 
 export function loginUser(dispatch, creds) {
@@ -28,5 +30,9 @@ export function logoutUser(dispatch) {
 }
 
 export function fetchTrainers(dispatch) {
-  makeApiRequest('/api/trainers', 'GET', null, true, () => {}, () => {})
+  makeApiRequest('/api/trainers', 'GET', null, true, (data) => {
+    dispatch(trainerFetchSuccess(data))
+  }, (error) => {
+    dispatch(trainerFetchFailure(error.message))
+  })
 }

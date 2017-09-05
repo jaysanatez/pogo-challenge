@@ -23,7 +23,7 @@ var loginHandler = (req, res) => {
       3: 'Error! User is disabled.',
     }
 
-    if (user.status != Lookups.Status.VERIFIED) {
+    if (user.status != Lookups.Status.VERIFIED.key) {
       return res.status(401).json({ message: statusMessages[user.status] })
     }
 

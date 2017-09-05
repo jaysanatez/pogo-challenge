@@ -4,11 +4,14 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
+  TRAINER_FETCH_SUCCESS,
+  TRAINER_FETCH_FAILURE,
 } from './actions'
 
 const authActions = [ LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS ]
+const trainerActions = [ TRAINER_FETCH_SUCCESS, TRAINER_FETCH_FAILURE ]
 
-function authentication(state = {
+function authReducer(state = {
   user: JSON.parse(localStorage.getItem('user')),
 }, action) {
   if (authActions.indexOf(action.type) == -1) {
@@ -32,6 +35,25 @@ function authentication(state = {
   return newState
 }
 
+function trainerReducer(state = {
+  trainers: [],
+}, action) {
+  if (trainerActions.indexOf(action.type) == -1) {
+    return state
+  }
+
+  let newState = {
+    ...state
+  }
+
+  if (action.trainers) {
+    newState.trainers = action.trainers || state.trainers
+  }
+
+  return newState
+}
+
 export default combineReducers({
-  authentication,
+  authReducer,
+  trainerReducer,
 })
