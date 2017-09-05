@@ -58,6 +58,7 @@ App.propTypes = {
   message: PropTypes.string,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
+  fetchTrainers: PropTypes.func.isRequired,
 }
 
 export default connect(

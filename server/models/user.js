@@ -18,11 +18,18 @@ var userSchema = new Schema({
   }],
 })
 
-userSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-}
+// can't use => syntax - this keyword throws error
+userSchema.pre('save', function(next) {
+  var user = this
 
-// can't user => syntax - this keyword throws error
+  if (!user.isModified('password'))
+    return next()
+
+  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null)
+  next()
+})
+
+// can't use => syntax - this keyword throws error
 userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password)
 }

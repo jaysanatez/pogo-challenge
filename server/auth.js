@@ -31,8 +31,20 @@ var getTokenForUser = (user) => {
   return jwt.sign(payload, jwtOptions.secretOrKey) 
 }
 
+var authenticateRoles = roles => {
+  return (req, res, next) => {
+    // if user role isn't in the allowed roles, 401
+    if (roles.indexOf(req.user.role) == -1) {
+      return res.status(401).json({ message: 'Error! Invalid role to perform this operation.' })
+    }
+
+    next()
+  }
+}
+
 module.exports = {
   jwtOptions,
   addAuth,
   getTokenForUser,
+  authenticateRoles,
 }

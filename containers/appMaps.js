@@ -1,6 +1,7 @@
 import {
   loginUser,
   logoutUser,
+  fetchTrainers,
 } from '../api/'
 
 export const mapStateToProps = state => {
@@ -20,6 +21,9 @@ export const mapDispatchToProps = dispatch => {
     },
     onLogoutClick: () => {
       logoutUser(dispatch)
+    },
+    fetchTrainers: () => {
+      fetchTrainers(dispatch)
     },
   }
 }
