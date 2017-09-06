@@ -8,11 +8,15 @@ export const CREATE_TRAINER_SUCCESS = 'CREATE_TRAINER_SUCCESS'
 export const CREATE_TRAINER_FAILURE = 'CREATE_TRAINER_FAILURE'
 export const DELETE_TRAINER_SUCCESS = 'DELETE_TRAINER_SUCCESS'
 export const DELETE_TRAINER_FAILURE = 'DELETE_TRAINER_FAILURE'
+export const ENSURE_TRAINER_SUCCESS = 'ENSURE_TRAINER_SUCCESS'
+export const ENSURE_TRAINER_FAILURE = 'ENSURE_TRAINER_FAILURE'
+export const VERIFY_TRAINER_SUCCESS = 'VERIFY_TRAINER_SUCCESS'
+export const VERIFY_TRAINER_FAILURE = 'VERIFY_TRAINER_FAILURE'
 
 export function loginSuccess(data) {
   return {
     type: LOGIN_SUCCESS,
-    user: data.trainer,
+    trainer: data.trainer,
   }
 }
 
@@ -67,6 +71,34 @@ export function deleteTrainerSuccess(data) {
 export function deleteTrainerFailure(message) {
   return {
     type: DELETE_TRAINER_FAILURE,
+    message,
+  }
+}
+
+export function ensureTrainerSuccess(data) {
+  return {
+    type: ENSURE_TRAINER_SUCCESS,
+    trainer: data.trainer,
+  }
+}
+
+export function ensureTrainerFailure(message) {
+  return {
+    type: ENSURE_TRAINER_FAILURE,
+    message,
+  }
+}
+
+export function verifyTrainerSuccess(data) {
+  return {
+    type: VERIFY_TRAINER_SUCCESS,
+    trainer: data.trainer,
+  }
+}
+
+export function verifyTrainerFailure(message) {
+  return {
+    type: VERIFY_TRAINER_FAILURE,
     message,
   }
 }

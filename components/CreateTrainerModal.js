@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Role, Team } from '../server/lookups'
 
 export default class CreateTrainerModal extends Component {
@@ -73,4 +74,8 @@ export default class CreateTrainerModal extends Component {
       </div>
     )
   }
+}
+
+CreateTrainerModal.propTypes = {
+  onTrainerCreate: PropTypes.func.isRequired,
 }

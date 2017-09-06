@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Team, Status, Role, getText } from '../server/lookups'
+import PropTypes from 'prop-types'
 import Moment from 'moment'
+
+import { Team, Status, Role, getText } from '../server/lookups'
 import CreateTrainerModal from './CreateTrainerModal'
 
 export default class Trainers extends Component {
@@ -69,4 +71,10 @@ export default class Trainers extends Component {
       </div>
     )
   }
+}
+
+Trainers.propTypes = {
+  trainers: PropTypes.array.isRequired,
+  onTrainerCreate: PropTypes.func.isRequired,
+  onTrainerDelete: PropTypes.func.isRequired,
 }

@@ -9,8 +9,8 @@ import { Role } from '../../server/lookups'
 export default class Navbar extends Component {
 
   renderProfileTab() {
-    const { user } = this.props
-    if (!user) {
+    const { trainer } = this.props
+    if (!trainer) {
       return null
     }
 
@@ -22,8 +22,8 @@ export default class Navbar extends Component {
   }
 
   renderTrainersTab() {
-    const { user } = this.props
-    if (!user || user.role != Role.ADMIN.key) { // only for admins
+    const { trainer } = this.props
+    if (!trainer || trainer.role != Role.ADMIN.key) { // only for admins
       return null
     }
 
@@ -36,13 +36,13 @@ export default class Navbar extends Component {
 
   renderAuthComponents() {
     const {
-      user,
+      trainer,
       onLoginClick,
       onLogoutClick,
     } = this.props
 
-    if (user) {
-      return ( <Logout name={user.username} onLogoutClick={onLogoutClick} /> )
+    if (trainer) {
+      return ( <Logout name={trainer.username} onLogoutClick={onLogoutClick} /> )
     } else {
       return ( <Login onLoginClick={onLoginClick} />)
     }
@@ -68,7 +68,7 @@ export default class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  user: PropTypes.object,
+  trainer: PropTypes.object,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
 }

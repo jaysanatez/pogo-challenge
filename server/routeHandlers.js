@@ -50,7 +50,7 @@ var fetchTrainersHandler = (req, res) => {
 var createTrainerHandler = (req, res) => {
   User.createNewUser(req.body, (err, user) => {
     if (err || !user)
-      return res.status(500).json({ message: 'Error! Could not create trainer.'});
+      return res.status(500).json({ message: 'Error! Could not create trainer.' })
 
     res.json({
       trainer: user.toClientDto(),
@@ -61,11 +61,53 @@ var createTrainerHandler = (req, res) => {
 var deleteTrainerHandler = (req, res) => {
   User.deleteUser(req.params.id, (err, user) => {
     if (err || !user)
-      return res.status(500).json({ message: 'Error! Could not delete trainer.'});
+      return res.status(500).json({ message: 'Error! Could not delete trainer.' })
 
     res.json({
       message: 'Trainer successfully deleted',
       trainerId: user._id,
+    })
+  })
+}
+
+var ensureTrainer = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    var message
+    if (err || !user) {
+      message = 'Error! That trainer does not exist.'
+    } else if (user.status == Lookups.Status.VERIFIED.key) {
+      message = 'Error! That trainer is already verified.'
+    } else if (user.status == Lookups.Status.DISABLED.key) {
+      message = 'Error! That trainer is disabled.'
+    }
+
+    if (message) {
+      return res.status(500).json({ message })
+    }
+
+    res.json({
+      trainer: user.toClientDto(),
+    })
+  })
+}
+
+var verifyTrainer = (req, res) => {
+  User.findById(req.params.id, (err, user) => {
+    if (err || !user || !req.body.password)
+      return res.stats(500).json({ message: 'Error! Could not verify user.' })
+
+    // update user
+    user.password = req.body.password
+    user.status = Lookups.Status.VERIFIED.key
+    user.lastUpdated = new Date()
+
+    user.save((err, user) => {
+      if (err || !user)
+        return res.stats(500).json({ message: 'Error! Could not save the user changes.' })
+
+      res.json({
+        trainer: user.toClientDto(),
+      })
     })
   })
 }
@@ -75,4 +117,6 @@ module.exports = {
   fetchTrainersHandler,
   createTrainerHandler,
   deleteTrainerHandler,
+  ensureTrainer,
+  verifyTrainer,
 }

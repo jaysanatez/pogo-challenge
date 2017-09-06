@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class LoginScreen extends Component {
   render() {
@@ -18,4 +19,8 @@ export default class LoginScreen extends Component {
       </div>
     )
   }
+}
+
+LoginScreen.propType = {
+  message: PropTypes.string,
 }

@@ -1,30 +1,34 @@
 import {
-  loginUser,
-  logoutUser,
+  loginTrainer,
+  logoutTrainer,
   fetchTrainers,
   createTrainer,
   deleteTrainer,
+  ensureTrainer,
+  verifyTrainer,
 } from '../api/'
 
 export const mapStateToProps = state => {
   const { authReducer, trainerReducer } = state
-  const { user, message } = authReducer
-  const { trainers } = trainerReducer
+  const { trainer, message } = authReducer
+  const { trainers, ensureResult, verifyResult } = trainerReducer
 
   return {
-    user,
+    trainer,
     message,
     trainers,
+    ensureResult,
+    verifyResult,
   }
 }
 
 export const mapDispatchToProps = dispatch => {
   return {
     onLoginClick: creds => {
-      loginUser(dispatch, creds)
+      loginTrainer(dispatch, creds)
     },
     onLogoutClick: () => {
-      logoutUser(dispatch)
+      logoutTrainer(dispatch)
     },
     fetchTrainers: () => {
       fetchTrainers(dispatch)
@@ -34,6 +38,12 @@ export const mapDispatchToProps = dispatch => {
     },
     onTrainerDelete: trainerId => {
       deleteTrainer(dispatch, trainerId)
+    },
+    ensureTrainer: trainerId => {
+      ensureTrainer(dispatch, trainerId)
+    },
+    verifyTrainer: (trainerId, password) => {
+      verifyTrainer(dispatch, trainerId, password)
     },
   }
 }

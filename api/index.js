@@ -9,13 +9,17 @@ import {
   createTrainerFailure,
   deleteTrainerSuccess,
   deleteTrainerFailure,
+  ensureTrainerSuccess,
+  ensureTrainerFailure,
+  verifyTrainerSuccess,
+  verifyTrainerFailure,
 } from '../app/actions'
 
-export function loginUser(dispatch, creds) {
+export function loginTrainer(dispatch, creds) {
   // call api then dispatch success or failure
   makeApiRequest('/api/login', 'POST', creds, false, data => {
     localStorage.setItem('id_token', data.token)
-    localStorage.setItem('user', JSON.stringify(data.trainer))
+    localStorage.setItem('trainer', JSON.stringify(data.trainer))
 
     dispatch(loginSuccess(data))
   }, error => {
@@ -23,9 +27,9 @@ export function loginUser(dispatch, creds) {
   })
 }
 
-export function logoutUser(dispatch) {
+export function logoutTrainer(dispatch) {
   localStorage.removeItem('id_token')
-  localStorage.removeItem('user')
+  localStorage.removeItem('trainer')
   
   dispatch(logoutSuccess())
 }
@@ -39,7 +43,7 @@ export function fetchTrainers(dispatch) {
 }
 
 export function createTrainer(dispatch, trainerData) {
-  makeApiRequest('/api/trainer', 'POST', trainerData, true, data => {
+  makeApiRequest('/api/trainers', 'POST', trainerData, true, data => {
     dispatch(createTrainerSuccess(data))
   }, error => {
     dispatch(createTrainerFailure(error.message))
@@ -47,9 +51,26 @@ export function createTrainer(dispatch, trainerData) {
 }
 
 export function deleteTrainer(dispatch, trainerId) {
-  makeApiRequest('/api/trainer/' + trainerId, 'DELETE', null, true, data => {
+  makeApiRequest('/api/traines/' + trainerId, 'DELETE', null, true, data => {
     dispatch(deleteTrainerSuccess(data))
   }, error => {
     dispatch(deleteTrainerFailure(error.message))
+  })
+}
+
+export function ensureTrainer(dispatch, trainerId) {
+  makeApiRequest('/api/trainers/' + trainerId + '/ensure', 'GET', null, false, data => {
+    dispatch(ensureTrainerSuccess(data))
+  }, error => {
+    dispatch(ensureTrainerFailure(error.message))
+  })
+}
+
+export function verifyTrainer(dispatch, trainerId, password) {
+  const data = { password }
+  makeApiRequest('/api/trainers/' + trainerId + '/verify', 'POST', data, false, data => {
+    dispatch(verifyTrainerSuccess(data))
+  }, error => {
+    dispatch(verifyTrainerFailure(error.message))
   })
 }
