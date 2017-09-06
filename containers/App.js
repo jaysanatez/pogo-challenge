@@ -61,6 +61,7 @@ App.propTypes = {
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
   onTrainerCreate: PropTypes.func.isRequired,
+  onTrainerDelete: PropTypes.func.isRequired,
 }
 
 export default connect(

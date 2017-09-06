@@ -7,10 +7,13 @@ import {
   TRAINER_FETCH_FAILURE,
   CREATE_TRAINER_SUCCESS,
   CREATE_TRAINER_FAILURE,
+  DELETE_TRAINER_SUCCESS,
+  DELETE_TRAINER_FAILURE,
 } from './actions'
 
 const authActions = [ LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS ]
-const trainerActions = [ TRAINER_FETCH_SUCCESS, TRAINER_FETCH_FAILURE, CREATE_TRAINER_SUCCESS, CREATE_TRAINER_FAILURE ]
+const trainerActions = [ TRAINER_FETCH_SUCCESS, TRAINER_FETCH_FAILURE, CREATE_TRAINER_SUCCESS,
+  CREATE_TRAINER_FAILURE, DELETE_TRAINER_SUCCESS, DELETE_TRAINER_FAILURE ]
 
 function authReducer(state = {
   user: JSON.parse(localStorage.getItem('user')),
@@ -44,6 +47,12 @@ function trainerReducer(state = {
   var trainers = action.trainers || state.trainers
   if (action.type == CREATE_TRAINER_SUCCESS) {
     trainers = trainers.concat(action.trainer)
+  }
+
+  if (action.type == DELETE_TRAINER_SUCCESS) {
+    trainers = trainers.filter(tr => {
+      return tr._id != action.trainerId
+    })
   }
 
   return {

@@ -58,8 +58,21 @@ var createTrainerHandler = (req, res) => {
   })
 }
 
+var deleteTrainerHandler = (req, res) => {
+  User.deleteUser(req.params.id, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not delete trainer.'});
+
+    res.json({
+      message: 'Trainer successfully deleted',
+      trainerId: user._id,
+    })
+  })
+}
+
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
   createTrainerHandler,
+  deleteTrainerHandler,
 }

@@ -3,6 +3,7 @@ import {
   logoutUser,
   fetchTrainers,
   createTrainer,
+  deleteTrainer,
 } from '../api/'
 
 export const mapStateToProps = state => {
@@ -30,6 +31,9 @@ export const mapDispatchToProps = dispatch => {
     },
     onTrainerCreate: data => {
       createTrainer(dispatch, data)
+    },
+    onTrainerDelete: trainerId => {
+      deleteTrainer(dispatch, trainerId)
     },
   }
 }

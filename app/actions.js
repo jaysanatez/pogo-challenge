@@ -6,6 +6,8 @@ export const TRAINER_FETCH_SUCCESS = 'TRAINER_FETCH_SUCCESS'
 export const TRAINER_FETCH_FAILURE = 'TRAINER_FETCH_FAILURE'
 export const CREATE_TRAINER_SUCCESS = 'CREATE_TRAINER_SUCCESS'
 export const CREATE_TRAINER_FAILURE = 'CREATE_TRAINER_FAILURE'
+export const DELETE_TRAINER_SUCCESS = 'DELETE_TRAINER_SUCCESS'
+export const DELETE_TRAINER_FAILURE = 'DELETE_TRAINER_FAILURE'
 
 export function loginSuccess(data) {
   return {
@@ -51,6 +53,20 @@ export function createTrainerSuccess(data) {
 export function createTrainerFailure(message) {
   return {
     type: CREATE_TRAINER_FAILURE,
+    message,
+  }
+}
+
+export function deleteTrainerSuccess(data) {
+  return {
+    type: DELETE_TRAINER_SUCCESS,
+    trainerId: data.trainerId,
+  }
+}
+
+export function deleteTrainerFailure(message) {
+  return {
+    type: DELETE_TRAINER_FAILURE,
     message,
   }
 }

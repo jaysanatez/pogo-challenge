@@ -49,7 +49,7 @@ userSchema.methods.toClientDto = function() {
 
 var model = mongoose.model('User', userSchema)
 
-var fetchAll = (next) => {
+var fetchAll = next => {
   model.find({}, 'username role status lastUpdated team xpUpdates', next)
 }
 
@@ -72,10 +72,15 @@ var createNewUser = (data, next) => {
   newUser.save(next)
 }
 
+var deleteUser = (id, next) => {
+  model.findByIdAndRemove(id, next)
+}
+
 module.exports = {
   model,
   fetchAll,
   findById,
   findByName,
   createNewUser,
+  deleteUser,
 }

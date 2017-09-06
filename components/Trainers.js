@@ -4,10 +4,18 @@ import Moment from 'moment'
 import CreateTrainerModal from './CreateTrainerModal'
 
 export default class Trainers extends Component {
-  renderTableData(trainers) {
+  renderTableData() {
+    const { trainers, onTrainerDelete } = this.props
     var rows = []
+
     Moment.locale('en')
     var formatStr = 'MMMM Do, YYYY'
+
+    var onDelete = trainer => {
+      return evt => {
+        onTrainerDelete(trainer._id)
+      }
+    }
 
     trainers.forEach(t => {
       rows.push(
@@ -18,6 +26,11 @@ export default class Trainers extends Component {
           <td>{ getText(Role, t.role) }</td>
           <td>{ t.xpUpdates.length }</td>
           <td>{ Moment(t.lastUpdated).format(formatStr) }</td>
+          <td>
+            <button type="button" className="close" aria-label="Close" onClick={onDelete(t)}>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </td>
         </tr>
       )
     })
@@ -44,10 +57,11 @@ export default class Trainers extends Component {
               <th>Role</th>
               <th># XP Updates</th>
               <th>Last Updated</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            { this.renderTableData(trainers) }
+            { this.renderTableData() }
           </tbody>
         </table>
 
