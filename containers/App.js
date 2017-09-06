@@ -44,7 +44,7 @@ class App extends Component {
               <Route exact path="/" render={authorize(Dashboard)}/>
               <Route path="/trainers" render={authorize(Trainers)}/>
               <Route path="/login" render={unauthorize(LoginScreen)}/>
-              <Route path="*" component={NotFound}/>
+              <Route path="*" render={authorize(NotFound)}/>
             </Switch>
           </div>
         </div>
@@ -60,6 +60,7 @@ App.propTypes = {
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
+  onTrainerCreate: PropTypes.func.isRequired,
 }
 
 export default connect(

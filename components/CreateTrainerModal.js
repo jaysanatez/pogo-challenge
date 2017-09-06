@@ -25,7 +25,7 @@ export default class CreateTrainerModal extends Component {
   	return options
   }
 
-  onCreate(event) {
+  onClick(event) {
   	const { username, team, role } = this.refs
 
     var data = {
@@ -34,8 +34,7 @@ export default class CreateTrainerModal extends Component {
   	  role: parseInt(role[role.selectedIndex].id),
     }
 
-    console.log(data)
-
+    this.props.onTrainerCreate(data)
   }
 
   render() {
@@ -67,7 +66,7 @@ export default class CreateTrainerModal extends Component {
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#add-trainer-modal" onClick={ this.onCreate.bind(this) }>Create</button>
+              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#add-trainer-modal" onClick={ this.onClick.bind(this) }>Create</button>
             </div>
           </div>
         </div>

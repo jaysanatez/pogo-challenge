@@ -1,15 +1,16 @@
 import { combineReducers } from 'redux'
 import {
   LOGIN_FAILURE,
-  LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
   TRAINER_FETCH_SUCCESS,
   TRAINER_FETCH_FAILURE,
+  CREATE_TRAINER_SUCCESS,
+  CREATE_TRAINER_FAILURE,
 } from './actions'
 
-const authActions = [ LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS ]
-const trainerActions = [ TRAINER_FETCH_SUCCESS, TRAINER_FETCH_FAILURE ]
+const authActions = [ LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS ]
+const trainerActions = [ TRAINER_FETCH_SUCCESS, TRAINER_FETCH_FAILURE, CREATE_TRAINER_SUCCESS, CREATE_TRAINER_FAILURE ]
 
 function authReducer(state = {
   user: JSON.parse(localStorage.getItem('user')),
@@ -18,21 +19,19 @@ function authReducer(state = {
     return state
   }
 
-  let newState = {
+  var user = action.user || state.user
+  var message = action.message || state.message
+
+  if (action.type == LOGOUT_SUCCESS) { // clear state
+    user = null
+    message = null
+  }
+
+  return {
     ...state,
+    user,
+    message,
   }
-
-  if (action.type == LOGOUT_SUCCESS) { // clear user from state
-    newState.user = null
-  } else {
-    newState.user = action.user || state.user
-  }
-
-  if (action.message) {
-    newState.message = action.message
-  }
-
-  return newState
 }
 
 function trainerReducer(state = {
@@ -42,15 +41,15 @@ function trainerReducer(state = {
     return state
   }
 
-  let newState = {
-    ...state
+  var trainers = action.trainers || state.trainers
+  if (action.type == CREATE_TRAINER_SUCCESS) {
+    trainers = trainers.concat(action.trainer)
   }
 
-  if (action.trainers) {
-    newState.trainers = action.trainers || state.trainers
+  return {
+    ...state,
+    trainers,
   }
-
-  return newState
 }
 
 export default combineReducers({

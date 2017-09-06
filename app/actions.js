@@ -1,20 +1,16 @@
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+
 export const TRAINER_FETCH_SUCCESS = 'TRAINER_FETCH_SUCCESS'
 export const TRAINER_FETCH_FAILURE = 'TRAINER_FETCH_FAILURE'
-
-export function loginRequest() {
-  return {
-	  type: LOGIN_REQUEST,
-  }
-}
+export const CREATE_TRAINER_SUCCESS = 'CREATE_TRAINER_SUCCESS'
+export const CREATE_TRAINER_FAILURE = 'CREATE_TRAINER_FAILURE'
 
 export function loginSuccess(data) {
   return {
-  	type: LOGIN_SUCCESS,
-  	user: data.user,
+    type: LOGIN_SUCCESS,
+    user: data.trainer,
   }
 }
 
@@ -34,13 +30,27 @@ export function logoutSuccess() {
 export function trainerFetchSuccess(data) {
   return {
     type: TRAINER_FETCH_SUCCESS,
-    trainers: data.users,
+    trainers: data.trainers,
   }
 }
 
 export function trainerFetchFailure(message) {
   return {
-    type: trainerFetchFailure,
+    type: TRAINER_FETCH_FAILURE,
+    message,
+  }
+}
+
+export function createTrainerSuccess(data) {
+  return {
+    type: CREATE_TRAINER_SUCCESS,
+    trainer: data.trainer,
+  }
+}
+
+export function createTrainerFailure(message) {
+  return {
+    type: CREATE_TRAINER_FAILURE,
     message,
   }
 }

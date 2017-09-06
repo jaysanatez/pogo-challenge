@@ -23,7 +23,7 @@ export default class Navbar extends Component {
 
   renderTrainersTab() {
     const { user } = this.props
-    if (!user || user.role != Role.ADMIN) { // only for admins
+    if (!user || user.role != Role.ADMIN.key) { // only for admins
       return null
     }
 

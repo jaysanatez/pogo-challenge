@@ -21,7 +21,7 @@ export default class Login extends Component {
           <button
             className="btn my-sm-0"
             type="button"
-            onClick={(event) => this.onClick(event)}
+            onClick={ this.onClick.bind(this)}
             style={{cursor:"pointer"}}
           >
             Login

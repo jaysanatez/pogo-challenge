@@ -31,22 +31,35 @@ var loginHandler = (req, res) => {
     res.json({
       message: 'Signed in',
       token: auth.getTokenForUser(user),
-      user: user.toClientDto(),
+      trainer: user.toClientDto(),
     })
   })
 }
 
 var fetchTrainersHandler = (req, res) => {
   User.fetchAll((err, users) => {
-    if (err || !users) {
+    if (err || !users)
       return res.status(500).json({ message: 'Error! Could not fetch trainers.' })
-    }
 
-    res.json({ users })
+    res.json({
+      trainers: users,
+    })
+  })
+}
+
+var createTrainerHandler = (req, res) => {
+  User.createNewUser(req.body, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not create trainer.'});
+
+    res.json({
+      trainer: user.toClientDto(),
+    })
   })
 }
 
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
+  createTrainerHandler,
 }

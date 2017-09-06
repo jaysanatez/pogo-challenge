@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
+var Lookups  = require('../lookups')
+
 var Schema   = mongoose.Schema
 
 var userSchema = new Schema({
@@ -59,9 +61,21 @@ var findByName = (username, next) => {
   model.findOne({ username }, next)
 }
 
+var createNewUser = (data, next) => {
+  var newUser = new model()
+  Object.assign(newUser, data)
+
+  newUser.lastUpdated = new Date()
+  newUser.xpUpdates = []
+  newUser.status = Lookups.Status.CREATED.key
+
+  newUser.save(next)
+}
+
 module.exports = {
   model,
   fetchAll,
   findById,
   findByName,
+  createNewUser,
 }

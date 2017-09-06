@@ -11,7 +11,7 @@ export default class Trainers extends Component {
 
     trainers.forEach(t => {
       rows.push(
-        <tr key={t._id}>
+        <tr key={t.username}>
           <td>{ t.username }</td>
           <td>{ getText(Team, t.team) }</td>
           <td>{ getText(Status, t.status) }</td>
@@ -26,7 +26,7 @@ export default class Trainers extends Component {
   }
 
   render() {
-    const { trainers } = this.props
+    const { trainers, onTrainerCreate } = this.props
 
     if (trainers.length == 0) {
       this.props.fetchTrainers()
@@ -51,7 +51,7 @@ export default class Trainers extends Component {
           </tbody>
         </table>
 
-        <CreateTrainerModal/>
+        <CreateTrainerModal onTrainerCreate={onTrainerCreate}/>
       </div>
     )
   }

@@ -2,6 +2,7 @@ import {
   loginUser,
   logoutUser,
   fetchTrainers,
+  createTrainer,
 } from '../api/'
 
 export const mapStateToProps = state => {
@@ -26,6 +27,9 @@ export const mapDispatchToProps = dispatch => {
     },
     fetchTrainers: () => {
       fetchTrainers(dispatch)
+    },
+    onTrainerCreate: data => {
+      createTrainer(dispatch, data)
     },
   }
 }

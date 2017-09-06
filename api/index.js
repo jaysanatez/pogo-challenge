@@ -1,20 +1,19 @@
 import makeApiRequest from './makeApiRequest'
 import {
-  loginRequest,
   loginSuccess,
   loginFailure,
   logoutSuccess,
   trainerFetchSuccess,
   trainerFetchFailure,
+  createTrainerSuccess,
+  createTrainerFailure,
 } from '../app/actions'
 
 export function loginUser(dispatch, creds) {
-  dispatch(loginRequest(creds))
-
   // call api then dispaych success or failure
   makeApiRequest('/api/login', 'POST', creds, false, function(data) {
     localStorage.setItem('id_token', data.token)
-    localStorage.setItem('user', JSON.stringify(data.user))
+    localStorage.setItem('user', JSON.stringify(data.trainer))
 
     dispatch(loginSuccess(data))
   }, function(error) {
@@ -34,5 +33,13 @@ export function fetchTrainers(dispatch) {
     dispatch(trainerFetchSuccess(data))
   }, (error) => {
     dispatch(trainerFetchFailure(error.message))
+  })
+}
+
+export function createTrainer(dispatch, trainerData) {
+  makeApiRequest('/api/trainer', 'POST', trainerData, true, (data) => {
+    dispatch(createTrainerSuccess(data))
+  }, (error) => {
+    dispatch(createTrainerFailure(error.message))
   })
 }
