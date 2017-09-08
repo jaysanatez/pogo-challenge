@@ -16,7 +16,7 @@ var userSchema = new Schema({
   team: Number,
   xpUpdates: [{
   	value: Number,
-  	data: Date,
+  	date: Date,
   }],
 })
 

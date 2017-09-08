@@ -13,8 +13,9 @@ module.exports = app => {
 
   // secured routes
   app.get('/api/trainers', passport.authenticate('jwt', { session: false }), auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.fetchTrainersHandler)
-  app.post('/api/trainers', passport.authenticate('jwt', { session: false}), auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.createTrainerHandler)
-  app.delete('/api/trainers/:id', passport.authenticate('jwt', { session: false}), auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.deleteTrainerHandler)
+  app.post('/api/trainers', passport.authenticate('jwt', { session: false }), auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.createTrainerHandler)
+  app.delete('/api/trainers/:id', passport.authenticate('jwt', { session: false }), auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.deleteTrainerHandler)
+  app.post('/api/xp/update', passport.authenticate('jwt', { session: false }), routeHandlers.updateXP)
 
   // fall through all api routes, send everything else to the app route handling
   app.get('*', (req, res) => {

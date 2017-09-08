@@ -82,7 +82,8 @@ App.propTypes = {
   onTrainerDelete: PropTypes.func.isRequired,
   verifyTrainer: PropTypes.func.isRequired,
   fetchTrainer: PropTypes.func.isRequired,
-  setVerifyStatus: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
+  onXPUpdate: PropTypes.func.isRequired,
 }
 
 export default connect(

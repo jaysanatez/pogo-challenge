@@ -31,9 +31,8 @@ export default class CreateTrainerModal extends Component {
     return options
   }
 
-  onClick(event) {
+  onClick() {
     const { username, team, role } = this.refs
-
     var data = {
       username: username.value.trim(),
       team: parseInt(team[team.selectedIndex].id),

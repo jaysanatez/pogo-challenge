@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import {
   LOGIN,
   LOGOUT,
+  SET_STATUS,
   FETCH_TRAINERS,
   CREATE_TRAINER,
   DELETE_TRAINER,
@@ -9,7 +10,7 @@ import {
   VERIFY_TRAINER,
 } from './actions'
 
-const trainerActions = [LOGIN, LOGOUT, FETCH_TRAINER, VERIFY_TRAINER]
+const trainerActions = [LOGIN, LOGOUT, FETCH_TRAINER, VERIFY_TRAINER, SET_STATUS]
 const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER]
 
 // responsible for trainer and message

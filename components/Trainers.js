@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { formatDate } from './utils'
-import CreateTrainerModal from './CreateTrainerModal'
+import { formatDate, DISPLAY_STRING } from './utils'
+import CreateTrainerModal from './Modals/CreateTrainerModal'
 import {
   Team,
   Status,
@@ -41,7 +41,7 @@ export default class Trainers extends Component {
           <td>{ StatusStrings[t.status] }</td>
           <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
-          <td>{ formatDate(t.lastUpdated) }</td>
+          <td>{ formatDate(t.lastUpdated, DISPLAY_STRING) }</td>
           <td>
             { button }
             { link }

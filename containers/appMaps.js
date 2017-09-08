@@ -1,4 +1,4 @@
-import { setVerifyStatus } from '../app/actions'
+import { setStatus } from '../app/actions'
 import {
   loginTrainer,
   logoutTrainer,
@@ -7,6 +7,7 @@ import {
   deleteTrainer,
   fetchTrainer,
   verifyTrainer,
+  updateXp,
 } from '../api/'
 
 export const mapStateToProps = state => {
@@ -44,8 +45,11 @@ export const mapDispatchToProps = dispatch => {
     verifyTrainer: (trainerId, password) => {
       verifyTrainer(dispatch, trainerId, password)
     },
-    setVerifyStatus: (message) => {
-      dispatch(setVerifyStatus(message))
+    setStatus: message => {
+      dispatch(setStatus(message))
+    },
+    onXPUpdate: xpUpdate => {
+      updateXp(dispatch, xpUpdate)
     },
   }
 }

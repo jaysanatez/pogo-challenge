@@ -68,7 +68,6 @@ var deleteTrainerHandler = (req, res) => {
       return res.status(500).json({ message: 'Error! Could not delete trainer.' })
 
     res.json({
-      message: 'Trainer successfully deleted',
       trainerId: user._id,
     })
   })
@@ -105,6 +104,37 @@ var verifyTrainer = (req, res) => {
   })
 }
 
+// corrupt cases:
+//  1. there is a previous update with greater xp
+//  2. there is a future update with less xp
+//  3. an update already exists for that day (replace it) 
+var verifyXpUpdate = (update, updates) => {
+  return null
+}
+
+var updateXP = (req, res) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not locate user.' })
+    
+    // verify the  data is accurate
+    var message = verifyXpUpdate(user.xpUpdates, req.body) 
+    if (message)
+      return res.status(500).json({ message })
+
+    // append update object and save
+    user.xpUpdates = user.xpUpdates.concat(req.body)
+    user.save((err, user) => {
+      if (err || !user)
+        return res.status(500).json({ message: 'Error! Could not save the user changes.' })
+      
+      res.json({
+        trainer: user.toClientDto(),
+      })
+    })
+  })
+}
+
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
@@ -112,4 +142,5 @@ module.exports = {
   deleteTrainerHandler,
   fetchTrainerHandler,
   verifyTrainer,
+  updateXP,
 }

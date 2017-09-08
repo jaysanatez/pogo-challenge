@@ -6,15 +6,14 @@ import { Status } from '../server/lookups'
 export default class Verify extends Component {
   onClick(event) {
     const { password, confirm } = this.refs
-    const { match, setVerifyStatus, verifyTrainer } = this.props
+    const { match, setStatus, verifyTrainer } = this.props
     const pwd = password.value.trim()
 
     if (!pwd) {
-      setVerifyStatus('Password can\'t be blank')
+      setStatus('Password can\'t be blank')
     } else if (pwd != confirm.value.trim()) {
-      setVerifyStatus('Passwords must match')
+      setStatus('Passwords must match')
     } else {
-      console.log(match.params.trainerId, pwd)
       verifyTrainer(match.params.trainerId, pwd)
     }
   }
@@ -36,8 +35,8 @@ export default class Verify extends Component {
 
   	return (
       <div className="mt-3">
-        <h2>Verify {trainer.username}</h2>
-        { flash }        
+        { flash }
+        <h2>Verify {trainer.username}</h2>        
 
         <form className="mt-3">
           <div className="form-group">
@@ -81,6 +80,6 @@ Verify.propTypes = {
   trainer: PropTypes.object,
   verifyTrainer: PropTypes.func.isRequired,
   fetchTrainer: PropTypes.func.isRequired,
-  setVerifyStatus: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
 }
 

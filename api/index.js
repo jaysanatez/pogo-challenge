@@ -41,7 +41,7 @@ export function logoutTrainer(dispatch) {
 
 export function fetchTrainers(dispatch) {
   makeApiRequest('/api/trainers', 'GET', null, true, data => {
-    dispatch(fetchTrainersResponse({ trainers: data.trainers }))
+    dispatch(fetchTrainersResponse(data))
   }, () => {
     dispatch(fetchTrainersResponse())
   })
@@ -49,7 +49,7 @@ export function fetchTrainers(dispatch) {
 
 export function createTrainer(dispatch, trainerData) {
   makeApiRequest('/api/trainers', 'POST', trainerData, true, data => {
-    dispatch(createTrainerResponse({ trainer: data.trainer }))
+    dispatch(createTrainerResponse(data))
   }, () => {
     dispatch(createTrainerResponse())
   })
@@ -57,7 +57,7 @@ export function createTrainer(dispatch, trainerData) {
 
 export function deleteTrainer(dispatch, trainerId) {
   makeApiRequest('/api/trainers/' + trainerId, 'DELETE', null, true, data => {
-    dispatch(deleteTrainerResponse({ trainerId: data.trainerId }))
+    dispatch(deleteTrainerResponse(data))
   }, () => {
     dispatch(deleteTrainerResponse())
   })
@@ -65,7 +65,7 @@ export function deleteTrainer(dispatch, trainerId) {
 
 export function fetchTrainer(dispatch, trainerId) {
   makeApiRequest('/api/trainers/' + trainerId, 'GET', null, false, data => {
-    dispatch(fetchTrainerResponse({ trainer: data.trainer }))
+    dispatch(fetchTrainerResponse(data))
   }, () => {
     dispatch(fetchTrainerResponse())
   })
@@ -75,7 +75,16 @@ export function verifyTrainer(dispatch, trainerId, password) {
   const data = { password }
   makeApiRequest('/api/trainers/' + trainerId + '/verify', 'POST', data, false, data => {
     handleUserAuth(dispatch, data, verifyTrainerResponse)
-  }, error => {
+  }, () => {
     dispatch(verifyTrainerResponse())
+  })
+}
+
+// TODO: store the user in the state so it re-renders everything
+export function updateXp(dispatch, xpUpdate) {
+  makeApiRequest('/api/xp/update', 'POST', xpUpdate, true, data => {
+    console.log(1)
+  }, () => {
+    console.log(2)
   })
 }
