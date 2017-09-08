@@ -35,7 +35,6 @@ class App extends Component {
           return <Component {...this.props} {...props} />
 
         const meetsRoleReqs = !roles || roles.indexOf(trainer.role) > -1
-        console.log(meetsRoleReqs)
         return meetsRoleReqs ? <Component {...this.props} {...props} /> : <Redirect to="/"/>
       }
     }

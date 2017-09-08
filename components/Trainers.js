@@ -11,7 +11,7 @@ export default class Trainers extends Component {
     var rows = []
 
     Moment.locale('en')
-    var formatStr = 'MMMM Do, YYYY'
+    var formatStr = 'MMM D, hh:mm a'
 
     var onDelete = trainer => {
       return evt => {
