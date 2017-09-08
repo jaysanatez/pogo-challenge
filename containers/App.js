@@ -8,6 +8,7 @@ import Dashboard from '../components/Dashboard'
 import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
+import Profile from '../components/Profile'
 import NotFound from '../components/NotFound'
 
 import { Status, Role } from '../server/lookups'
@@ -60,6 +61,7 @@ class App extends Component {
               <Route path="/login" render={unauthorize(LoginScreen)}/>
               <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN])}/>
               <Route path="/verify/:trainerId" render={unauthorize(Verify)}/>
+              <Route path="/profile" render={authorize(Profile)}/>
               <Route path="*" render={authorize(NotFound)}/>
             </Switch>
           </div>
