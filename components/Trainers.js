@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
 
-import { Team, Status, Role, getText } from '../server/lookups'
 import CreateTrainerModal from './CreateTrainerModal'
+import {
+  Team,
+  Status,
+  Role,
+  TeamStrings,
+  StatusStrings,
+  RoleStrings,
+} from '../server/lookups'
 
 export default class Trainers extends Component {
   renderTableData() {
-    const { trainers, onTrainerDelete } = this.props
+    const { trainer, trainers, onTrainerDelete } = this.props
     var rows = []
 
     Moment.locale('en')
@@ -20,22 +27,26 @@ export default class Trainers extends Component {
     }
 
     trainers.forEach(t => {
-      const link = t.status == Status.CREATED.key ?
+      const link = t.status == Status.CREATED ?
         <a href={'/verify/' + t._id}>Verify</a> :
+        null
+
+      const button = trainer.username != t.username ?
+        (<button type="button" className="close" aria-label="Close" onClick={onDelete(t)}>
+          <span aria-hidden="true">&times;</span>
+        </button>) :
         null
 
       rows.push(
         <tr key={t.username}>
           <td>{ t.username }</td>
-          <td>{ getText(Team, t.team) }</td>
-          <td>{ getText(Status, t.status) }</td>
-          <td>{ getText(Role, t.role) }</td>
+          <td>{ TeamStrings[t.team] }</td>
+          <td>{ StatusStrings[t.status] }</td>
+          <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
           <td>{ Moment(t.lastUpdated).format(formatStr) }</td>
           <td>
-            <button type="button" className="close" aria-label="Close" onClick={onDelete(t)}>
-              <span aria-hidden="true">&times;</span>
-            </button>
+            { button }
             { link }
           </td>
         </tr>
@@ -79,6 +90,7 @@ export default class Trainers extends Component {
 }
 
 Trainers.propTypes = {
+  trainer: PropTypes.object,
   trainers: PropTypes.array.isRequired,
   onTrainerCreate: PropTypes.func.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,

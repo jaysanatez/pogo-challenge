@@ -9,7 +9,7 @@ const handleUserAuth = (user, res) => {
     3: 'Error! User is disabled.',
   }
 
-  if (user.status != Lookups.Status.VERIFIED.key) {
+  if (user.status != Lookups.Status.VERIFIED) {
     return res.status(401).json({ message: statusMessages[user.status] })
   }
 
@@ -92,7 +92,7 @@ var verifyTrainer = (req, res) => {
 
     // update user
     user.password = req.body.password
-    user.status = Lookups.Status.VERIFIED.key
+    user.status = Lookups.Status.VERIFIED
     user.lastUpdated = new Date()
 
     user.save((err, user) => {
