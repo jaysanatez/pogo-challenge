@@ -15,12 +15,12 @@ export default class Login extends Component {
   render() {
     return (
       <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
-        <form className="form-inline my-2 my-lg-0">
+        <form className="form-inline my-2 my-lg-0" onSubmit={e => e.preventDefault()}>
           <input className="form-control mr-sm-2" type="text" ref="username" placeholder="Username"/>
           <input className="form-control mr-sm-2" type="password" ref="password" placeholder="Password"/>
           <button
             className="btn my-sm-0"
-            type="button"
+            type="submit"
             onClick={ this.onClick.bind(this)}
             style={{cursor:"pointer"}}
           >
