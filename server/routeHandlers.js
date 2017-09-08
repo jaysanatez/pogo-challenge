@@ -2,6 +2,25 @@ var User     = require('./models/user')
 var Lookups  = require('./lookups')
 var auth     = require('./auth')
 
+const handleUserAuth = (user, res) => {
+  // invalid user status
+  const statusMessages = {
+    2: 'Error! User has not been verified.',
+    3: 'Error! User is disabled.',
+  }
+
+  if (user.status != Lookups.Status.VERIFIED.key) {
+    return res.status(401).json({ message: statusMessages[user.status] })
+  }
+
+  // we got ourselves a login
+  res.json({
+    message: 'Signed in',
+    token: auth.getTokenForUser(user),
+    trainer: user.toClientDto(),
+  })
+}
+
 var loginHandler = (req, res) => {
   var username = req.body.username
   var password = req.body.password
@@ -17,22 +36,7 @@ var loginHandler = (req, res) => {
       return res.status(401).json({ message: 'Error! Password did not match.' })
     }
 
-    // invalid user status
-    const statusMessages = {
-      2: 'Error! User has not been verified.',
-      3: 'Error! User is disabled.',
-    }
-
-    if (user.status != Lookups.Status.VERIFIED.key) {
-      return res.status(401).json({ message: statusMessages[user.status] })
-    }
-
-    // we got ourselves a login
-    res.json({
-      message: 'Signed in',
-      token: auth.getTokenForUser(user),
-      trainer: user.toClientDto(),
-    })
+    handleUserAuth(user, res)
   })
 }
 
@@ -70,20 +74,10 @@ var deleteTrainerHandler = (req, res) => {
   })
 }
 
-var ensureTrainer = (req, res) => {
+var fetchTrainerHandler = (req, res) => {
   User.findById(req.params.id, (err, user) => {
-    var message
-    if (err || !user) {
-      message = 'Error! That trainer does not exist.'
-    } else if (user.status == Lookups.Status.VERIFIED.key) {
-      message = 'Error! That trainer is already verified.'
-    } else if (user.status == Lookups.Status.DISABLED.key) {
-      message = 'Error! That trainer is disabled.'
-    }
-
-    if (message) {
-      return res.status(500).json({ message })
-    }
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not fetch trainer.' })
 
     res.json({
       trainer: user.toClientDto(),
@@ -94,7 +88,7 @@ var ensureTrainer = (req, res) => {
 var verifyTrainer = (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if (err || !user || !req.body.password)
-      return res.stats(500).json({ message: 'Error! Could not verify user.' })
+      return res.status(500).json({ message: 'Error! Could not verify user.' })
 
     // update user
     user.password = req.body.password
@@ -103,11 +97,10 @@ var verifyTrainer = (req, res) => {
 
     user.save((err, user) => {
       if (err || !user)
-        return res.stats(500).json({ message: 'Error! Could not save the user changes.' })
-
-      res.json({
-        trainer: user.toClientDto(),
-      })
+        return res.status(500).json({ message: 'Error! Could not save the user changes.' })
+      
+      // log user in after saving password
+      handleUserAuth(user, res)
     })
   })
 }
@@ -117,6 +110,6 @@ module.exports = {
   fetchTrainersHandler,
   createTrainerHandler,
   deleteTrainerHandler,
-  ensureTrainer,
+  fetchTrainerHandler,
   verifyTrainer,
 }

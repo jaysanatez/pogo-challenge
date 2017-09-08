@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Login from './Login'
 import Logout from './Logout'
-import { Role } from '../../server/lookups'
+import { Role, Status } from '../../server/lookups'
 
 export default class Navbar extends Component {
 
@@ -41,7 +41,7 @@ export default class Navbar extends Component {
       onLogoutClick,
     } = this.props
 
-    if (trainer) {
+    if (trainer && trainer.status == Status.VERIFIED.key) {
       return ( <Logout name={trainer.username} onLogoutClick={onLogoutClick} /> )
     } else {
       return ( <Login onLoginClick={onLoginClick} />)

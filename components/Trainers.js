@@ -20,6 +20,10 @@ export default class Trainers extends Component {
     }
 
     trainers.forEach(t => {
+      const link = t.status == Status.CREATED.key ?
+        <a href={'/verify/' + t._id}>Verify</a> :
+        null
+
       rows.push(
         <tr key={t.username}>
           <td>{ t.username }</td>
@@ -32,6 +36,7 @@ export default class Trainers extends Component {
             <button type="button" className="close" aria-label="Close" onClick={onDelete(t)}>
               <span aria-hidden="true">&times;</span>
             </button>
+            { link }
           </td>
         </tr>
       )

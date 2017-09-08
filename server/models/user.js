@@ -33,6 +33,10 @@ userSchema.pre('save', function(next) {
 
 // can't use => syntax - this keyword throws error
 userSchema.methods.validatePassword = function(password) {
+  if (!this.password) {
+    return false
+  }
+
   return bcrypt.compareSync(password, this.password)
 }
 

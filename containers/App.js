@@ -5,11 +5,12 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import Navbar from '../components/Navbar/Navbar'
 import Dashboard from '../components/Dashboard'
+import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
-import LoginScreen from '../components/LoginScreen'
 import NotFound from '../components/NotFound'
 
+import { Status, Role } from '../server/lookups'
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
 
 class App extends Component {
@@ -20,30 +21,29 @@ class App extends Component {
       onLogoutClick,
     } = this.props
 
-    const authorize = (Component) => {
-      return () => {
-        return trainer ? <Component {...this.props} /> : <Redirect to="/login"/>
+    const isVerifiedTrainer = t => {
+      return t && t.status == Status.VERIFIED.key
+    }
+
+    const authorize = (Component, roles) => {
+      return (props) => {
+        if (!isVerifiedTrainer(trainer))
+          return <Redirect to="/login"/>
+
+        // to prevent self redirection
+        if (Component == Dashboard)
+          return <Component {...this.props} {...props} />
+
+        const meetsRoleReqs = !roles || roles.indexOf(trainer.role) > -1
+        console.log(meetsRoleReqs)
+        return meetsRoleReqs ? <Component {...this.props} {...props} /> : <Redirect to="/"/>
       }
     }
 
     const unauthorize = (Component) => {
-      return () => {
-        return trainer ? <Redirect to="/"/> : <Component {...this.props} />  
+      return (props) => {
+        return isVerifiedTrainer(trainer) ? <Redirect to="/"/> : <Component {...this.props} {...props} />  
       }
-    }
-
-    const renderVerifyPage = (props) => {
-      const trainerId = props.match.params.trainerId
-      if (this.props.trainer || !trainerId) {
-        return <Redirect to="/"/>
-      }
-
-      return (
-        <Verify 
-          {...this.props}
-          trainerId={trainerId}
-        />
-      )
     }
 
     return (
@@ -57,9 +57,9 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/" render={authorize(Dashboard)}/>
-              <Route path="/trainers" render={authorize(Trainers)}/>
-              <Route path="/verify/:trainerId" render={renderVerifyPage}/>
               <Route path="/login" render={unauthorize(LoginScreen)}/>
+              <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN.key])}/>
+              <Route path="/verify/:trainerId" render={unauthorize(Verify)}/>
               <Route path="*" render={authorize(NotFound)}/>
             </Switch>
           </div>
@@ -73,15 +73,14 @@ App.propTypes = {
   trainer: PropTypes.object,
   message: PropTypes.string,
   trainers: PropTypes.array.isRequired,
-  ensureResult: PropTypes.object,
-  verifyResult: PropTypes.object,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
   onTrainerCreate: PropTypes.func.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,
-  ensureTrainer: PropTypes.func.isRequired,
   verifyTrainer: PropTypes.func.isRequired,
+  fetchTrainer: PropTypes.func.isRequired,
+  setVerifyStatus: PropTypes.func.isRequired,
 }
 
 export default connect(

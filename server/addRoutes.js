@@ -8,7 +8,7 @@ var Lookups       = require('./lookups')
 module.exports = app => {
   // public routes
   app.post('/api/login', routeHandlers.loginHandler)
-  app.get('/api/trainers/:id/ensure', routeHandlers.ensureTrainer)
+  app.get('/api/trainers/:id', routeHandlers.fetchTrainerHandler)
   app.post('/api/trainers/:id/verify', routeHandlers.verifyTrainer)
 
   // secured routes

@@ -1,29 +1,34 @@
 import makeApiRequest from './makeApiRequest'
 import {
-  loginSuccess,
-  loginFailure,
-  logoutSuccess,
-  trainerFetchSuccess,
-  trainerFetchFailure,
-  createTrainerSuccess,
-  createTrainerFailure,
-  deleteTrainerSuccess,
-  deleteTrainerFailure,
-  ensureTrainerSuccess,
-  ensureTrainerFailure,
-  verifyTrainerSuccess,
-  verifyTrainerFailure,
+  loginResponse,
+  logout,
+  fetchTrainersResponse,
+  createTrainerResponse,
+  deleteTrainerResponse,
+  fetchTrainerResponse,
+  verifyTrainerResponse,
 } from '../app/actions'
 
-export function loginTrainer(dispatch, creds) {
-  // call api then dispatch success or failure
-  makeApiRequest('/api/login', 'POST', creds, false, data => {
-    localStorage.setItem('id_token', data.token)
-    localStorage.setItem('trainer', JSON.stringify(data.trainer))
+const handleUserAuth = (dispatch, data, resp) => {
+  const trainer = data.trainer
+  const token = data.token
 
-    dispatch(loginSuccess(data))
+  if (!trainer) {
+    dispatch(resp({ message: 'Error! Server returned no trainer.' }))
+    return
+  }
+
+  localStorage.setItem('id_token', token)
+  localStorage.setItem('trainer', JSON.stringify(trainer))
+
+  dispatch(resp({ trainer }))
+}
+
+export function loginTrainer(dispatch, creds) {
+  makeApiRequest('/api/login', 'POST', creds, false, data => {
+    handleUserAuth(dispatch, data, loginResponse)
   }, error => {
-    dispatch(loginFailure(error.message))
+    dispatch(loginResponse({ message: error.message }))
   })
 }
 
@@ -31,46 +36,46 @@ export function logoutTrainer(dispatch) {
   localStorage.removeItem('id_token')
   localStorage.removeItem('trainer')
   
-  dispatch(logoutSuccess())
+  dispatch(logout())
 }
 
 export function fetchTrainers(dispatch) {
   makeApiRequest('/api/trainers', 'GET', null, true, data => {
-    dispatch(trainerFetchSuccess(data))
-  }, error => {
-    dispatch(trainerFetchFailure(error.message))
+    dispatch(fetchTrainersResponse({ trainers: data.trainers }))
+  }, () => {
+    dispatch(fetchTrainersResponse())
   })
 }
 
 export function createTrainer(dispatch, trainerData) {
   makeApiRequest('/api/trainers', 'POST', trainerData, true, data => {
-    dispatch(createTrainerSuccess(data))
-  }, error => {
-    dispatch(createTrainerFailure(error.message))
+    dispatch(createTrainerResponse({ trainer: data.trainer }))
+  }, () => {
+    dispatch(createTrainerResponse())
   })
 }
 
 export function deleteTrainer(dispatch, trainerId) {
-  makeApiRequest('/api/traines/' + trainerId, 'DELETE', null, true, data => {
-    dispatch(deleteTrainerSuccess(data))
-  }, error => {
-    dispatch(deleteTrainerFailure(error.message))
+  makeApiRequest('/api/trainers/' + trainerId, 'DELETE', null, true, data => {
+    dispatch(deleteTrainerResponse({ trainerId: data.trainerId }))
+  }, () => {
+    dispatch(deleteTrainerResponse())
   })
 }
 
-export function ensureTrainer(dispatch, trainerId) {
-  makeApiRequest('/api/trainers/' + trainerId + '/ensure', 'GET', null, false, data => {
-    dispatch(ensureTrainerSuccess(data))
-  }, error => {
-    dispatch(ensureTrainerFailure(error.message))
+export function fetchTrainer(dispatch, trainerId) {
+  makeApiRequest('/api/trainers/' + trainerId, 'GET', null, false, data => {
+    dispatch(fetchTrainerResponse({ trainer: data.trainer }))
+  }, () => {
+    dispatch(fetchTrainerResponse())
   })
 }
 
 export function verifyTrainer(dispatch, trainerId, password) {
   const data = { password }
   makeApiRequest('/api/trainers/' + trainerId + '/verify', 'POST', data, false, data => {
-    dispatch(verifyTrainerSuccess(data))
+    handleUserAuth(dispatch, data, verifyTrainerResponse)
   }, error => {
-    dispatch(verifyTrainerFailure(error.message))
+    dispatch(verifyTrainerResponse())
   })
 }

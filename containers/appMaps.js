@@ -1,24 +1,23 @@
+import { setVerifyStatus } from '../app/actions'
 import {
   loginTrainer,
   logoutTrainer,
   fetchTrainers,
   createTrainer,
   deleteTrainer,
-  ensureTrainer,
+  fetchTrainer,
   verifyTrainer,
 } from '../api/'
 
 export const mapStateToProps = state => {
-  const { authReducer, trainerReducer } = state
-  const { trainer, message } = authReducer
-  const { trainers, ensureResult, verifyResult } = trainerReducer
+  const { trainerReducer, dashboardReducer } = state
+  const { trainer, message } = trainerReducer
+  const { trainers } = dashboardReducer
 
   return {
     trainer,
     message,
     trainers,
-    ensureResult,
-    verifyResult,
   }
 }
 
@@ -39,11 +38,14 @@ export const mapDispatchToProps = dispatch => {
     onTrainerDelete: trainerId => {
       deleteTrainer(dispatch, trainerId)
     },
-    ensureTrainer: trainerId => {
-      ensureTrainer(dispatch, trainerId)
+    fetchTrainer: trainerId => {
+      fetchTrainer(dispatch, trainerId)
     },
     verifyTrainer: (trainerId, password) => {
       verifyTrainer(dispatch, trainerId, password)
+    },
+    setVerifyStatus: (message) => {
+      dispatch(setVerifyStatus(message))
     },
   }
 }

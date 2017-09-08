@@ -1,39 +1,44 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import { Status } from '../server/lookups'
+
 export default class Verify extends Component {
   onClick(event) {
     const { password, confirm } = this.refs
-    const { trainerId } = this.props
+    const { match, setVerifyStatus, verifyTrainer } = this.props
     const pwd = password.value.trim()
 
     if (!pwd) {
-      alert('password can\'t be blank')
+      setVerifyStatus('Password can\'t be blank')
     } else if (pwd != confirm.value.trim()) {
-      alert('passwords must match')
+      setVerifyStatus('Passwords must match')
     } else {
-      this.props.verifyTrainer(trainerId, pwd)
+      console.log(match.params.trainerId, pwd)
+      verifyTrainer(match.params.trainerId, pwd)
     }
   }
 
   renderLoadingScreen() {
     return (
-      <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
+      <div className="mt-3">
+        <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
+      </div>
     )
   }
 
-  renderVerifyForm(ensureResult) {
-    if (!ensureResult.trainer) {
-      return (
-        <div className="alert alert-danger" role="alert">
-          { ensureResult.message }
-        </div>
-      )
-    }
+  renderVerifyForm(trainer, message) {
+    var flash = message ?
+      (<div className="alert alert-danger mt-3" role="alert">
+        { message }
+      </div>) :
+      null
 
   	return (
       <div className="mt-3">
-        <h2>Verify {ensureResult.trainer.username}</h2>
+        <h2>Verify {trainer.username}</h2>
+        { flash }        
+
         <form className="mt-3">
           <div className="form-group">
             <input type="password" className="form-control" ref="password" placeholder="Password"/>
@@ -47,38 +52,35 @@ export default class Verify extends Component {
     )
   }
 
-  renderVerifySuccess(verifyResult) {
-    return (
-      <div className="alert alert-success" role="alert">
-        { verifyResult.trainer.username }, you're ready to roll.
-      </div>
-    )
-  }
-
   render() {
   	const {
-      trainerId,
-      ensureResult,
-      ensureTrainer,
-      verifyResult,
-  	} = this.props;
+      match,
+      trainer,
+      message,
+      fetchTrainer,
+  	} = this.props
+    const trainerId = match.params.trainerId
 
-  	if (verifyResult) {
-      return this.renderVerifySuccess(verifyResult)
-    } else if (ensureResult) {
-      return this.renderVerifyForm(ensureResult)
-  	} else {
-      ensureTrainer(trainerId)
+    if (!trainerId) {
+      return null
+    }
+
+    if (!trainer) {
+      fetchTrainer(trainerId)
       return this.renderLoadingScreen()
-  	}
+    } else if (trainer.status == Status.CREATED.key) {
+      return this.renderVerifyForm(trainer, message)
+    } else {
+      return null
+    }
   }
 }
 
 Verify.propTypes = {
-  trainerId: PropTypes.string.isRequired,
-  ensureResult: PropTypes.object,
-  verifyResult: PropTypes.object,
-  ensureTrainer: PropTypes.func.isRequired,
+  trainerId: PropTypes.string,
+  trainer: PropTypes.object,
   verifyTrainer: PropTypes.func.isRequired,
+  fetchTrainer: PropTypes.func.isRequired,
+  setVerifyStatus: PropTypes.func.isRequired,
 }
 
