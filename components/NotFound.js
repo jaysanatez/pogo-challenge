@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-export default class Dashboard extends Component {
+export default class NotFound extends Component {
   render() {
     return (
-      <h1>DASHBOARD</h1>
+      <h1>Page Not Found</h1>
     )
   }
 }

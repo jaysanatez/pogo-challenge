@@ -1,54 +1,89 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Navbar from '../components/Navbar'
-import Dashboard from '../components/Dashboard'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
+import Navbar from '../components/Navbar/Navbar'
+import Dashboard from '../components/Dashboard'
+import LoginScreen from '../components/LoginScreen'
+import Trainers from '../components/Trainers'
+import Verify from '../components/Verify'
+import NotFound from '../components/NotFound'
+
+import { Status, Role } from '../server/lookups'
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
 
 class App extends Component {
-  renderContent(isAuthenticated) {
-    if (!isAuthenticated) {
-      return null;
+  render() {
+    const {
+      trainer,
+      onLoginClick,
+      onLogoutClick,
+    } = this.props
+
+    const isVerifiedTrainer = t => {
+      return t && t.status == Status.VERIFIED.key
+    }
+
+    const authorize = (Component, roles) => {
+      return (props) => {
+        if (!isVerifiedTrainer(trainer))
+          return <Redirect to="/login"/>
+
+        // to prevent self redirection
+        if (Component == Dashboard)
+          return <Component {...this.props} {...props} />
+
+        const meetsRoleReqs = !roles || roles.indexOf(trainer.role) > -1
+        console.log(meetsRoleReqs)
+        return meetsRoleReqs ? <Component {...this.props} {...props} /> : <Redirect to="/"/>
+      }
+    }
+
+    const unauthorize = (Component) => {
+      return (props) => {
+        return isVerifiedTrainer(trainer) ? <Redirect to="/"/> : <Component {...this.props} {...props} />  
+      }
     }
 
     return (
-      <Dashboard 
-        onDashboardLoad={this.props.onDashboardLoad}
-      />
-    )
-  }
-
-  render() {
-    const {
-      user,
-      isAuthenticated,
-      onLoginClick,
-      onLogoutClick,
-      onDashboardLoad,
-    } = this.props
-
-    return (
-      <div>
-        <Navbar
-          user={user}
-          isAuthenticated={isAuthenticated}
-          onLoginClick={onLoginClick}
-          onLogoutClick={onLogoutClick}
-        />
-        <div className='container'>
-          { this.renderContent(isAuthenticated) }
+      <BrowserRouter>
+        <div>
+          <Navbar
+            trainer={trainer}
+            onLoginClick={onLoginClick}
+            onLogoutClick={onLogoutClick}
+          />
+          <div className="container">
+            <Switch>
+              <Route exact path="/" render={authorize(Dashboard)}/>
+              <Route path="/login" render={unauthorize(LoginScreen)}/>
+              <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN.key])}/>
+              <Route path="/verify/:trainerId" render={unauthorize(Verify)}/>
+              <Route path="*" render={authorize(NotFound)}/>
+            </Switch>
+          </div>
         </div>
-      </div>
+      </BrowserRouter>
     )
   }
 }
 
 App.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
+  trainer: PropTypes.object,
+  message: PropTypes.string,
+  trainers: PropTypes.array.isRequired,
+  onLoginClick: PropTypes.func.isRequired,
+  onLogoutClick: PropTypes.func.isRequired,
+  fetchTrainers: PropTypes.func.isRequired,
+  onTrainerCreate: PropTypes.func.isRequired,
+  onTrainerDelete: PropTypes.func.isRequired,
+  verifyTrainer: PropTypes.func.isRequired,
+  fetchTrainer: PropTypes.func.isRequired,
+  setVerifyStatus: PropTypes.func.isRequired,
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App)

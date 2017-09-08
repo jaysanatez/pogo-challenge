@@ -1,33 +1,62 @@
 import { combineReducers } from 'redux'
 import {
-  LOGIN_FAILURE,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
+  LOGIN,
+  LOGOUT,
+  FETCH_TRAINERS,
+  CREATE_TRAINER,
+  DELETE_TRAINER,
+  FETCH_TRAINER,
+  VERIFY_TRAINER,
 } from './actions'
 
-const authActions = [ LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS ]
+const trainerActions = [LOGIN, LOGOUT, FETCH_TRAINER, VERIFY_TRAINER]
+const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER]
 
-function authentication(state = {
-  user: JSON.parse(localStorage.getItem('user')) || {},
-  isFetching: false,
-  isAuthenticated: localStorage.getItem('id_token') ? true : false,
+// responsible for trainer and message
+function trainerReducer(state = {
+  trainer: JSON.parse(localStorage.getItem('trainer')),
 }, action) {
-
-  if (authActions.indexOf(action.type) == -1) {
+  if (trainerActions.indexOf(action.type) == -1)
     return state
+
+  var trainer = action.trainer || state.trainer
+  var message = action.message
+
+  if (action.type == LOGOUT) {
+    trainer = null
   }
 
-  let newState = {
-  	...state,
-  	isFetching: action.type == LOGIN_REQUEST,
-  	isAuthenticated: action.type == LOGIN_SUCCESS,
-  	user: action.user || state.user
+  return {
+    ...state,
+    trainer,
+    message,
+  }
+}
+
+function dashboardReducer(state = {
+  trainers: [],
+}, action) {
+  if (dashboardActions.indexOf(action.type) == -1)
+    return state
+
+  var trainers = action.trainers || state.trainers
+  if (action.type == CREATE_TRAINER && action.trainer) {
+    trainers = trainers.concat(action.trainer)
   }
 
-  return newState
+  if (action.type == DELETE_TRAINER && action.trainerId) {
+    trainers = trainers.filter(tr => {
+      return tr._id != action.trainerId
+    })
+  }
+
+  return {
+    ...state,
+    trainers,
+  }
 }
 
 export default combineReducers({
-  authentication,
+  trainerReducer,
+  dashboardReducer,
 })

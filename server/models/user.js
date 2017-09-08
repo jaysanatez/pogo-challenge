@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
+var Lookups  = require('../lookups')
+
 var Schema   = mongoose.Schema
 
 var userSchema = new Schema({
@@ -8,6 +10,8 @@ var userSchema = new Schema({
   	unique: true,
   },
   password: String,
+  role: Number,
+  status: Number,
   lastUpdated: Date,
   team: Number,
   xpUpdates: [{
@@ -16,18 +20,31 @@ var userSchema = new Schema({
   }],
 })
 
-userSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
-}
+// can't use => syntax - this keyword throws error
+userSchema.pre('save', function(next) {
+  var user = this
 
-// can't user => syntax - this keyword throws error
+  if (!user.isModified('password'))
+    return next()
+
+  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null)
+  next()
+})
+
+// can't use => syntax - this keyword throws error
 userSchema.methods.validatePassword = function(password) {
+  if (!this.password) {
+    return false
+  }
+
   return bcrypt.compareSync(password, this.password)
 }
 
 userSchema.methods.toClientDto = function() {
   return {
     username: this.username,
+    role: this.role,
+    status: this.status,
     lastUpdated: this.lastUpdated,
     team: this.team,
     xpUpdates: this.xpUpdates,
@@ -36,8 +53,8 @@ userSchema.methods.toClientDto = function() {
 
 var model = mongoose.model('User', userSchema)
 
-var fetchAll = (next) => {
-  model.find({}, 'username lastUpdated team xpUpdates', next)
+var fetchAll = next => {
+  model.find({}, 'username role status lastUpdated team xpUpdates', next)
 }
 
 var findById = (id, next) => {
@@ -48,9 +65,26 @@ var findByName = (username, next) => {
   model.findOne({ username }, next)
 }
 
+var createNewUser = (data, next) => {
+  var newUser = new model()
+  Object.assign(newUser, data)
+
+  newUser.lastUpdated = new Date()
+  newUser.xpUpdates = []
+  newUser.status = Lookups.Status.CREATED.key
+
+  newUser.save(next)
+}
+
+var deleteUser = (id, next) => {
+  model.findByIdAndRemove(id, next)
+}
+
 module.exports = {
   model,
   fetchAll,
   findById,
   findByName,
+  createNewUser,
+  deleteUser,
 }

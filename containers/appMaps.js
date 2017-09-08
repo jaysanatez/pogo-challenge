@@ -1,29 +1,51 @@
+import { setVerifyStatus } from '../app/actions'
 import {
-  loginUser,
-  logoutUser,
+  loginTrainer,
+  logoutTrainer,
   fetchTrainers,
+  createTrainer,
+  deleteTrainer,
+  fetchTrainer,
+  verifyTrainer,
 } from '../api/'
 
 export const mapStateToProps = state => {
-  const { authentication } = state
-  const { user, isAuthenticated, } = authentication
+  const { trainerReducer, dashboardReducer } = state
+  const { trainer, message } = trainerReducer
+  const { trainers } = dashboardReducer
 
   return {
-    user,
-    isAuthenticated,
+    trainer,
+    message,
+    trainers,
   }
 }
 
 export const mapDispatchToProps = dispatch => {
   return {
     onLoginClick: creds => {
-      loginUser(dispatch, creds)
+      loginTrainer(dispatch, creds)
     },
     onLogoutClick: () => {
-      logoutUser(dispatch)
+      logoutTrainer(dispatch)
     },
-    onDashboardLoad: () => {
+    fetchTrainers: () => {
       fetchTrainers(dispatch)
+    },
+    onTrainerCreate: data => {
+      createTrainer(dispatch, data)
+    },
+    onTrainerDelete: trainerId => {
+      deleteTrainer(dispatch, trainerId)
+    },
+    fetchTrainer: trainerId => {
+      fetchTrainer(dispatch, trainerId)
+    },
+    verifyTrainer: (trainerId, password) => {
+      verifyTrainer(dispatch, trainerId, password)
+    },
+    setVerifyStatus: (message) => {
+      dispatch(setVerifyStatus(message))
     },
   }
 }
