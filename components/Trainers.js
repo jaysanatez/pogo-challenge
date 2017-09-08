@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Moment from 'moment'
 
+import { formatDate } from './utils'
 import CreateTrainerModal from './CreateTrainerModal'
 import {
   Team,
@@ -16,9 +16,6 @@ export default class Trainers extends Component {
   renderTableData() {
     const { trainer, trainers, onTrainerDelete } = this.props
     var rows = []
-
-    Moment.locale('en')
-    var formatStr = 'MMM D, hh:mm a'
 
     var onDelete = trainer => {
       return evt => {
@@ -44,7 +41,7 @@ export default class Trainers extends Component {
           <td>{ StatusStrings[t.status] }</td>
           <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
-          <td>{ Moment(t.lastUpdated).format(formatStr) }</td>
+          <td>{ formatDate(t.lastUpdated) }</td>
           <td>
             { button }
             { link }
