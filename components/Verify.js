@@ -68,7 +68,7 @@ export default class Verify extends Component {
     if (!trainer) {
       fetchTrainer(trainerId)
       return this.renderLoadingScreen()
-    } else if (trainer.status == Status.CREATED.key) {
+    } else if (trainer.status == Status.CREATED) {
       return this.renderVerifyForm(trainer, message)
     } else {
       return null

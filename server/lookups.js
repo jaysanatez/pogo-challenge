@@ -1,58 +1,45 @@
-var Role = {
-  ADMIN: {
-    key: 1,
-    value: 'Admin',
-  },
-  TRAINER: {
-    key: 2,
-    value: 'Trainer',
-  },
+const Role = {
+  ADMIN: 1,
+  TRAINER: 2,
 }
 
-var Status = {
-  VERIFIED: {
-    key: 1,
-    value: 'Verified',
-  },
-  CREATED: {
-    key: 2,
-    value: 'Created',
-  },
-  DISABLED: {
-    key: 3,
-    value: 'Disabled',
-  },
+const RoleStrings = [
+  '',
+  'Admin',
+  'Trainer',
+]
+
+const Status = {
+  VERIFIED: 1,
+  CREATED: 2,
+  DISABLED: 3,
 }
 
-var Team = {
-  VALOR: {
-    key: 1,
-    value: 'Valor',
-  },
-  MYSTIC: {
-    key: 2,
-    value: 'Mystic',
-  },
-  INSTINCT: {
-    key: 3,
-    value: 'Instinct',
-  },
+const StatusStrings = [
+  '',
+  'Verified',
+  'Created',
+  'Disabled',
+]
+
+const Team = {
+  VALOR: 1,
+  MYSTIC: 2,
+  INSTINCT: 3,
 }
 
-var getText = (obj, key) => {
-  var val;
-  Object.keys(obj).forEach(prop => {
-    if (obj[prop].key == key) {
-      val = obj[prop].value
-    }
-  })
-
-  return val
-}
+const TeamStrings = [
+  '',
+  'Valor',
+  'Mystic',
+  'Instinct',
+]
 
 module.exports = {
   Role,
   Status,
   Team,
-  getText,
+  RoleStrings,
+  StatusStrings,
+  TeamStrings,
 }

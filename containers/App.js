@@ -22,9 +22,10 @@ class App extends Component {
     } = this.props
 
     const isVerifiedTrainer = t => {
-      return t && t.status == Status.VERIFIED.key
+      return t && t.status == Status.VERIFIED
     }
 
+    // leave roles undefined if all roles can visit page
     const authorize = (Component, roles) => {
       return (props) => {
         if (!isVerifiedTrainer(trainer))
@@ -35,7 +36,6 @@ class App extends Component {
           return <Component {...this.props} {...props} />
 
         const meetsRoleReqs = !roles || roles.indexOf(trainer.role) > -1
-        console.log(meetsRoleReqs)
         return meetsRoleReqs ? <Component {...this.props} {...props} /> : <Redirect to="/"/>
       }
     }
@@ -58,7 +58,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={authorize(Dashboard)}/>
               <Route path="/login" render={unauthorize(LoginScreen)}/>
-              <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN.key])}/>
+              <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN])}/>
               <Route path="/verify/:trainerId" render={unauthorize(Verify)}/>
               <Route path="*" render={authorize(NotFound)}/>
             </Switch>

@@ -1,46 +1,51 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Role, Team } from '../server/lookups'
+import {
+  Role,
+  RoleStrings,
+  Team,
+  TeamStrings,
+} from '../server/lookups'
 
 export default class CreateTrainerModal extends Component {
 
   renderTeamOptions() {
     var options = []
 
-  	Object.keys(Team).forEach(team => {
-  	  var t = Team[team]
-  	  options.push(<option key={ t.key } id={ t.key }>{ t.value }</option>)
-  	})
+    Object.keys(Team).forEach(team => {
+      var t = Team[team]
+      options.push(<option key={ t } id={ t }>{ TeamStrings[t] }</option>)
+    })
 
-  	return options
+    return options
   }
 
   renderRoleOptions() {
-  	var options = []
+    var options = []
 
-  	Object.keys(Role).forEach(role => {
-  	  var r = Role[role]
-  	  options.push(<option key={ r.key } id={ r.key }>{ r.value }</option>)
-  	})
+    Object.keys(Role).forEach(role => {
+      var r = Role[role]
+      options.push(<option key={ r } id={ r }>{ RoleStrings[r] }</option>)
+    })
 
-  	return options
+    return options
   }
 
   onClick(event) {
-  	const { username, team, role } = this.refs
+    const { username, team, role } = this.refs
 
     var data = {
-  	  username: username.value.trim(),
-  	  team: parseInt(team[team.selectedIndex].id),
-  	  role: parseInt(role[role.selectedIndex].id),
+      username: username.value.trim(),
+      team: parseInt(team[team.selectedIndex].id),
+      role: parseInt(role[role.selectedIndex].id),
     }
 
     this.props.onTrainerCreate(data)
   }
 
   render() {
-  	return (
-  	  <div className="modal fade" id="add-trainer-modal" tabIndex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    return (
+      <div className="modal fade" id="add-trainer-modal" tabIndex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">

@@ -23,7 +23,7 @@ export default class Navbar extends Component {
 
   renderTrainersTab() {
     const { trainer } = this.props
-    if (!trainer || trainer.role != Role.ADMIN.key) { // only for admins
+    if (!trainer || trainer.role != Role.ADMIN) { // only for admins
       return null
     }
 
@@ -41,7 +41,7 @@ export default class Navbar extends Component {
       onLogoutClick,
     } = this.props
 
-    if (trainer && trainer.status == Status.VERIFIED.key) {
+    if (trainer && trainer.status == Status.VERIFIED) {
       return ( <Logout name={trainer.username} onLogoutClick={onLogoutClick} /> )
     } else {
       return ( <Login onLoginClick={onLoginClick} />)

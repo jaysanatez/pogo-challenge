@@ -71,7 +71,7 @@ var createNewUser = (data, next) => {
 
   newUser.lastUpdated = new Date()
   newUser.xpUpdates = []
-  newUser.status = Lookups.Status.CREATED.key
+  newUser.status = Lookups.Status.CREATED
 
   newUser.save(next)
 }
