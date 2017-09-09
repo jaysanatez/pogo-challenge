@@ -1,11 +1,20 @@
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
+export const SET_STATUS = 'SET_STATUS'
 
 export const FETCH_TRAINERS = 'FETCH_TRAINERS'
 export const CREATE_TRAINER = 'CREATE_TRAINER'
 export const DELETE_TRAINER = 'DELETE_TRAINER'
 export const FETCH_TRAINER = 'FETCH_TRAINER'
 export const VERIFY_TRAINER = 'VERIFY_TRAINER'
+export const UPDATE_TRAINER = 'UPDATE_TRAINER'
+
+export function setStatus(message) {
+  return {
+    type: SET_STATUS,
+    message,
+  }
+}
 
 export function loginResponse(data) {
   return {
@@ -48,16 +57,16 @@ export function fetchTrainerResponse(data) {
   }
 }
 
-export function setVerifyStatus(message) {
-  return {
-    type: VERIFY_TRAINER,
-    message,
-  }
-}
-
 export function verifyTrainerResponse(data) {
   return {
     type: VERIFY_TRAINER,
+    ...data,
+  }
+}
+
+export function updateTrainerResponse(data) {
+  return {
+    type: UPDATE_TRAINER,
     ...data,
   }
 }

@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
-var Lookups  = require('../lookups')
+var Lookups  = require('../../shared/lookups')
 
 var Schema   = mongoose.Schema
 
@@ -16,7 +16,7 @@ var userSchema = new Schema({
   team: Number,
   xpUpdates: [{
   	value: Number,
-  	data: Date,
+  	date: Date,
   }],
 })
 

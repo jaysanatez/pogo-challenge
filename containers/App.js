@@ -8,9 +8,10 @@ import Dashboard from '../components/Dashboard'
 import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
+import Profile from '../components/Profile'
 import NotFound from '../components/NotFound'
 
-import { Status, Role } from '../server/lookups'
+import { Status, Role } from '../shared/lookups'
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
 
 class App extends Component {
@@ -60,6 +61,7 @@ class App extends Component {
               <Route path="/login" render={unauthorize(LoginScreen)}/>
               <Route path="/trainers" render={authorize(Trainers, [Role.ADMIN])}/>
               <Route path="/verify/:trainerId" render={unauthorize(Verify)}/>
+              <Route path="/profile" render={authorize(Profile)}/>
               <Route path="*" render={authorize(NotFound)}/>
             </Switch>
           </div>
@@ -80,7 +82,8 @@ App.propTypes = {
   onTrainerDelete: PropTypes.func.isRequired,
   verifyTrainer: PropTypes.func.isRequired,
   fetchTrainer: PropTypes.func.isRequired,
-  setVerifyStatus: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
+  onXPUpdate: PropTypes.func.isRequired,
 }
 
 export default connect(

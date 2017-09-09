@@ -1,6 +1,8 @@
-var User     = require('./models/user')
-var Lookups  = require('./lookups')
-var auth     = require('./auth')
+var User    = require('./models/user')
+var Lookups = require('../shared/lookups')
+var auth    = require('./auth')
+var Moment  = require('moment')
+var utils   = require('../shared/utils')
 
 const handleUserAuth = (user, res) => {
   // invalid user status
@@ -68,7 +70,6 @@ var deleteTrainerHandler = (req, res) => {
       return res.status(500).json({ message: 'Error! Could not delete trainer.' })
 
     res.json({
-      message: 'Trainer successfully deleted',
       trainerId: user._id,
     })
   })
@@ -105,6 +106,74 @@ var verifyTrainer = (req, res) => {
   })
 }
 
+// corrupt cases:
+//  1. the data is in the future
+//  2. there is a previous update with greater xp
+//  3. there is a future update with less xp
+var verifyXpUpdate = (updates, update) => {
+  if (Moment().diff(update.date, 'days') < 0)
+    return 'Error! You cannot post updates for future dates.'
+
+  var message
+  updates.forEach(u => {
+    // negative if update is more recent
+    const dateDiff = Moment(u.date).diff(update.date, 'days')
+    const valDiff = u.value - update.value
+
+    // value will be negative if corrupt case 1 or 2 are true
+    if (dateDiff * valDiff < 0)
+      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format(utils.DATE_STRING)
+  })
+
+  return message
+}
+
+var updateWithSameDay = (updates, update) => {
+  var date = null
+  updates.forEach(u => {
+    if (Moment(u.date).isSame(update.date))
+      date = u
+  })
+
+  return date
+}
+
+var updateXP = (req, res) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not locate user.' })
+
+    // verify the data is accurate (return null if nothing wrong)
+    const update = req.body
+    update.date = Moment(update.date, utils.DATE_STRING)
+
+    const message = verifyXpUpdate(user.xpUpdates, update)
+    if (message)
+      return res.status(500).json({ message })
+
+    // update object and save
+    const existingUpdate = updateWithSameDay(user.xpUpdates, update)
+    if (existingUpdate) {
+      // replace existing with new
+      user.xpUpdates = user.xpUpdates.map(u => {
+        return u == existingUpdate ? update : u
+      })
+    } else {
+      user.xpUpdates = user.xpUpdates.concat(req.body)
+    }
+
+    user.lastUpdated = new Date()
+    user.save((err, user) => {
+      if (err || !user)
+        return res.status(500).json({ message: 'Error! Could not save the user changes.' })
+      
+      res.json({
+        trainer: user.toClientDto(),
+      })
+    })
+  })
+}
+
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
@@ -112,4 +181,5 @@ module.exports = {
   deleteTrainerHandler,
   fetchTrainerHandler,
   verifyTrainer,
+  updateXP,
 }
