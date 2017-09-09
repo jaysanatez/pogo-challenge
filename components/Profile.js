@@ -6,7 +6,7 @@ import UpdateXPModal from './Modals/UpdateXPModal'
 import {
   formatDate,
   DATE_TIME_STRING,
-  DATE_STRING,
+  LONG_DATE_STRING,
   getTrainerLevel,
   getLevelForXP,
 } from '../shared/utils'
@@ -46,7 +46,7 @@ export default class Profile extends Component {
         <tr key={ new Date(u.date).getTime() }>
           <td>{ u.value }</td>
           <td>{ getLevelForXP(u.value) }</td>
-          <td>{ formatDate(u.date, DATE_STRING) }</td>
+          <td>{ formatDate(u.date, LONG_DATE_STRING) }</td>
         </tr>
       )
     })

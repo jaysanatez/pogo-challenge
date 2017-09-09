@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker'
 import Moment from 'moment'
 
 import 'react-datepicker/dist/react-datepicker.css'
-import { formatDate, DATE_STRING } from '../../shared/utils'
+import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
 
 export default class UpdateXPModal extends Component {
   constructor(props) {
