@@ -1,6 +1,7 @@
-var User     = require('./models/user')
-var Lookups  = require('./lookups')
-var auth     = require('./auth')
+var User    = require('./models/user')
+var Lookups = require('./lookups')
+var auth    = require('./auth')
+var Moment  = require('moment')
 
 const handleUserAuth = (user, res) => {
   // invalid user status
@@ -107,23 +108,42 @@ var verifyTrainer = (req, res) => {
 // corrupt cases:
 //  1. there is a previous update with greater xp
 //  2. there is a future update with less xp
-//  3. an update already exists for that day (replace it) 
-var verifyXpUpdate = (update, updates) => {
+var verifyXpUpdate = (updates, update) => {
   return null
+}
+
+var updateWithSameDay = (updates, update) => {
+  var date = null
+  const d = Moment(update.date, "MM/DD/YYYY")
+  updates.forEach(u => {
+    if (Moment(u.date).isSame(d))
+      date = u
+  })
+
+  return date
 }
 
 var updateXP = (req, res) => {
   User.findById(req.user._id, (err, user) => {
     if (err || !user)
       return res.status(500).json({ message: 'Error! Could not locate user.' })
-    
-    // verify the  data is accurate
-    var message = verifyXpUpdate(user.xpUpdates, req.body) 
+
+    // verify the data is accurate (return null if nothing wrong)
+    const update = req.body
+    const message = verifyXpUpdate(user.xpUpdates, update)
     if (message)
       return res.status(500).json({ message })
 
-    // append update object and save
-    user.xpUpdates = user.xpUpdates.concat(req.body)
+    // update object and save
+    const existingUpdate = updateWithSameDay(user.xpUpdates, update)
+    if (existingUpdate) { // replace existing with new
+      user.xpUpdates = user.xpUpdates.map(u => {
+        return u == existingUpdate ? update : u
+      })
+    } else { // append to updates array
+      user.xpUpdates = user.xpUpdates.concat(req.body)
+    }
+
     user.save((err, user) => {
       if (err || !user)
         return res.status(500).json({ message: 'Error! Could not save the user changes.' })

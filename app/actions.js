@@ -7,6 +7,7 @@ export const CREATE_TRAINER = 'CREATE_TRAINER'
 export const DELETE_TRAINER = 'DELETE_TRAINER'
 export const FETCH_TRAINER = 'FETCH_TRAINER'
 export const VERIFY_TRAINER = 'VERIFY_TRAINER'
+export const UPDATE_TRAINER = 'UPDATE_TRAINER'
 
 export function setStatus(message) {
   return {
@@ -59,6 +60,13 @@ export function fetchTrainerResponse(data) {
 export function verifyTrainerResponse(data) {
   return {
     type: VERIFY_TRAINER,
+    ...data,
+  }
+}
+
+export function updateTrainerResponse(data) {
+  return {
+    type: UPDATE_TRAINER,
     ...data,
   }
 }

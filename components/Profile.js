@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { TeamStrings } from '../server/lookups'
-import { formatDate, DISPLAY_STRING, getTrainerLevel } from './utils'
 import UpdateXPModal from './Modals/UpdateXPModal'
+import {
+  formatDate,
+  DISPLAY_STRING,
+  SERVER_STRING,
+  getTrainerLevel,
+  getLevelForXP,
+} from './utils'
 
 export default class Profile extends Component {
   
@@ -27,7 +33,38 @@ export default class Profile extends Component {
       return (<p className="mt-3 text-center">No XP updates entered.</p>)
     }
 
-    // TODO: make the table
+    var rows = []
+
+    // sort chronologically
+    const updates = xpUpdates.sort((u1, u2) => {
+      return new Date(u1.date) - new Date(u2.date)
+    })
+
+    // map to row
+    updates.forEach(u => {
+      rows.push(
+        <tr key={ new Date(u.date).getTime() }>
+          <td>{ u.value }</td>
+          <td>{ getLevelForXP(u.value) }</td>
+          <td>{ formatDate(u.date, SERVER_STRING) }</td>
+        </tr>
+      )
+    })
+
+    return (
+      <table className="table table-hover mt-3">
+        <thead>
+          <tr>
+            <th>XP</th>
+            <th>Level</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          { rows }
+        </tbody>
+      </table>
+    )
   }
 
   render() {

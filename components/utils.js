@@ -61,7 +61,7 @@ function getLatestXPUpdate(updates) {
   return xpUpdate
 }
 
-function getLevelForXP(xp) {
+export function getLevelForXP(xp) {
   var level = 1
   Object.keys(minXpForLevel).forEach(key => {
   	if (xp > minXpForLevel[key])

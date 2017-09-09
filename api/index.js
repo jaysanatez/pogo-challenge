@@ -7,6 +7,7 @@ import {
   deleteTrainerResponse,
   fetchTrainerResponse,
   verifyTrainerResponse,
+  updateTrainerResponse,
 } from '../app/actions'
 
 const handleUserAuth = (dispatch, data, resp) => {
@@ -28,7 +29,7 @@ export function loginTrainer(dispatch, creds) {
   makeApiRequest('/api/login', 'POST', creds, false, data => {
     handleUserAuth(dispatch, data, loginResponse)
   }, error => {
-    dispatch(loginResponse({ message: error.message }))
+    dispatch(loginResponse(error))
   })
 }
 
@@ -80,11 +81,10 @@ export function verifyTrainer(dispatch, trainerId, password) {
   })
 }
 
-// TODO: store the user in the state so it re-renders everything
 export function updateXp(dispatch, xpUpdate) {
   makeApiRequest('/api/xp/update', 'POST', xpUpdate, true, data => {
-    console.log(1)
-  }, () => {
-    console.log(2)
+    dispatch(updateTrainerResponse(data))
+  }, error => {
+    dispatch(updateTrainerResponse(error))
   })
 }
