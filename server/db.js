@@ -1,5 +1,5 @@
-var mongoose              = require('mongoose')
-var dbConfig              = require('../config')
+var mongoose = require('mongoose')
+var dbConfig = require('../config')
 
 var connect = () => {
   mongoose.Promise = global.Promise

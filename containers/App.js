@@ -11,7 +11,7 @@ import Verify from '../components/Verify'
 import Profile from '../components/Profile'
 import NotFound from '../components/NotFound'
 
-import { Status, Role } from '../server/lookups'
+import { Status, Role } from '../shared/lookups'
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
 
 class App extends Component {

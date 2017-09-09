@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { formatDate, DISPLAY_STRING } from './utils'
+import { formatDate, DATE_TIME_STRING } from '../shared/utils'
 import CreateTrainerModal from './Modals/CreateTrainerModal'
 import {
   Team,
@@ -10,7 +10,7 @@ import {
   TeamStrings,
   StatusStrings,
   RoleStrings,
-} from '../server/lookups'
+} from '../shared/lookups'
 
 export default class Trainers extends Component {
   renderTableData() {
@@ -41,7 +41,7 @@ export default class Trainers extends Component {
           <td>{ StatusStrings[t.status] }</td>
           <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
-          <td>{ formatDate(t.lastUpdated, DISPLAY_STRING) }</td>
+          <td>{ formatDate(t.lastUpdated, DATE_TIME_STRING) }</td>
           <td>
             { button }
             { link }

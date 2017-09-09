@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { TeamStrings } from '../server/lookups'
+import { TeamStrings } from '../shared/lookups'
 import UpdateXPModal from './Modals/UpdateXPModal'
 import {
   formatDate,
-  DISPLAY_STRING,
-  SERVER_STRING,
+  DATE_TIME_STRING,
+  DATE_STRING,
   getTrainerLevel,
   getLevelForXP,
-} from './utils'
+} from '../shared/utils'
 
 export default class Profile extends Component {
   
@@ -22,7 +22,7 @@ export default class Profile extends Component {
   	  <div className="card mt-3">
         <div className="card-block">
           <h3 className="card-title">{ trainer.username }</h3>
-          <p className="card-text">Level { getTrainerLevel(trainer) } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DISPLAY_STRING) }</p>
+          <p className="card-text">Level { getTrainerLevel(trainer) } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }</p>
         </div>
       </div>
     )
@@ -46,7 +46,7 @@ export default class Profile extends Component {
         <tr key={ new Date(u.date).getTime() }>
           <td>{ u.value }</td>
           <td>{ getLevelForXP(u.value) }</td>
-          <td>{ formatDate(u.date, SERVER_STRING) }</td>
+          <td>{ formatDate(u.date, DATE_STRING) }</td>
         </tr>
       )
     })

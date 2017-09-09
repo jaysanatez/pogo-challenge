@@ -1,10 +1,10 @@
-import Moment from 'moment'
-
-export const DISPLAY_STRING = 'MMM D, hh:mm a'
-export const SERVER_STRING = 'MM/DD/YYYY'
-
+var Moment = require('moment')
 Moment.locale('en')
-export function formatDate(date, str) {
+
+const DATE_TIME_STRING = 'MMM D, hh:mm a'
+const DATE_STRING = 'MM/DD/YYYY'
+
+function formatDate(date, str) {
   return Moment(date).format(str)
 }
 
@@ -61,7 +61,7 @@ function getLatestXPUpdate(updates) {
   return xpUpdate
 }
 
-export function getLevelForXP(xp) {
+function getLevelForXP(xp) {
   var level = 1
   Object.keys(minXpForLevel).forEach(key => {
   	if (xp > minXpForLevel[key])
@@ -71,11 +71,19 @@ export function getLevelForXP(xp) {
   return level
 }
 
-export function getTrainerLevel(trainer) {
+function getTrainerLevel(trainer) {
   const update = getLatestXPUpdate(trainer.xpUpdates)
   if (!update)
   	return '???'
 
   return getLevelForXP(update.value)
 } 
+
+module.exports = {
+  formatDate,
+  DATE_TIME_STRING,
+  DATE_STRING,
+  getLevelForXP,
+  getTrainerLevel,
+}
 

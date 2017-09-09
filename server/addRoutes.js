@@ -3,7 +3,7 @@ var path          = require('path')
 var passport      = require('passport')
 var auth          = require('./auth')
 var routeHandlers = require('./routeHandlers')
-var Lookups       = require('./lookups')
+var Lookups       = require('../shared/lookups')
 
 module.exports = app => {
   // public routes

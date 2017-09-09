@@ -1,7 +1,8 @@
 var User    = require('./models/user')
-var Lookups = require('./lookups')
+var Lookups = require('../shared/lookups')
 var auth    = require('./auth')
 var Moment  = require('moment')
+var utils   = require('../shared/utils')
 
 const handleUserAuth = (user, res) => {
   // invalid user status
@@ -121,7 +122,7 @@ var verifyXpUpdate = (updates, update) => {
 
     // value will be negative if corrupt case 1 or 2 are true
     if (dateDiff * valDiff < 0)
-      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format('MM/DD/YYYY')
+      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format(utils.DATE_STRING)
   })
 
   return message
@@ -144,7 +145,7 @@ var updateXP = (req, res) => {
 
     // verify the data is accurate (return null if nothing wrong)
     const update = req.body
-    update.date = Moment(update.date, 'MM/DD/YYYY')
+    update.date = Moment(update.date, utils.DATE_STRING)
 
     const message = verifyXpUpdate(user.xpUpdates, update)
     if (message)
@@ -161,6 +162,7 @@ var updateXP = (req, res) => {
       user.xpUpdates = user.xpUpdates.concat(req.body)
     }
 
+    user.lastUpdated = new Date()
     user.save((err, user) => {
       if (err || !user)
         return res.status(500).json({ message: 'Error! Could not save the user changes.' })

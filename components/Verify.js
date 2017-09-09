@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { Status } from '../server/lookups'
+import { Status } from '../shared/lookups'
 
 export default class Verify extends Component {
   onClick(event) {

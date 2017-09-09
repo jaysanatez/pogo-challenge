@@ -5,7 +5,7 @@ import {
   RoleStrings,
   Team,
   TeamStrings,
-} from '../../server/lookups'
+} from '../../shared/lookups'
 
 export default class CreateTrainerModal extends Component {
 
