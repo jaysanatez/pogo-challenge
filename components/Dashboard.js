@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  Tooltip,
 } from 'recharts'
 
 import {
@@ -41,7 +42,7 @@ export default class Dashboard extends Component {
         </h3>
         <ResponsiveContainer height={300} width="100%" className="mt-3">
           <LineChart data={data}>
-            <Line type="monotone" dataKey="value" stroke="#FF4444"/>
+            <Line type="monotone" dataKey="value" stroke="#4285F4"/>
             <CartesianGrid stroke="#ccc"/>
             <XAxis
               dataKey="date"
@@ -53,6 +54,7 @@ export default class Dashboard extends Component {
               padding={{ top: 20, bottom: 20 }}
               tickFormatter={lab => lab / mult}
             />
+            <Tooltip/>
           </LineChart>
         </ResponsiveContainer>
       </div>
