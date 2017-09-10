@@ -39,7 +39,7 @@ export default class Profile extends Component {
 
     // sort chronologically
     const updates = xpUpdates.sort((u1, u2) => {
-      return new Date(u1.date) - new Date(u2.date)
+      return new Date(u2.date) - new Date(u1.date)
     })
 
     // map to row
