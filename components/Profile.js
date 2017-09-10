@@ -6,7 +6,7 @@ import UpdateXPModal from './Modals/UpdateXPModal'
 import {
   formatDate,
   DATE_TIME_STRING,
-  DATE_STRING,
+  LONG_DATE_STRING,
   getTrainerLevel,
   getLevelForXP,
 } from '../shared/utils'
@@ -22,7 +22,9 @@ export default class Profile extends Component {
   	  <div className="card mt-3">
         <div className="card-block">
           <h3 className="card-title">{ trainer.username }</h3>
-          <p className="card-text">Level { getTrainerLevel(trainer) } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }</p>
+          <p className="card-text">
+            Level { getTrainerLevel(trainer) || '???' } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }
+          </p>
         </div>
       </div>
     )
@@ -46,7 +48,7 @@ export default class Profile extends Component {
         <tr key={ new Date(u.date).getTime() }>
           <td>{ u.value }</td>
           <td>{ getLevelForXP(u.value) }</td>
-          <td>{ formatDate(u.date, DATE_STRING) }</td>
+          <td>{ formatDate(u.date, LONG_DATE_STRING) }</td>
         </tr>
       )
     })

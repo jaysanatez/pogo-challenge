@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker'
 import Moment from 'moment'
 
 import 'react-datepicker/dist/react-datepicker.css'
-import { formatDate, DATE_STRING } from '../../shared/utils'
+import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
 
 export default class UpdateXPModal extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class UpdateXPModal extends Component {
 
     const data = {
       value: xp.value,
-      date: formatDate(this.selectedDay, DATE_STRING),
+      date: formatDate(this.selectedDay, LONG_DATE_STRING),
     }
 
     if (data.value < 0) {

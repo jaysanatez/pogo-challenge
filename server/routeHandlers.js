@@ -122,7 +122,7 @@ var verifyXpUpdate = (updates, update) => {
 
     // value will be negative if corrupt case 1 or 2 are true
     if (dateDiff * valDiff < 0)
-      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format(utils.DATE_STRING)
+      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format(utils.SHORT_DATE_STRING)
   })
 
   return message
@@ -145,7 +145,7 @@ var updateXP = (req, res) => {
 
     // verify the data is accurate (return null if nothing wrong)
     const update = req.body
-    update.date = Moment(update.date, utils.DATE_STRING)
+    update.date = Moment(update.date, utils.LONG_DATE_STRING)
 
     const message = verifyXpUpdate(user.xpUpdates, update)
     if (message)

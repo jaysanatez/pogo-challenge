@@ -2,7 +2,8 @@ var Moment = require('moment')
 Moment.locale('en')
 
 const DATE_TIME_STRING = 'MMM D, hh:mm a'
-const DATE_STRING = 'MM/DD/YYYY'
+const LONG_DATE_STRING = 'MM/DD/YYYY'
+const SHORT_DATE_STRING = 'MM/DD'
 
 function formatDate(date, str) {
   return Moment(date).format(str)
@@ -74,7 +75,7 @@ function getLevelForXP(xp) {
 function getTrainerLevel(trainer) {
   const update = getLatestXPUpdate(trainer.xpUpdates)
   if (!update)
-  	return '???'
+  	return null
 
   return getLevelForXP(update.value)
 } 
@@ -82,7 +83,9 @@ function getTrainerLevel(trainer) {
 module.exports = {
   formatDate,
   DATE_TIME_STRING,
-  DATE_STRING,
+  LONG_DATE_STRING,
+  SHORT_DATE_STRING,
+  minXpForLevel,
   getLevelForXP,
   getTrainerLevel,
 }
