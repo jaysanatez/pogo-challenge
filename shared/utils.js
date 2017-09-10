@@ -75,7 +75,7 @@ function getLevelForXP(xp) {
 function getTrainerLevel(trainer) {
   const update = getLatestXPUpdate(trainer.xpUpdates)
   if (!update)
-  	return '???'
+  	return null
 
   return getLevelForXP(update.value)
 } 

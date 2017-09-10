@@ -16,6 +16,7 @@ import {
   LONG_DATE_STRING,
   getLevelForXP,
   minXpForLevel,
+  getTrainerLevel,
 } from '../shared/utils'
 
 const lastN = 7
@@ -60,7 +61,26 @@ export default class Dashboard extends Component {
 
   renderLevelUpComponent(data) {
     console.log(data)
-    return null
+    return (
+      <div className="mt-3">
+        <div className="card mt-3">
+          <div className="card-header">Level Up Projections</div>
+          <div className="card-block">
+            <div className="row">
+              <div className="col">Next Level: { data.nextLevel }</div>
+              <div className="col">XP Needed for Next Level: { data.xpTilNextLevel }</div>
+            </div>
+            <div className="row">
+              <div className="col">Daily Average: { data.dailyAvg }</div>
+              <div className="col">Days Until Level Up: { data.daysTilNextLevel }</div>
+            </div>
+            <div className="row">
+              <div className="col">Projected Level Up on { data.projectedLevelUpDate }</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   createXpData(updates) {
@@ -118,10 +138,15 @@ export default class Dashboard extends Component {
     const xpData = this.createXpData(trainer.xpUpdates)
     const levelUpData = this.createLevelUpData(trainer.xpUpdates)
 
+    const trainerLevel = getTrainerLevel(trainer)
+    const levelUpComponent = (trainerLevel && trainerLevel < 40) ?
+      this.renderLevelUpComponent(levelUpData) :
+      null
+
     return (
       <div className="mt-3">
         { this.renderXpGraph(xpData) }
-        { this.renderLevelUpComponent(levelUpData) }
+        { levelUpComponent }
       </div>
     )
   }

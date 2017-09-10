@@ -22,7 +22,9 @@ export default class Profile extends Component {
   	  <div className="card mt-3">
         <div className="card-block">
           <h3 className="card-title">{ trainer.username }</h3>
-          <p className="card-text">Level { getTrainerLevel(trainer) } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }</p>
+          <p className="card-text">
+            Level { getTrainerLevel(trainer) || '???' } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }
+          </p>
         </div>
       </div>
     )
