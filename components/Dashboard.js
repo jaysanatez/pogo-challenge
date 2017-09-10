@@ -88,6 +88,11 @@ export default class Dashboard extends Component {
       return new Date(u1.date) - new Date(u2.date)
     })
 
+    const UPDATE_LIMIT = 30
+    if (updates.length > UPDATE_LIMIT) {
+      updates = updates.slice(0, UPDATE_LIMIT)
+    }
+
     var data = []
     updates.forEach(u => {
       data.push({
