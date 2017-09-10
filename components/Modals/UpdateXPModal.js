@@ -21,7 +21,7 @@ export default class UpdateXPModal extends Component {
 
     const data = {
       value: xp.value,
-      date: formatDate(this.selectedDay, DATE_STRING),
+      date: formatDate(this.selectedDay, LONG_DATE_STRING),
     }
 
     if (data.value < 0) {

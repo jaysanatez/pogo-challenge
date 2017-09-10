@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Moment from 'moment'
 import PropTypes from 'prop-types'
 import {
   ResponsiveContainer,
@@ -9,7 +10,15 @@ import {
   YAxis,
 } from 'recharts'
 
-import { formatDate, SHORT_DATE_STRING } from '../shared/utils'
+import {
+  formatDate,
+  SHORT_DATE_STRING,
+  LONG_DATE_STRING,
+  getLevelForXP,
+  minXpForLevel,
+} from '../shared/utils'
+
+const lastN = 7
 
 export default class Dashboard extends Component {
 
@@ -49,6 +58,11 @@ export default class Dashboard extends Component {
     )
   }
 
+  renderLevelUpComponent(data) {
+    console.log(data)
+    return null
+  }
+
   createXpData(updates) {
     updates.sort((u1, u2) => {
       return new Date(u1.date) - new Date(u2.date)
@@ -65,6 +79,36 @@ export default class Dashboard extends Component {
     return data
   }
 
+  calcXpTilNextLevel(xp) {
+    const nextLevel = parseInt(getLevelForXP(xp)) + 1
+    return {
+      nextLevel,
+      xpTilNextLevel: minXpForLevel[nextLevel] - xp,
+    }
+  }
+
+  createLevelUpData(updates) {
+    updates.sort((u1, u2) => {
+      return new Date(u1.date) - new Date(u2.date)
+    })
+
+    const num = Math.min(lastN, updates.length)
+    const lastNUpdates = updates.slice(updates.length - num)
+
+    const dailyAvg = (lastNUpdates[num - 1].value - lastNUpdates[0].value) / (num - 1)
+    const { nextLevel, xpTilNextLevel } = this.calcXpTilNextLevel(lastNUpdates[num - 1].value)
+    const daysTilNextLevel =  Math.ceil(xpTilNextLevel / dailyAvg)
+    const projectedLevelUpDate = Moment().add(daysTilNextLevel, 'days').format(LONG_DATE_STRING)
+
+    return {
+      dailyAvg,
+      nextLevel,
+      xpTilNextLevel,
+      daysTilNextLevel,
+      projectedLevelUpDate,
+    }
+  }
+
   render() {
     const { trainer } = this.props
     if (!trainer) {
@@ -72,9 +116,12 @@ export default class Dashboard extends Component {
     }
 
     const xpData = this.createXpData(trainer.xpUpdates)
+    const levelUpData = this.createLevelUpData(trainer.xpUpdates)
+
     return (
       <div className="mt-3">
         { this.renderXpGraph(xpData) }
+        { this.renderLevelUpComponent(levelUpData) }
       </div>
     )
   }

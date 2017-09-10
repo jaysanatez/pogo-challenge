@@ -85,6 +85,7 @@ module.exports = {
   DATE_TIME_STRING,
   LONG_DATE_STRING,
   SHORT_DATE_STRING,
+  minXpForLevel,
   getLevelForXP,
   getTrainerLevel,
 }
