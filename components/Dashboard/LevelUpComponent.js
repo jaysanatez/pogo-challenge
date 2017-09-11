@@ -44,15 +44,15 @@ export default class LevelUpComponent extends Component {
   }
 
   render() {
-  	const { updates } = this.props
+    const { updates } = this.props
 
     const trainerLevel = getTrainerLevel({ xpUpdates: updates })
     if (!trainerLevel || trainerLevel == 40) {
       return null
     }
 
-  	const data = this.createLevelUpData(updates)
-  	return (
+    const data = this.createLevelUpData(updates)
+    return (
       <div className="mt-3">
         <div className="card mt-3">
           <div className="card-header">Level Up Projections ({ lastN }-day moving average)</div>

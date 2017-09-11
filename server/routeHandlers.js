@@ -86,6 +86,15 @@ var fetchTrainerHandler = (req, res) => {
   })
 }
 
+var fetchCurrentTrainerHandler = (req, res) => {
+  if(!req.user)
+    return res.status(500).json({ message: 'Error! Could not fetch trainer.' })
+
+  res.json({
+    trainer: req.user.toClientDto(),
+  })
+}
+
 var verifyTrainer = (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if (err || !user || !req.body.password)
@@ -138,7 +147,7 @@ var updateWithSameDay = (updates, update) => {
   return date
 }
 
-var updateXP = (req, res) => {
+var updateXPHandler = (req, res) => {
   User.findById(req.user._id, (err, user) => {
     if (err || !user)
       return res.status(500).json({ message: 'Error! Could not locate user.' })
@@ -180,6 +189,7 @@ module.exports = {
   createTrainerHandler,
   deleteTrainerHandler,
   fetchTrainerHandler,
+  fetchCurrentTrainerHandler,
   verifyTrainer,
-  updateXP,
+  updateXPHandler,
 }

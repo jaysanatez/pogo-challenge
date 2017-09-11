@@ -19,8 +19,13 @@ const handleUserAuth = (dispatch, data, resp) => {
     return
   }
 
+  const trainerLessXp = {
+    ...trainer,
+    xpUpdates: null,
+  }
+
   localStorage.setItem('id_token', token)
-  localStorage.setItem('trainer', JSON.stringify(trainer))
+  localStorage.setItem('trainer', JSON.stringify(trainerLessXp))
 
   dispatch(resp({ trainer }))
 }
@@ -66,6 +71,14 @@ export function deleteTrainer(dispatch, trainerId) {
 
 export function fetchTrainer(dispatch, trainerId) {
   makeApiRequest('/api/trainers/' + trainerId, 'GET', null, false, data => {
+    dispatch(fetchTrainerResponse(data))
+  }, () => {
+    dispatch(fetchTrainerResponse())
+  })
+}
+
+export function fetchCurrentTrainer(dispatch) {
+  makeApiRequest('api/trainers/current', 'GET', null, true, data => {
     dispatch(fetchTrainerResponse(data))
   }, () => {
     dispatch(fetchTrainerResponse())

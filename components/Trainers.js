@@ -58,6 +58,11 @@ export default class Trainers extends Component {
 
     if (trainers.length == 0) {
       this.props.fetchTrainers()
+      return (
+        <div className="mt-3">
+          <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
+        </div>
+      )
     }
 
     return (

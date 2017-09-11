@@ -11,11 +11,11 @@ export default class Dashboard extends Component {
       return null
     }
 
-    
+    const updates = trainer.xpUpdates || []
     return (
       <div className="mt-3">
-        <XPGraph updates={trainer.xpUpdates}/>
-        <LevelUpComponent updates={trainer.xpUpdates}/>
+        <XPGraph updates={updates}/>
+        <LevelUpComponent updates={updates}/>
       </div>
     )
   }

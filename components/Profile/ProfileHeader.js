@@ -10,9 +10,9 @@ import {
 
 export default class ProfileHeader extends Component {
   render() {
-  	const { trainer } = this.props
+    const { trainer } = this.props
     return (
-  	  <div className="card mt-3">
+      <div className="card mt-3">
         <div className="card-block">
           <h3 className="card-title">{ trainer.username }</h3>
           <p className="card-text">
