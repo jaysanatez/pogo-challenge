@@ -10,7 +10,7 @@ import {
 
 export default class UserXPTable extends Component {
   onXpUpdateClick(event) {
-  	event.preventDefault()
+    event.preventDefault()
   }
 
   renderXpTable(xpUpdates) {
@@ -54,7 +54,7 @@ export default class UserXPTable extends Component {
   }
 
   render() {
-  	const { updates } = this.props 
+    const { updates } = this.props 
     return (
       <div>
         { this.renderXpTable(updates) }

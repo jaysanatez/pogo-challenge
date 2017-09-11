@@ -6,6 +6,7 @@ import {
   createTrainer,
   deleteTrainer,
   fetchTrainer,
+  fetchCurrentTrainer,
   verifyTrainer,
   updateXp,
 } from '../api/'
@@ -41,6 +42,9 @@ export const mapDispatchToProps = dispatch => {
     },
     fetchTrainer: trainerId => {
       fetchTrainer(dispatch, trainerId)
+    },
+    fetchCurrentTrainer: () => {
+      fetchCurrentTrainer(dispatch)
     },
     verifyTrainer: (trainerId, password) => {
       verifyTrainer(dispatch, trainerId, password)

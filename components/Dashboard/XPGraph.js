@@ -44,8 +44,12 @@ export default class XPGraph extends Component {
   }
 
   render() {
-  	const { updates } = this.props
-  	const data = this.createXpData(updates)
+    const { updates } = this.props
+    if (!updates.length) {
+      return null
+    }
+
+    const data = this.createXpData(updates)
     const { mult, label } = this.getXpGraphScale(data)
 
     return (
