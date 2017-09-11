@@ -37,7 +37,7 @@ export default class UserXPTable extends Component {
 
     return (
       <div className="mt-3" style={{ height: "400px", overflow: "auto" }}>
-        <table className="table table-hover">
+        <table className="table table-hover table-sm">
           <thead>
             <tr>
               <th>XP</th>
