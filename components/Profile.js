@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import commaNumber from 'comma-number'
 
 import { TeamStrings } from '../shared/lookups'
 import UpdateXPModal from './Modals/UpdateXPModal'
@@ -39,14 +40,14 @@ export default class Profile extends Component {
 
     // sort chronologically
     const updates = xpUpdates.sort((u1, u2) => {
-      return new Date(u1.date) - new Date(u2.date)
+      return new Date(u2.date) - new Date(u1.date)
     })
 
     // map to row
     updates.forEach(u => {
       rows.push(
         <tr key={ new Date(u.date).getTime() }>
-          <td>{ u.value }</td>
+          <td>{ commaNumber(u.value) }</td>
           <td>{ getLevelForXP(u.value) }</td>
           <td>{ formatDate(u.date, LONG_DATE_STRING) }</td>
         </tr>
@@ -54,18 +55,20 @@ export default class Profile extends Component {
     })
 
     return (
-      <table className="table table-hover mt-3">
-        <thead>
-          <tr>
-            <th>XP</th>
-            <th>Level</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          { rows }
-        </tbody>
-      </table>
+      <div className="mt-3" style={{ height: "400px", overflow: "auto" }}>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>XP</th>
+              <th>Level</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            { rows }
+          </tbody>
+        </table>
+      </div>
     )
   }
 
@@ -91,10 +94,10 @@ export default class Profile extends Component {
       <div className="mt-3">
         { flash }
         { this.renderHeader(trainer) }
+        { this.renderXpTable(trainer.xpUpdates) }
         <div className="row justify-content-end mt-3 mr-1">
           <a href="#" data-toggle="modal" data-target="#xpUpdateModal" onClick={this.OnXpUpdateClick.bind(this)}>Update XP</a>
         </div>
-        { this.renderXpTable(trainer.xpUpdates) }
 
         <UpdateXPModal
           onXPUpdate={onXPUpdate}
