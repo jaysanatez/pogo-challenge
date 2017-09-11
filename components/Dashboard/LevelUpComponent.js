@@ -5,7 +5,7 @@ import commaNumber from 'comma-number'
 
 import {
   LONG_DATE_STRING,
-  minXpForLevel,
+  minXPForLevel,
   getLevelForXP,
   getTrainerLevel,
 } from '../../shared/utils'
@@ -17,7 +17,7 @@ export default class LevelUpComponent extends Component {
     const nextLevel = parseInt(getLevelForXP(xp)) + 1
     return {
       nextLevel,
-      xpTilNextLevel: minXpForLevel[nextLevel] - xp,
+      xpTilNextLevel: minXPForLevel[nextLevel] - xp,
     }
   }
 
