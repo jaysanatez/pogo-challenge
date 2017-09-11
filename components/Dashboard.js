@@ -66,7 +66,7 @@ export default class Dashboard extends Component {
     return (
       <div className="mt-3">
         <div className="card mt-3">
-          <div className="card-header">Level Up Projections</div>
+          <div className="card-header">Level Up Projections ({ lastN }-day moving average)</div>
           <div className="card-block">
             <div className="row">
               <div className="col">Next Level: { data.nextLevel }</div>
