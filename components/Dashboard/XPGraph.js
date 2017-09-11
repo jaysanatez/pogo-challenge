@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
 
-import { formatDate, SHORT_DATE_STRING } from '../../shared/utils'
+import {
+  formatDate,
+  SHORT_DATE_STRING,
+  minXPForLevel,
+  getLevelForXP,
+} from '../../shared/utils'
 import {
   ResponsiveContainer,
   LineChart,
@@ -11,6 +16,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  ReferenceLine,
 } from 'recharts'
 
 export default class XPGraph extends Component {
@@ -24,15 +30,22 @@ export default class XPGraph extends Component {
       updates = updates.slice(0, UPDATE_LIMIT)
     }
 
+    var highestXp = 0
     var data = []
     updates.forEach(u => {
+      highestXp = Math.max(highestXp, u.value)
       data.push({
         date: formatDate(u.date, SHORT_DATE_STRING),
         value: u.value,
       })
     })
 
-    return data
+    const level = parseInt(getLevelForXP(highestXp))
+    const nextLevelXp = minXPForLevel[level + 1]
+    return {
+      data,
+      nextLevelXp,
+    }
   }
 
   getXpGraphScale(data) {
@@ -49,8 +62,9 @@ export default class XPGraph extends Component {
       return null
     }
 
-    const data = this.createXpData(updates)
+    const { data, nextLevelXp } = this.createXpData(updates)
     const { mult, label } = this.getXpGraphScale(data)
+    const userColor = '#4285F4'
 
     return (
       <div>
@@ -60,7 +74,7 @@ export default class XPGraph extends Component {
         </h3>
         <ResponsiveContainer height={300} width="100%" className="mt-3">
           <LineChart data={data}>
-            <Line type="monotone" dataKey="value" stroke="#4285F4"/>
+            <Line type="monotone" dataKey="value" stroke={userColor}/>
             <CartesianGrid stroke="#ccc"/>
             <XAxis
               dataKey="date"
@@ -68,10 +82,11 @@ export default class XPGraph extends Component {
             />
             <YAxis
               type="number"
-              domain={['auto', 'auto']}
+              domain={['auto', nextLevelXp]}
               padding={{ top: 20, bottom: 20 }}
               tickFormatter={lab => lab / mult}
             />
+            <ReferenceLine y={nextLevelXp} stroke={userColor} strokeDasharray="3 3" />
             <Tooltip formatter={val => commaNumber(val)}/>
           </LineChart>
         </ResponsiveContainer>

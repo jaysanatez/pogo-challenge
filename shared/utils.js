@@ -9,7 +9,7 @@ function formatDate(date, str) {
   return Moment(date).format(str)
 }
 
-const minXpForLevel = {
+const minXPForLevel = {
   1: 0,
   2: 1000,
   3: 3000,
@@ -55,8 +55,8 @@ const minXpForLevel = {
 function getLatestXPUpdate(updates) {
   var xpUpdate
   updates.forEach(u => {
-  	if (!xpUpdate || u.date > xpUpdate.date)
-  	  xpUpdate = u
+    if (!xpUpdate || u.date > xpUpdate.date)
+      xpUpdate = u
   })
 
   return xpUpdate
@@ -64,9 +64,9 @@ function getLatestXPUpdate(updates) {
 
 function getLevelForXP(xp) {
   var level = 1
-  Object.keys(minXpForLevel).forEach(key => {
-  	if (xp > minXpForLevel[key])
-  	  level = key
+  Object.keys(minXPForLevel).forEach(key => {
+    if (xp > minXPForLevel[key])
+      level = key
   })
 
   return level
@@ -75,7 +75,7 @@ function getLevelForXP(xp) {
 function getTrainerLevel(trainer) {
   const update = getLatestXPUpdate(trainer.xpUpdates)
   if (!update)
-  	return null
+    return null
 
   return getLevelForXP(update.value)
 } 
@@ -85,7 +85,7 @@ module.exports = {
   DATE_TIME_STRING,
   LONG_DATE_STRING,
   SHORT_DATE_STRING,
-  minXpForLevel,
+  minXPForLevel,
   getLevelForXP,
   getTrainerLevel,
 }
