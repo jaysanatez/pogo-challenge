@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import UpdateXPModal from '../Modals/UpdateXPModal'
 import UserXPTable from './UserXPTable'
+import UserCatchTable from './UserCatchTable'
 import ProfileHeader from './ProfileHeader'
 
 export default class Profile extends Component {
@@ -29,6 +30,8 @@ export default class Profile extends Component {
         { flash }
         <ProfileHeader trainer={trainer}/>
         <UserXPTable updates={trainer.xpUpdates}/>
+        <UserCatchTable catches={[]}/>
+
         <UpdateXPModal
           onXPUpdate={onXPUpdate}
           setStatus={setStatus}
