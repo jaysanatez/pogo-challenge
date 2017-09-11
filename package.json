@@ -10,6 +10,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
+    "comma-number": "^2.0.0",
     "jsonwebtoken": "^7.4.3",
     "moment": "^2.18.1",
     "mongoose": "^4.11.8",

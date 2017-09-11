@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import commaNumber from 'comma-number'
 
 import { TeamStrings } from '../shared/lookups'
 import UpdateXPModal from './Modals/UpdateXPModal'
@@ -46,7 +47,7 @@ export default class Profile extends Component {
     updates.forEach(u => {
       rows.push(
         <tr key={ new Date(u.date).getTime() }>
-          <td>{ u.value }</td>
+          <td>{ commaNumber(u.value) }</td>
           <td>{ getLevelForXP(u.value) }</td>
           <td>{ formatDate(u.date, LONG_DATE_STRING) }</td>
         </tr>

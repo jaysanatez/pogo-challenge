@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Moment from 'moment'
 import PropTypes from 'prop-types'
+import commaNumber from 'comma-number'
 import {
   ResponsiveContainer,
   LineChart,
@@ -54,7 +55,7 @@ export default class Dashboard extends Component {
               padding={{ top: 20, bottom: 20 }}
               tickFormatter={lab => lab / mult}
             />
-            <Tooltip/>
+            <Tooltip formatter={val => commaNumber(val)}/>
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -62,7 +63,6 @@ export default class Dashboard extends Component {
   }
 
   renderLevelUpComponent(data) {
-    console.log(data)
     return (
       <div className="mt-3">
         <div className="card mt-3">
@@ -70,10 +70,10 @@ export default class Dashboard extends Component {
           <div className="card-block">
             <div className="row">
               <div className="col">Next Level: { data.nextLevel }</div>
-              <div className="col">XP Needed for Next Level: { data.xpTilNextLevel }</div>
+              <div className="col">XP Needed for Next Level: { commaNumber(data.xpTilNextLevel) }</div>
             </div>
             <div className="row">
-              <div className="col">Daily Average: { data.dailyAvg }</div>
+              <div className="col">Daily Average: { commaNumber(data.dailyAvg) }</div>
               <div className="col">Days Until Level Up: { data.daysTilNextLevel }</div>
             </div>
             <div className="row">
@@ -122,7 +122,7 @@ export default class Dashboard extends Component {
     const num = Math.min(lastN, updates.length)
     const lastNUpdates = updates.slice(updates.length - num)
 
-    const dailyAvg = (lastNUpdates[num - 1].value - lastNUpdates[0].value) / (num - 1)
+    const dailyAvg = parseInt((lastNUpdates[num - 1].value - lastNUpdates[0].value) / (num - 1))
     const { nextLevel, xpTilNextLevel } = this.calcXpTilNextLevel(lastNUpdates[num - 1].value)
     const daysTilNextLevel =  Math.ceil(xpTilNextLevel / dailyAvg)
     const projectedLevelUpDate = Moment().add(daysTilNextLevel, 'days').format(LONG_DATE_STRING)
