@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import UpdateXPModal from '../Modals/UpdateXPModal'
+import AddCatchModal from '../Modals/AddCatchModal'
+
 import UserXPTable from './UserXPTable'
 import UserCatchTable from './UserCatchTable'
 import ProfileHeader from './ProfileHeader'
@@ -36,6 +38,7 @@ export default class Profile extends Component {
           onXPUpdate={onXPUpdate}
           setStatus={setStatus}
         />
+        <AddCatchModal/>
       </div>
     )
   }

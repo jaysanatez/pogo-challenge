@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class UserCatchTable extends Component {
+
   onAddCatchClick(event) {
     event.preventDefault()
   }
@@ -20,7 +21,7 @@ export default class UserCatchTable extends Component {
       <div>
         { this.renderCatchTable(catches) }
         <div className="row justify-content-end mt-3 mr-1">
-          <a href="#" data-toggle="modal" data-target="#catchUpdateModal" onClick={this.onAddCatchClick.bind(this)}>Add Catch</a>
+          <a href="#" data-toggle="modal" data-target="#catchModal" onClick={this.onAddCatchClick.bind(this)}>Add Catch</a>
         </div>
       </div>
     )
