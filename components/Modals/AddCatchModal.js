@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Select from 'react-select'
 
+import PokemonOption from './PokemonOption'
 import pokemonData from '../../assets/pokemon'
 import 'react-select/dist/react-select.css'
 
@@ -41,7 +42,7 @@ export default class AddCatchModal extends Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="catchModalLabel">Update XP</h5>
+              <h5 className="modal-title" id="catchModalLabel">Add Catch</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -54,6 +55,7 @@ export default class AddCatchModal extends Component {
                     options={this.buildPokemonOptions()}
                     placeholder="Select Pokemon"
                     onChange={this.onSelectChange}
+                    optionComponent={PokemonOption}
                   />
                 </div>
               </form>
