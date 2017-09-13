@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { imgStyle, getSrcForPokemonId } from './shared'
 
-export default class PokemonOptions extends Component {
+export default class PokemonOption extends Component {
   constructor(props) {
     super(props)
 
@@ -29,19 +30,7 @@ export default class PokemonOptions extends Component {
   }
 
   render() {
-    const thumbStyle = {
-      height: '20px',
-      width: '20px',
-      display: 'inline-block',
-      marginRight: 10,
-      position: 'relative',
-      verticalAlign: 'middle',
-    }
-
-    const { option } = this.props
-    const imgName = option.value + '.png'
-    const imgSrc = require('../../assets/images/' + imgName)
-
+    const imgSrc = getSrcForPokemonId(this.props.option.value)
     return (
       <div className={this.props.className}
         onMouseDown={this.onMouseDown}
@@ -49,14 +38,14 @@ export default class PokemonOptions extends Component {
         onMouseMove={this.onMouseMove}
         title={this.props.option.title}
       >
-        <img style={thumbStyle} src={imgSrc}/>
+        <img style={imgStyle} src={imgSrc}/>
         {this.props.children}
       </div>
     )
   }
 }
 
-PokemonOptions.propTypes = {
+PokemonOption.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   isDisabled: PropTypes.bool,

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Select from 'react-select'
 
 import PokemonOption from './PokemonOption'
-import pokemonData from '../../assets/pokemon'
+import PokemonValue from './PokemonValue'
+import pokemonData from '../../../assets/pokemon'
 import 'react-select/dist/react-select.css'
 
 export default class AddCatchModal extends Component {
@@ -52,6 +53,7 @@ export default class AddCatchModal extends Component {
                 <div className="form-group">
                   <Select
                     value={this.selectedValue}
+                    valueComponent={PokemonValue}
                     options={this.buildPokemonOptions()}
                     placeholder="Select Pokemon"
                     onChange={this.onSelectChange}
