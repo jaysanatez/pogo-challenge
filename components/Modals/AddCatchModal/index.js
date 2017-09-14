@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Select, { AsyncCreatable } from 'react-select'
+import toTitleCase from 'to-title-case'
+import 'react-select/dist/react-select.css'
 
 import PokemonOption from './PokemonOption'
 import PokemonValue from './PokemonValue'
 import pokemonData from '../../../assets/pokemon'
-import 'react-select/dist/react-select.css'
 
 export default class AddCatchModal extends Component {
   constructor(props) {
@@ -92,10 +93,10 @@ export default class AddCatchModal extends Component {
     if (options.some(o => o.className == 'Select-create-option-placeholder')) {
       return options
     }
- 
+
     options.unshift({
       id: 'custom',
-      name: this.locationInput,
+      name: toTitleCase(this.locationInput || ''),
       className: 'Select-create-option-placeholder',
     })
 
