@@ -14,6 +14,7 @@ export default class Profile extends Component {
       trainer,
       message,
       onXPUpdate,
+      onCatchCreate,
       setStatus,
     } = this.props
 
@@ -38,7 +39,10 @@ export default class Profile extends Component {
           onXPUpdate={onXPUpdate}
           setStatus={setStatus}
         />
-        <AddCatchModal/>
+        <AddCatchModal
+          onCatchCreate={onCatchCreate}
+          setStatus={setStatus}
+        />
       </div>
     )
   }
@@ -47,4 +51,6 @@ export default class Profile extends Component {
 Profile.propTypes = {
   trainer: PropTypes.object,
   onXPUpdate: PropTypes.func.isRequired,
+  onCatchCreate: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
 }

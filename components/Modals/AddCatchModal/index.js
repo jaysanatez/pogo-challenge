@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Select, { AsyncCreatable } from 'react-select'
 import toTitleCase from 'to-title-case'
+import Moment from 'moment'
+import DatePicker from 'react-datepicker'
 import 'react-select/dist/react-select.css'
 
 import PokemonOption from './PokemonOption'
 import PokemonValue from './PokemonValue'
 import pokemonData from '../../../assets/pokemon'
+import { formatDate, LONG_DATE_STRING } from '../../../shared/utils'
 
 export default class AddCatchModal extends Component {
   constructor(props) {
@@ -15,11 +18,13 @@ export default class AddCatchModal extends Component {
     this.selectedPokemonValue = null
     this.selectedLocationValue = null
     this.locationInput = null
+    this.selectedDay = Moment()
 
     this.onSelectPokemonChange = this.onSelectPokemonChange.bind(this)
     this.onSelectLocationChange = this.onSelectLocationChange.bind(this)
     this.filterOptions = this.filterOptions.bind(this)
     this.onLocationInputChange = this.onLocationInputChange.bind(this)
+    this.onDateChange = this.onDateChange.bind(this)
     this.onClick = this.onClick.bind(this)
   }
 
@@ -33,6 +38,11 @@ export default class AddCatchModal extends Component {
     this.forceUpdate()
   }
 
+  onDateChange(date) {
+    this.selectedDay = date
+    this.forceUpdate()
+  }
+
   onClick() {
     if (!this.selectedPokemonValue || !this.selectedLocationValue) {
       console.log('invalid')
@@ -42,9 +52,10 @@ export default class AddCatchModal extends Component {
     const data = {
       pokemonId: this.selectedPokemonValue.value,
       location: loc,
+      date: formatDate(this.selectedDay, LONG_DATE_STRING),
     }
 
-    console.log('data:', data)
+    this.props.onCatchCreate(data)
   }
 
   buildPokemonOptions() {
@@ -144,6 +155,15 @@ export default class AddCatchModal extends Component {
                     autoload={false}
                   />
                 </div>
+                <div className="form-group">
+                  <DatePicker
+                    selected={this.selectedDay}
+                    onChange={this.onDateChange}
+                    maxDate={Moment()}
+                    placeholderText="Select a day"
+                    className="form-control"
+                  />
+                </div>
               </form>
             </div>
             <div className="modal-footer">
@@ -157,5 +177,6 @@ export default class AddCatchModal extends Component {
 }
 
 AddCatchModal.propTypes = {
-
+  onCatchCreate: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
 }

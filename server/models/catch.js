@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var moment   = require('moment')
+var Moment   = require('moment')
 var utils    = require('../../shared/utils')
 
 var Schema   = mongoose.Schema
@@ -18,12 +18,23 @@ var catchSchema = new Schema({
 
 var model = mongoose.model('Catches', catchSchema)
 
-var createCatch = (data, user, next) => {
+var createCatch = (data, userId, next) => {
   var newCatch = new model()
-  Object.assign(newUser, data)
+  const loc = data.location
 
-  newCatch.userId = user._id
+  newCatch.pokemonId = data.pokemonId
+  newCatch.userId = userId
   newCatch.date = Moment(data.date, utils.LONG_DATE_STRING)
+  newCatch.locationName = loc.name
+
+  if (loc.lat && loc.lng) {
+    newCatch.cord = {
+      lat: loc.lat,
+      lng: loc.lng,
+    }
+  } else {
+    // get it from the geocoding service
+  }
 
   newCatch.save(next)
 }

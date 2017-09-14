@@ -9,6 +9,7 @@ import {
   fetchCurrentTrainer,
   verifyTrainer,
   updateXp,
+  createCatch,
 } from '../api/'
 
 export const mapStateToProps = state => {
@@ -54,6 +55,9 @@ export const mapDispatchToProps = dispatch => {
     },
     onXPUpdate: xpUpdate => {
       updateXp(dispatch, xpUpdate)
+    },
+    onCatchCreate: data => {
+      createCatch(dispatch, data)
     },
   }
 }

@@ -101,3 +101,7 @@ export function updateXp(dispatch, xpUpdate) {
     dispatch(updateTrainerResponse(error))
   })
 }
+
+export function createCatch(dispatch, catchData) {
+  makeApiRequest('/api/catches', 'POST', catchData, true, () => {}, () => {})
+}

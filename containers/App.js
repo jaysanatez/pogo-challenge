@@ -104,6 +104,7 @@ App.propTypes = {
   fetchCurrentTrainer: PropTypes.func.isRequired,
   setStatus: PropTypes.func.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
+  onCatchCreate: PropTypes.func.isRequired,
 }
 
 export default connect(
