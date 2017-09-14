@@ -45,7 +45,7 @@ class App extends Component {
   renderBody() {
     const { trainer, fetchCurrentTrainer } = this.props
 
-    if (!trainer.xpUpdates) {
+    if (trainer && !trainer.xpUpdates) {
       fetchCurrentTrainer()
       return (
         <div className="mt-3">
