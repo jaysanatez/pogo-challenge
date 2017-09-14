@@ -52,7 +52,8 @@ export default class AddCatchModal extends Component {
     pokemonData.pokemon.forEach(p => {
       options.push({
         value: p.id,
-        label: p.name
+        label: p.name,
+        disabled: p.disabled,
       })
     })
 

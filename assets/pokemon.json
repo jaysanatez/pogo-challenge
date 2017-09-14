@@ -1415,7 +1415,8 @@
       "img": "150.png",
       "type": [
         "Psychic"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": 151,
@@ -1424,7 +1425,8 @@
       "img": "151.png",
       "type": [
         "Psychic"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": 152,
@@ -2127,7 +2129,8 @@
       "type": [
         "Ice",
         "Flying"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": 226,
@@ -2222,7 +2225,8 @@
       "img": "235.png",
       "type": [
         "Normal"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": 236,
@@ -2363,7 +2367,8 @@
       "type": [
       	"Fire",
         "Flying"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": 251,
@@ -2373,7 +2378,8 @@
       "type": [
         "Psychic",
         "Grass"
-      ]
+      ],
+      "disabled": true
     }
   ]
 }
