@@ -8,6 +8,7 @@ import 'react-select/dist/react-select.css'
 
 import PokemonOption from './PokemonOption'
 import PokemonValue from './PokemonValue'
+import ModalWrapper from '../ModalWrapper'
 import pokemonData from '../../../assets/pokemon'
 import { formatDate, LONG_DATE_STRING } from '../../../shared/utils'
 
@@ -121,57 +122,47 @@ export default class AddCatchModal extends Component {
 
   render() {
     return (
-      <div className="modal fade" id="catchModal" tabIndex="-1" role="dialog" aria-labelledby="catchModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="catchModalLabel">Add Catch</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="form-group">
-                  <Select
-                    value={this.selectedPokemonValue}
-                    valueComponent={PokemonValue}
-                    options={this.buildPokemonOptions()}
-                    placeholder="Select Pokemon"
-                    onChange={this.onSelectPokemonChange}
-                    optionComponent={PokemonOption}
-                  />
-                </div>
-                <div className="form-group">
-                  <AsyncCreatable
-                    value={this.selectedLocationValue}
-                    onChange={this.onSelectLocationChange}
-                    loadOptions={this.loadLocations}
-                    placeholder="Where did you catch it?"
-                    filterOptions={this.filterOptions}
-                    onInputChange={this.onLocationInputChange}
-                    valueKey="id"
-                    labelKey="name"
-                    autoload={false}
-                  />
-                </div>
-                <div className="form-group">
-                  <DatePicker
-                    selected={this.selectedDay}
-                    onChange={this.onDateChange}
-                    maxDate={Moment()}
-                    placeholderText="Select a day"
-                    className="form-control"
-                  />
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#catchModal" onClick={this.onClick}>Save</button>
-            </div>
+      <ModalWrapper
+        id="addCatchModal"
+        title="Add Catch"
+        buttonText="Save"
+        onClick={this.onClick}
+      >
+        <form>
+          <div className="form-group">
+            <Select
+              value={this.selectedPokemonValue}
+              valueComponent={PokemonValue}
+              options={this.buildPokemonOptions()}
+              placeholder="Select Pokemon"
+              onChange={this.onSelectPokemonChange}
+              optionComponent={PokemonOption}
+            />
           </div>
-        </div>
-      </div>
+          <div className="form-group">
+            <AsyncCreatable
+              value={this.selectedLocationValue}
+              onChange={this.onSelectLocationChange}
+              loadOptions={this.loadLocations}
+              placeholder="Where did you catch it?"
+              filterOptions={this.filterOptions}
+              onInputChange={this.onLocationInputChange}
+              valueKey="id"
+              labelKey="name"
+              autoload={false}
+            />
+          </div>
+          <div className="form-group">
+            <DatePicker
+              selected={this.selectedDay}
+              onChange={this.onDateChange}
+              maxDate={Moment()}
+              placeholderText="Select a day"
+              className="form-control"
+            />
+          </div>
+        </form>
+      </ModalWrapper>
     )
   }
 }

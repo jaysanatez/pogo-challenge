@@ -64,7 +64,7 @@ export default class Trainers extends Component {
 
     return (
       <div>
-        <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#add-trainer-modal">Add Trainer</button>
+        <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#createTrainerModal">Add Trainer</button>
         <table className="table table-hover mt-3">
           <thead>
             <tr>

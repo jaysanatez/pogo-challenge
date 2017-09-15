@@ -48,7 +48,7 @@ export default class UserCatchTable extends Component {
           getRowFunc={this.buildRowFromCatch}
         />
         <div className="row justify-content-end mt-3 mr-1">
-          <a href="#" data-toggle="modal" data-target="#catchModal" onClick={this.onAddCatchClick.bind(this)}>Add Catch</a>
+          <a href="#" data-toggle="modal" data-target="#addCatchModal" onClick={this.onAddCatchClick.bind(this)}>Add Catch</a>
         </div>
       </div>
     )
