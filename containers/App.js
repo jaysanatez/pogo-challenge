@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import Navbar from '../components/Navbar/Navbar'
+import Navbar from '../components/Navbar'
 import Dashboard from '../components/Dashboard'
 import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
 import Profile from '../components/Profile'
 import NotFound from '../components/NotFound'
+import LoadingThrobber from '../components/shared/LoadingThrobber'
 
 import { Status, Role } from '../shared/lookups'
 import { mapStateToProps, mapDispatchToProps } from './appMaps'
@@ -52,20 +53,12 @@ class App extends Component {
 
     if (trainer && !trainer.xpUpdates) {
       fetchCurrentTrainer()
-      return (
-        <div className="mt-3">
-          <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
-        </div>
-      )
+      return (<LoadingThrobber/>)
     }
 
     if (trainer && !catches) {
       fetchCatches()
-      return (
-        <div className="mt-3">
-          <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
-        </div>
-      )
+      return (<LoadingThrobber/>)
     }
 
     return (
