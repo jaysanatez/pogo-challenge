@@ -1,0 +1,92 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { AsyncCreatable } from 'react-select'
+import toTitleCase from 'to-title-case'
+import 'react-select/dist/react-select.css'
+
+export default class LocationSearchInput extends Component {
+  constructor(props) {
+    super(props)
+
+    this.selectedLocationValue = null
+    this.onSelectLocationChange = this.onSelectLocationChange.bind(this)
+    this.filterOptions = this.filterOptions.bind(this)
+    this.onLocationInputChange = this.onLocationInputChange.bind(this)
+  }
+
+  onSelectLocationChange(value) {
+    this.selectedLocationValue = value
+    this.props.onChange(value)
+    this.forceUpdate()
+  }
+
+  loadLocations(input, callback) {
+    if (!input || input.length < 3) {
+      return Promise.resolve({ options: [] })
+    }
+
+    const getObjForGeoname = g => {
+      var name = g.name
+      if (g.adminName1) {
+        name += ', ' + g.adminName1
+      }
+
+      return {
+        id: g.geonameId,
+        name,
+        lat: g.lat,
+        lng: g.lng
+      }
+    }
+    
+    const url = 'http://api.geonames.org/searchJSON?q=' + encodeURIComponent(input) + '&featureClass=P&country=US&fuzzy=0.5&username=jsanch'
+    return fetch(url)
+      .then(response => response.json())
+      .then(json => {
+        return {
+          options: json.geonames.map(g => getObjForGeoname(g)),
+        }
+      })
+  }
+
+  onLocationInputChange(value) {
+    this.locationInput = value
+  }
+
+  filterOptions(options) {
+    // only add one create option
+    if (options.some(o => o.className == 'Select-create-option-placeholder')) {
+      return options
+    }
+
+    options.unshift({
+      id: 'custom',
+      name: toTitleCase(this.locationInput || ''),
+      className: 'Select-create-option-placeholder',
+    })
+
+    return options
+  }
+
+  render() {
+    return (
+      <div className="form-group">
+        <AsyncCreatable
+          value={this.selectedLocationValue}
+          onChange={this.onSelectLocationChange}
+          loadOptions={this.loadLocations}
+          placeholder="Where did you catch it?"
+          filterOptions={this.filterOptions}
+          onInputChange={this.onLocationInputChange}
+          valueKey="id"
+          labelKey="name"
+          autoload={false}
+        />
+      </div>
+    )
+  }
+}
+
+LocationSearchInput.propTypes = {
+  onChange: PropTypes.func,
+}

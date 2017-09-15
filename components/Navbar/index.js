@@ -8,30 +8,22 @@ import { Role, Status } from '../../shared/lookups'
 
 export default class Navbar extends Component {
 
-  renderProfileTab() {
-    const { trainer } = this.props
-    if (!trainer) {
-      return null
-    }
-
+  createTab(text, linkTo) {
     return (
       <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li className="nav-item active"><Link to="/profile" className="nav-link">Profile</Link></li>
+        <li className="nav-item active"><Link to={linkTo} className="nav-link">{text}</Link></li>
       </ul>
     )
   }
 
+  renderProfileTab() {
+    return this.props.trainer ? this.createTab('Profile', '/profile') : null
+  }
+
   renderTrainersTab() {
     const { trainer } = this.props
-    if (!trainer || trainer.role != Role.ADMIN) { // only for admins
-      return null
-    }
-
-    return (
-      <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li className="nav-item active"><Link to="/trainers" className="nav-link">Trainers</Link></li>
-      </ul>
-    )
+    const hasPerms = trainer && trainer.role == Role.ADMIN
+    return hasPerms ? this.createTab('Trainers', '/trainers') : null
   }
 
   renderAuthComponents() {
