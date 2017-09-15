@@ -1,7 +1,9 @@
+var Moment  = require('moment')
+
 var User    = require('./models/user')
+var Catch   = require('./models/catch')
 var Lookups = require('../shared/lookups')
 var auth    = require('./auth')
-var Moment  = require('moment')
 var utils   = require('../shared/utils')
 
 const handleUserAuth = (user, res) => {
@@ -183,6 +185,28 @@ var updateXPHandler = (req, res) => {
   })
 }
 
+var fetchAllCatchesHandler = (req, res) => {
+  Catch.fetchAll((err, catches) => {
+    if (err || !catches)
+      return res.status(500).json({ message: 'Error! Could not fetch catches.' })
+
+    res.json({
+      catches,
+    })
+  })
+}
+
+var createCatchHandler = (req, res) => {
+  Catch.createCatch(req.body, req.user._id, (err, catchLoc) => {
+    if (err || !catchLoc)
+      return res.status(500).json({ message: 'Error! Could not create catch.' })
+
+    res.json({
+      catch: catchLoc,
+    })
+  })
+}
+
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
@@ -192,4 +216,6 @@ module.exports = {
   fetchCurrentTrainerHandler,
   verifyTrainer,
   updateXPHandler,
+  fetchAllCatchesHandler,
+  createCatchHandler,
 }

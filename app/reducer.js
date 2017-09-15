@@ -9,10 +9,12 @@ import {
   FETCH_TRAINER,
   VERIFY_TRAINER,
   UPDATE_TRAINER,
+  CREATE_CATCH,
+  FETCH_CATCHES,
 } from './actions'
 
 const trainerActions = [LOGIN, LOGOUT, SET_STATUS, FETCH_TRAINER, VERIFY_TRAINER, UPDATE_TRAINER]
-const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER]
+const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES]
 
 // responsible for trainer and message
 function trainerReducer(state = {
@@ -37,6 +39,7 @@ function trainerReducer(state = {
 
 function dashboardReducer(state = {
   trainers: [],
+  catches: null,
 }, action) {
   if (dashboardActions.indexOf(action.type) == -1)
     return state
@@ -52,9 +55,15 @@ function dashboardReducer(state = {
     })
   }
 
+  var catches = action.catches || state.catches
+  if (action.type == CREATE_CATCH && action.catch) {
+    catches = catches.concat(action.catch)
+  }
+
   return {
     ...state,
     trainers,
+    catches,
   }
 }
 

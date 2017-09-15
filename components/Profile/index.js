@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import UpdateXPModal from '../Modals/UpdateXPModal'
+import AddCatchModal from '../Modals/AddCatchModal'
+
 import UserXPTable from './UserXPTable'
+import UserCatchTable from './UserCatchTable'
 import ProfileHeader from './ProfileHeader'
 
 export default class Profile extends Component {
@@ -10,7 +13,9 @@ export default class Profile extends Component {
     const {
       trainer,
       message,
+      catches,
       onXPUpdate,
+      onCatchCreate,
       setStatus,
     } = this.props
 
@@ -24,13 +29,23 @@ export default class Profile extends Component {
       </div>) :
       null
 
+    var ownCatches = catches.filter(c => {
+      return c.userId == trainer._id
+    })
+
     return (
       <div className="mt-3">
         { flash }
         <ProfileHeader trainer={trainer}/>
         <UserXPTable updates={trainer.xpUpdates}/>
+        <UserCatchTable catches={catches}/>
+
         <UpdateXPModal
           onXPUpdate={onXPUpdate}
+          setStatus={setStatus}
+        />
+        <AddCatchModal
+          onCatchCreate={onCatchCreate}
           setStatus={setStatus}
         />
       </div>
@@ -40,5 +55,8 @@ export default class Profile extends Component {
 
 Profile.propTypes = {
   trainer: PropTypes.object,
+  catches: PropTypes.array.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
+  onCatchCreate: PropTypes.func.isRequired,
+  setStatus: PropTypes.func.isRequired,
 }

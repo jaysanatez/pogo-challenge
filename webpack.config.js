@@ -27,6 +27,10 @@ module.exports = {
       test: /\.css?$/,
       loaders: [ 'style-loader', 'css-loader' ],
       include: __dirname
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/,
+      loaders: [ 'file-loader?name=assets/[name].[ext]' ],
+      include: __dirname,
     }]
   }
 }

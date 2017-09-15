@@ -15,7 +15,7 @@ export default class UserXPTable extends Component {
 
   renderXpTable(xpUpdates) {
     if (!xpUpdates.length) {
-      return (<p className="mt-3 text-center">No XP updates entered.</p>)
+      return (<p className="mt-3 text-center">No XP updates recorded.</p>)
     }
 
     // sort chronologically
@@ -36,8 +36,8 @@ export default class UserXPTable extends Component {
     })
 
     return (
-      <div className="mt-3" style={{ height: "400px", overflow: "auto" }}>
-        <table className="table table-hover">
+      <div className="mt-3" style={{ height: "250px", overflow: "auto" }}>
+        <table className="table table-hover table-sm">
           <thead>
             <tr>
               <th>XP</th>

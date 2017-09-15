@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
 var Lookups  = require('../../shared/lookups')
-
 var Schema   = mongoose.Schema
 
 var userSchema = new Schema({
@@ -81,7 +80,6 @@ var deleteUser = (id, next) => {
 }
 
 module.exports = {
-  model,
   fetchAll,
   findById,
   findByName,

@@ -9,11 +9,15 @@ module.exports = app => {
 
   // secured routes
   const authFunc = passport.authenticate('jwt', { session: false })
+
   app.get('/api/trainers', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.fetchTrainersHandler)
   app.post('/api/trainers', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.createTrainerHandler)
   app.delete('/api/trainers/:id', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.deleteTrainerHandler)
-  app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
   app.get('/api/trainers/current', authFunc, routeHandlers.fetchCurrentTrainerHandler)
+
+  app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
+  app.get('/api/catches', authFunc, routeHandlers.fetchAllCatchesHandler)
+  app.post('/api/catches', authFunc, routeHandlers.createCatchHandler)
 
   // public routes
   app.post('/api/login', routeHandlers.loginHandler)
