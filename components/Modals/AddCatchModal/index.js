@@ -38,7 +38,7 @@ export default class AddCatchModal extends Component {
 
   onClick() {
     if (!this.selectedPokemonValue || !this.selectedLocationValue) {
-      console.log('invalid')
+      this.props.setStatus('Error! Insufficient data provided.')
       return
     }
 

@@ -13,10 +13,24 @@ import {
   fetchCatches,
 } from '../api/'
 
+function consolidateMessageFromReducers(reducers) {
+  var message = null
+  reducers.forEach(r => {
+    message = message || r.message
+  })
+
+  return message
+}
+
 export const mapStateToProps = state => {
   const { trainerReducer, dashboardReducer } = state
-  const { trainer, message } = trainerReducer
+  const { trainer } = trainerReducer
   const { trainers, catches } = dashboardReducer
+
+  const message = consolidateMessageFromReducers([
+    trainerReducer,
+    dashboardReducer,
+  ])
 
   return {
     trainer,

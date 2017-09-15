@@ -16,7 +16,6 @@ import {
 const trainerActions = [LOGIN, LOGOUT, SET_STATUS, FETCH_TRAINER, VERIFY_TRAINER, UPDATE_TRAINER]
 const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES]
 
-// responsible for trainer and message
 function trainerReducer(state = {
   trainer: JSON.parse(localStorage.getItem('trainer')),
 }, action) {
@@ -45,6 +44,9 @@ function dashboardReducer(state = {
     return state
 
   var trainers = action.trainers || state.trainers
+  var catches = action.catches || state.catches
+  var message = action.message
+
   if (action.type == CREATE_TRAINER && action.trainer) {
     trainers = trainers.concat(action.trainer)
   }
@@ -55,7 +57,6 @@ function dashboardReducer(state = {
     })
   }
 
-  var catches = action.catches || state.catches
   if (action.type == CREATE_CATCH && action.catch) {
     catches = catches.concat(action.catch)
   }
@@ -64,6 +65,7 @@ function dashboardReducer(state = {
     ...state,
     trainers,
     catches,
+    message,
   }
 }
 
