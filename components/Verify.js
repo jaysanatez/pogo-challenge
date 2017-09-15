@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import LoadingThrobber from './shared/LoadingThrobber'
 import { Status } from '../shared/lookups'
 
 export default class Verify extends Component {
@@ -16,14 +17,6 @@ export default class Verify extends Component {
     } else {
       verifyTrainer(match.params.trainerId, pwd)
     }
-  }
-
-  renderLoadingScreen() {
-    return (
-      <div className="mt-3">
-        <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
-      </div>
-    )
   }
 
   renderVerifyForm(trainer, message) {
@@ -66,7 +59,7 @@ export default class Verify extends Component {
 
     if (!trainer) {
       fetchTrainer(trainerId)
-      return this.renderLoadingScreen()
+      return (<LoadingThrobber/>)
     } else if (trainer.status == Status.CREATED) {
       return this.renderVerifyForm(trainer, message)
     } else {

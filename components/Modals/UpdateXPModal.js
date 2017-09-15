@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import Moment from 'moment'
 
-import 'react-datepicker/dist/react-datepicker.css'
+import ModalWrapper from './ModalWrapper'
 import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default class UpdateXPModal extends Component {
   constructor(props) {
@@ -38,37 +39,27 @@ export default class UpdateXPModal extends Component {
 
   render() {
     return (
-      <div className="modal fade" id="xpUpdateModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Update XP</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="form-group">
-                  <input type="number" className="form-control" ref="xp" placeholder="XP"/>
-                </div>
-                <div className="form-group">
-                  <DatePicker
-                    selected={this.selectedDay}
-                    onChange={this.onDateChange}
-                    maxDate={Moment()}
-                    placeholderText="Select a day"
-                    className="form-control"
-                  />
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#xpUpdateModal" onClick={this.onClick}>Update</button>
-            </div>
+      <ModalWrapper
+        id="xpUpdateModal"
+        title="Update XP"
+        buttonText="Update"
+        onClick={this.onClick}
+      >
+        <form>
+          <div className="form-group">
+            <input type="number" className="form-control" ref="xp" placeholder="XP"/>
           </div>
-        </div>
-      </div>
+          <div className="form-group">
+            <DatePicker
+              selected={this.selectedDay}
+              onChange={this.onDateChange}
+              maxDate={Moment()}
+              placeholderText="Select a day"
+              className="form-control"
+            />
+          </div>
+        </form>
+      </ModalWrapper>
     )
   }
 }

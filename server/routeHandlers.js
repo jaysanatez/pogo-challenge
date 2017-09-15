@@ -156,6 +156,10 @@ var updateXPHandler = (req, res) => {
 
     // verify the data is accurate (return null if nothing wrong)
     const update = req.body
+    if (!update.date || !update.value) {
+      return res.status(500).json({ message: 'Error! Insufficient data provided.'})
+    }
+
     update.date = Moment(update.date, utils.LONG_DATE_STRING)
 
     const message = verifyXpUpdate(user.xpUpdates, update)

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { formatDate, DATE_TIME_STRING } from '../shared/utils'
+import LoadingThrobber from './shared/LoadingThrobber'
 import CreateTrainerModal from './Modals/CreateTrainerModal'
 import {
   Team,
@@ -58,16 +59,12 @@ export default class Trainers extends Component {
 
     if (trainers.length == 0) {
       this.props.fetchTrainers()
-      return (
-        <div className="mt-3">
-          <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
-        </div>
-      )
+      return (<LoadingThrobber/> )
     }
 
     return (
       <div>
-        <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#add-trainer-modal">Add Trainer</button>
+        <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#createTrainerModal">Add Trainer</button>
         <table className="table table-hover mt-3">
           <thead>
             <tr>
