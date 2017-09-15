@@ -8,6 +8,7 @@ import {
   fetchTrainerResponse,
   verifyTrainerResponse,
   updateTrainerResponse,
+  createCatchReponse,
   fetchCatchesResponse,
 } from '../app/actions'
 
@@ -104,7 +105,11 @@ export function updateXp(dispatch, xpUpdate) {
 }
 
 export function createCatch(dispatch, catchData) {
-  makeApiRequest('/api/catches', 'POST', catchData, true, () => {}, () => {})
+  makeApiRequest('/api/catches', 'POST', catchData, true, data => {
+    dispatch(createCatchReponse(data))
+  }, error => {
+    dispatch(createCatchReponse(error))
+  })
 }
 
 export function fetchCatches(dispatch) {

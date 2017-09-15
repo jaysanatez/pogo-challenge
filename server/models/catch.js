@@ -23,6 +23,12 @@ var fetchAll = next => {
 }
 
 var createCatch = (data, userId, next) => {
+  if (!data.location || !data.location.name || !data.date ||
+    !data.pokemonId || data.pokemonId < 0 || data.pokemonId > 251) {
+    next('Error! Invalid data provided.', null)
+    return
+  }
+
   var newCatch = new model()
   const loc = data.location
 
