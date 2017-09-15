@@ -9,6 +9,8 @@ export const FETCH_TRAINER = 'FETCH_TRAINER'
 export const VERIFY_TRAINER = 'VERIFY_TRAINER'
 export const UPDATE_TRAINER = 'UPDATE_TRAINER'
 
+export const FETCH_CATCHES = 'FETCH_CATCHES'
+
 export function setStatus(message) {
   return {
     type: SET_STATUS,
@@ -67,6 +69,13 @@ export function verifyTrainerResponse(data) {
 export function updateTrainerResponse(data) {
   return {
     type: UPDATE_TRAINER,
+    ...data,
+  }
+}
+
+export function fetchCatchesResponse(data) {
+  return {
+    type: FETCH_CATCHES,
     ...data,
   }
 }

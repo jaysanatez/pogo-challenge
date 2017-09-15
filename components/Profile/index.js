@@ -13,6 +13,7 @@ export default class Profile extends Component {
     const {
       trainer,
       message,
+      catches,
       onXPUpdate,
       onCatchCreate,
       setStatus,
@@ -28,12 +29,16 @@ export default class Profile extends Component {
       </div>) :
       null
 
+    var ownCatches = catches.filter(c => {
+      return c.userId == trainer._id
+    })
+
     return (
       <div className="mt-3">
         { flash }
         <ProfileHeader trainer={trainer}/>
         <UserXPTable updates={trainer.xpUpdates}/>
-        <UserCatchTable catches={[]}/>
+        <UserCatchTable catches={catches}/>
 
         <UpdateXPModal
           onXPUpdate={onXPUpdate}
@@ -50,6 +55,7 @@ export default class Profile extends Component {
 
 Profile.propTypes = {
   trainer: PropTypes.object,
+  catches: PropTypes.array.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
   setStatus: PropTypes.func.isRequired,

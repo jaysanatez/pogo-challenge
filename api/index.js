@@ -8,6 +8,7 @@ import {
   fetchTrainerResponse,
   verifyTrainerResponse,
   updateTrainerResponse,
+  fetchCatchesResponse,
 } from '../app/actions'
 
 const handleUserAuth = (dispatch, data, resp) => {
@@ -104,4 +105,12 @@ export function updateXp(dispatch, xpUpdate) {
 
 export function createCatch(dispatch, catchData) {
   makeApiRequest('/api/catches', 'POST', catchData, true, () => {}, () => {})
+}
+
+export function fetchCatches(dispatch) {
+  makeApiRequest('/api/catches', 'GET', null, true, data => {
+    dispatch(fetchCatchesResponse(data))
+  }, () => {
+    dispatch(fetchCatchesResponse())
+  })
 }

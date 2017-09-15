@@ -10,17 +10,19 @@ import {
   verifyTrainer,
   updateXp,
   createCatch,
+  fetchCatches,
 } from '../api/'
 
 export const mapStateToProps = state => {
   const { trainerReducer, dashboardReducer } = state
   const { trainer, message } = trainerReducer
-  const { trainers } = dashboardReducer
+  const { trainers, catches } = dashboardReducer
 
   return {
     trainer,
     message,
     trainers,
+    catches,
   }
 }
 
@@ -58,6 +60,9 @@ export const mapDispatchToProps = dispatch => {
     },
     onCatchCreate: data => {
       createCatch(dispatch, data)
+    },
+    fetchCatches: () => {
+      fetchCatches(dispatch)
     },
   }
 }

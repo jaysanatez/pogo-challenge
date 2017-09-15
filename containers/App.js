@@ -43,10 +43,24 @@ class App extends Component {
   }
 
   renderBody() {
-    const { trainer, fetchCurrentTrainer } = this.props
+    const {
+      trainer,
+      catches,
+      fetchCurrentTrainer,
+      fetchCatches,
+    } = this.props
 
     if (trainer && !trainer.xpUpdates) {
       fetchCurrentTrainer()
+      return (
+        <div className="mt-3">
+          <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
+        </div>
+      )
+    }
+
+    if (trainer && !catches) {
+      fetchCatches()
       return (
         <div className="mt-3">
           <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: "48px" }}></i>
@@ -94,6 +108,7 @@ App.propTypes = {
   trainer: PropTypes.object,
   message: PropTypes.string,
   trainers: PropTypes.array.isRequired,
+  catches: PropTypes.array,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
@@ -105,6 +120,7 @@ App.propTypes = {
   setStatus: PropTypes.func.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
+  fetchCatches: PropTypes.func.isRequired,
 }
 
 export default connect(

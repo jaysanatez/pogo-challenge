@@ -16,6 +16,7 @@ module.exports = app => {
   app.get('/api/trainers/current', authFunc, routeHandlers.fetchCurrentTrainerHandler)
 
   app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
+  app.get('/api/catches', authFunc, routeHandlers.fetchAllCatchesHandler)
   app.post('/api/catches', authFunc, routeHandlers.createCatchHandler)
 
   // public routes

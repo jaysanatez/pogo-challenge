@@ -18,6 +18,10 @@ var catchSchema = new Schema({
 
 var model = mongoose.model('Catches', catchSchema)
 
+var fetchAll = next => {
+  model.find({}, next)
+}
+
 var createCatch = (data, userId, next) => {
   var newCatch = new model()
   const loc = data.location
@@ -40,5 +44,6 @@ var createCatch = (data, userId, next) => {
 }
 
 module.exports = {
+  fetchAll,
   createCatch,
 }

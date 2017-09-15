@@ -185,6 +185,17 @@ var updateXPHandler = (req, res) => {
   })
 }
 
+var fetchAllCatchesHandler = (req, res) => {
+  Catch.fetchAll((err, catches) => {
+    if (err || !catches)
+      return res.status(500).json({ message: 'Error! Could not fetch catches.' })
+
+    res.json({
+      catches,
+    })
+  })
+}
+
 var createCatchHandler = (req, res) => {
   Catch.createCatch(req.body, req.user._id, (err, catchLoc) => {
     if (err || !catchLoc)
@@ -205,5 +216,6 @@ module.exports = {
   fetchCurrentTrainerHandler,
   verifyTrainer,
   updateXPHandler,
+  fetchAllCatchesHandler,
   createCatchHandler,
 }
