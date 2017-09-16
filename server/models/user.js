@@ -41,6 +41,7 @@ userSchema.methods.validatePassword = function(password) {
 
 userSchema.methods.toClientDto = function() {
   return {
+    _id: this._id,
     username: this.username,
     role: this.role,
     status: this.status,
