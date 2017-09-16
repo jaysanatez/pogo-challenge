@@ -2,16 +2,45 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { AsyncCreatable } from 'react-select'
 import toTitleCase from 'to-title-case'
+import _ from 'underscore'
+
 import 'react-select/dist/react-select.css'
+
+const getObjForGeoname = g => {
+  var name = g.name
+  if (g.adminName1) {
+    name += ', ' + g.adminName1
+  }
+
+  return {
+    id: g.geonameId,
+    name,
+    lat: g.lat,
+    lng: g.lng
+  }
+}
+
+const greedyFetch = (url, callback) => {
+  fetch(url)
+    .then(response => response.json())
+    .then(json => {
+      callback(null, {
+        options: json.geonames.map(g => getObjForGeoname(g)),
+      })
+    })
+}
 
 export default class LocationSearchInput extends Component {
   constructor(props) {
     super(props)
 
     this.selectedLocationValue = null
+    this.loadLocations = this.loadLocations.bind(this)
     this.onSelectLocationChange = this.onSelectLocationChange.bind(this)
     this.filterOptions = this.filterOptions.bind(this)
     this.onLocationInputChange = this.onLocationInputChange.bind(this)
+
+    this.lazyFetch = _.debounce(greedyFetch, 500)
   }
 
   onSelectLocationChange(value) {
@@ -25,28 +54,8 @@ export default class LocationSearchInput extends Component {
       return Promise.resolve({ options: [] })
     }
 
-    const getObjForGeoname = g => {
-      var name = g.name
-      if (g.adminName1) {
-        name += ', ' + g.adminName1
-      }
-
-      return {
-        id: g.geonameId,
-        name,
-        lat: g.lat,
-        lng: g.lng
-      }
-    }
-    
     const url = 'http://api.geonames.org/searchJSON?q=' + encodeURIComponent(input) + '&featureClass=P&country=US&fuzzy=0.5&username=jsanch'
-    return fetch(url)
-      .then(response => response.json())
-      .then(json => {
-        return {
-          options: json.geonames.map(g => getObjForGeoname(g)),
-        }
-      })
+    this.lazyFetch(url, callback)
   }
 
   onLocationInputChange(value) {
