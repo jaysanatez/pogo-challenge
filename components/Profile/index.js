@@ -29,7 +29,7 @@ export default class Profile extends Component {
       </div>) :
       null
 
-    var ownCatches = catches.filter(c => {
+    const ownCatches = catches.filter(c => {
       return c.userId == trainer._id
     })
 
@@ -38,7 +38,7 @@ export default class Profile extends Component {
         { flash }
         <ProfileHeader trainer={trainer}/>
         <UserXPTable updates={trainer.xpUpdates}/>
-        <UserCatchTable catches={catches}/>
+        <UserCatchTable catches={ownCatches}/>
 
         <UpdateXPModal
           onXPUpdate={onXPUpdate}

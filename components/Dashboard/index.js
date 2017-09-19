@@ -7,7 +7,7 @@ import CatchMap from './CatchMap'
 
 export default class Dashboard extends Component {
   render() {
-    const { trainer } = this.props
+    const { trainer, catches } = this.props
     if (!trainer) {
       return null
     }
@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
       <div className="mt-3">
         <XPGraph updates={updates}/>
         <LevelUpComponent updates={updates}/>
-        <CatchMap/>
+        <CatchMap trainer={trainer} catches={catches}/>
       </div>
     )
   }
@@ -25,4 +25,5 @@ export default class Dashboard extends Component {
 
 Dashboard.propTypes = {
   trainer: PropTypes.object,
+  catches: PropTypes.array.isRequired,
 }
