@@ -4,6 +4,7 @@ import { AsyncCreatable } from 'react-select'
 import toTitleCase from 'to-title-case'
 import _ from 'underscore'
 
+import { geonamesApiUser } from '../../../config'
 import 'react-select/dist/react-select.css'
 
 const getObjForGeoname = g => {
@@ -54,7 +55,7 @@ export default class LocationSearchInput extends Component {
       return Promise.resolve({ options: [] })
     }
 
-    const url = 'http://api.geonames.org/searchJSON?q=' + encodeURIComponent(input) + '&featureClass=P&country=US&fuzzy=0.5&username=jsanch'
+    const url = 'http://api.geonames.org/searchJSON?q=' + encodeURIComponent(input) + '&featureClass=P&country=US&fuzzy=0.5&username=' + geonamesApiUser
     this.lazyFetch(url, callback)
   }
 
