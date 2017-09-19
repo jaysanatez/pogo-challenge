@@ -8,5 +8,5 @@ export const imgStyle = {
 }
 
 export const getSrcForPokemonId = id => {
-  return require('../../../assets/images/' + id + '.png')
+  return require('../../../assets/pokemon/' + id + '.png')
 }

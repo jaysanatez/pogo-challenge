@@ -7,6 +7,19 @@ import MapStyle from './MapStyle'
 export class MapContainer extends Component {
 
   getMarkers(trainer, catches) {
+    const size = 30
+    const pokeball = {
+      url: require('../../assets/misc/pokeball.png'),
+      scaledSize: {
+        width: size,
+        height: size,
+      },
+      anchor: {
+        x: size / 2,
+        y: size / 2,
+      }
+    }
+
     var markers = []
     catches.filter(c => {
       return c.userId == trainer._id
@@ -19,6 +32,7 @@ export class MapContainer extends Component {
           key={c._id}
           title={c.locationName}
           position={c.cord}
+          icon={pokeball}
         />
       )
     })
@@ -52,12 +66,12 @@ export class MapContainer extends Component {
       draggable: false,
     }
 
-    const { trainer, catches } = this.props
+    const { google, trainer, catches } = this.props
     return (
       <Map
+        google={google}
         containerStyle={containerStyle}
         style={style}
-        google={this.props.google}
         initialCenter={centerOfUSA}
         zoom={4}
         styles={MapStyle}
