@@ -3,6 +3,7 @@ import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react'
 
 import { googleMapsKey } from '../../config'
 import MapStyle from './MapStyle'
+import Constants from './MapConstants'
 import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
 import { getPokemonForId } from '../../assets/utils'
 
@@ -25,19 +26,6 @@ export class MapContainer extends Component {
   }
 
   getMarkers(trainer, catches) {
-    const size = 30
-    const pokeball = {
-      url: require('../../assets/misc/pokeball.png'),
-      scaledSize: {
-        width: size,
-        height: size,
-      },
-      anchor: {
-        x: size / 2,
-        y: size / 2,
-      }
-    }
-
     var markers = []
     catches.filter(c => {
       return c.userId == trainer._id
@@ -50,7 +38,7 @@ export class MapContainer extends Component {
           key={c._id}
           title={c.locationName}
           position={c.cord}
-          icon={pokeball}
+          icon={Constants.markerConstants.pokeballIcon}
           onClick={ (props, marker) => this.updatePopupState(marker, c) }
         />
       )
@@ -62,32 +50,17 @@ export class MapContainer extends Component {
   getPopupForActiveMarker() {
     const { activeMarker, _catch } = this.state
     if (!activeMarker || !_catch)
-      return null
-
-    const imgSize = '75px'
-    const containerStyle = {
-      maxWidth: '200px',
-      height: imgSize,
-    }
+      return <div/>
 
     const imgSrc = require('../../assets/pokemon/' + _catch.pokemonId + '.png')
-    const imgStyle = {
-      height: imgSize,
-      width: imgSize,
-    }
-
-    const textStyle = {
-      fontSize: '9pt',
-    }
-
     const dateStr = formatDate(_catch.date, LONG_DATE_STRING)
     const pokemon = getPokemonForId(_catch.pokemonId)
 
     return (
-      <div className="container" style={containerStyle}>
+      <div className="container" style={Constants.popupConstants.popupStyle}>
         <div className="row">
-          <img src={imgSrc} style={imgStyle}/>
-          <div className="col" style={textStyle}>
+          <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
+          <div className="col" style={Constants.popupConstants.textStyle}>
             You caught a { pokemon.name } in { activeMarker.title } on { dateStr }
           </div>
         </div>
@@ -96,41 +69,16 @@ export class MapContainer extends Component {
   }
 
   render() {
-    const containerStyle = {
-      height: '500px',
-      width: '100%',
-      position: 'relative',
-    }
-
-    const style = {
-      height: '100%',
-      width: '100%',
-      position: 'relative',
-    }
-
-    const centerOfUSA = {
-      lat: 38.8258,
-      lng: -96.6852,
-    }
-
-    const dontMoveMap = {
-      zoomControl: false,
-      scaleControl: false,
-      scrollwheel: false,
-      disableDoubleClickZoom: true,
-      draggable: false,
-    }
-
     const { google, trainer, catches } = this.props
     return (
       <Map
         google={google}
-        containerStyle={containerStyle}
-        style={style}
-        initialCenter={centerOfUSA}
+        containerStyle={Constants.mapConstants.containerStyle}
+        style={Constants.mapConstants.mapStyle}
+        initialCenter={Constants.mapConstants.centerOfUSA}
         zoom={4}
         styles={MapStyle}
-        { ...dontMoveMap }
+        { ...Constants.mapConstants.dontMoveMap }
         onClick={ () => this.updatePopupState(null) }
       >
         { this.getMarkers(trainer, catches) }
@@ -138,9 +86,7 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showInfoWindow}
         >
-          <div>
-            { this.getPopupForActiveMarker() }
-          </div>
+          { this.getPopupForActiveMarker() }
         </InfoWindow>
       </Map>
     )
