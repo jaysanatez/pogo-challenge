@@ -10,6 +10,11 @@ import {
 } from '../../shared/utils'
 
 export default class UserXPTable extends Component {
+  constructor(props) {
+    super(props)
+    this.onXpUpdateClick = this.onXpUpdateClick.bind(this)
+  }
+
   onXpUpdateClick(event) {
     event.preventDefault()
   }
@@ -42,7 +47,7 @@ export default class UserXPTable extends Component {
           getRowFunc={this.buildRowFromUpdate}
         />
         <div className="row justify-content-end mt-3 mr-1">
-          <a href="#" data-toggle="modal" data-target="#xpUpdateModal" onClick={this.onXpUpdateClick.bind(this)}>Update XP</a>
+          <a href="#" data-toggle="modal" data-target="#xpUpdateModal" onClick={this.onXpUpdateClick}>Update XP</a>
         </div>
       </div>
     )

@@ -5,6 +5,11 @@ import LoadingThrobber from './shared/LoadingThrobber'
 import { Status } from '../shared/lookups'
 
 export default class Verify extends Component {
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+
   onClick(event) {
     const { password, confirm } = this.refs
     const { match, setStatus, verifyTrainer } = this.props
@@ -38,7 +43,7 @@ export default class Verify extends Component {
           <div className="form-group">
             <input type="password" className="form-control" ref="confirm" placeholder="Confirm Password"/>
           </div>
-          <button type="button" className="btn btn-primary" onClick={ this.onClick.bind(this) }>Complete</button>
+          <button type="button" className="btn btn-primary" onClick={this.onClick}>Complete</button>
         </form>
       </div>
     )
