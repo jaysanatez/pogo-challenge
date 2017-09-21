@@ -71,7 +71,7 @@ const popupConstants = {
 
 const size = 30
 const pokeballIcon = {
-  url: require('../../assets/misc/pokeball.png'),
+  url: require('../../../assets/misc/pokeball.png'),
   scaledSize: {
     width: size,
     height: size,

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Constants from './MapConstants'
-import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
-import { getPokemonForId } from '../../assets/utils'
+import { formatDate, LONG_DATE_STRING } from '../../../shared/utils'
+import { getPokemonForId } from '../../../assets/utils'
 
 export default class MapPopup extends Component {
   
@@ -12,7 +12,7 @@ export default class MapPopup extends Component {
     if (!activeMarker || !_catch)
       return <div/>
 
-    const imgSrc = require('../../assets/pokemon/' + _catch.pokemonId + '.png')
+    const imgSrc = require('../../../assets/pokemon/' + _catch.pokemonId + '.png')
     const dateStr = formatDate(_catch.date, LONG_DATE_STRING)
     const pokemon = getPokemonForId(_catch.pokemonId)
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react'
 
-import { googleMapsKey } from '../../config'
+import { googleMapsKey } from '../../../config'
 import MapStyle from './MapStyle'
 import Constants from './MapConstants'
 import MapPopup from './MapPopup'
-import { MapScopes } from '../../app/displayOptions'
+import { MapScopes } from '../../../app/displayOptions'
 
 export class MapContainer extends Component {
   constructor(props) {

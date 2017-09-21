@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { MapScopes } from '../../app/displayOptions'
+import { MapScopes } from '../../../app/displayOptions'
 
 export default class MapHeader extends Component {
   constructor(props) {
