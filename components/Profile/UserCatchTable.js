@@ -9,6 +9,11 @@ import {
 } from '../../shared/utils'
 
 export default class UserCatchTable extends Component {
+  constructor(props) {
+    super(props)
+    this.onAddCatchClick = this.onAddCatchClick.bind(this)
+  }
+
   onAddCatchClick(event) {
     event.preventDefault()
   }
@@ -48,7 +53,7 @@ export default class UserCatchTable extends Component {
           getRowFunc={this.buildRowFromCatch}
         />
         <div className="row justify-content-end mt-3 mr-1">
-          <a href="#" data-toggle="modal" data-target="#addCatchModal" onClick={this.onAddCatchClick.bind(this)}>Add Catch</a>
+          <a href="#" data-toggle="modal" data-target="#addCatchModal" onClick={this.onAddCatchClick}>Add Catch</a>
         </div>
       </div>
     )

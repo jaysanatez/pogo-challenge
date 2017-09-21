@@ -51,12 +51,12 @@ class App extends Component {
       fetchCatches,
     } = this.props
 
-    if (trainer && !trainer.xpUpdates) {
+    if (this.isVerifiedTrainer(trainer) && !trainer.xpUpdates) {
       fetchCurrentTrainer()
       return (<LoadingThrobber/>)
     }
 
-    if (trainer && !catches) {
+    if (this.isVerifiedTrainer(trainer) && !catches) {
       fetchCatches()
       return (<LoadingThrobber/>)
     }

@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+
   onClick(event) {
     const { username, password } = this.refs
     const creds = { 
@@ -21,7 +26,7 @@ export default class Login extends Component {
           <button
             className="btn my-sm-0"
             type="submit"
-            onClick={ this.onClick.bind(this)}
+            onClick={this.onClick}
             style={{cursor:"pointer"}}
           >
             Login

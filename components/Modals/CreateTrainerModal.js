@@ -10,6 +10,11 @@ import {
 } from '../../shared/lookups'
 
 export default class CreateTrainerModal extends Component {
+  constructor(props) {
+    super(props)
+    this.onClick = this.onClick.bind(this)
+  }
+
   renderEnumOptions(Enum, stringMap) {
     var options = []
     Object.keys(Enum).forEach(e => {
@@ -37,7 +42,7 @@ export default class CreateTrainerModal extends Component {
         id="createTrainerModal"
         title="Add Trainer"
         buttonText="Create"
-        onClick={this.onClick.bind(this)}
+        onClick={this.onClick}
       >
         <form>
           <div className="form-group">
