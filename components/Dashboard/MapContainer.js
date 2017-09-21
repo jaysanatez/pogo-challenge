@@ -4,8 +4,8 @@ import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react'
 import { googleMapsKey } from '../../config'
 import MapStyle from './MapStyle'
 import Constants from './MapConstants'
-import { formatDate, LONG_DATE_STRING } from '../../shared/utils'
-import { getPokemonForId } from '../../assets/utils'
+import MapPopup from './MapPopup'
+import { MapScopes } from '../../app/displayOptions'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -47,36 +47,22 @@ export class MapContainer extends Component {
     return markers
   }
 
-  getPopupForActiveMarker() {
-    const { activeMarker, _catch } = this.state
-    if (!activeMarker || !_catch)
-      return <div/>
-
-    const imgSrc = require('../../assets/pokemon/' + _catch.pokemonId + '.png')
-    const dateStr = formatDate(_catch.date, LONG_DATE_STRING)
-    const pokemon = getPokemonForId(_catch.pokemonId)
-
-    return (
-      <div className="container" style={Constants.popupConstants.popupStyle}>
-        <div className="row">
-          <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
-          <div className="col" style={Constants.popupConstants.textStyle}>
-            You caught a { pokemon.name } in { activeMarker.title } on { dateStr }
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   render() {
-    const { google, trainer, catches } = this.props
+    const {
+      google,
+      trainer,
+      catches,
+      mapScope,
+    } = this.props
+
     return (
       <Map
         google={google}
         containerStyle={Constants.mapConstants.containerStyle}
         style={Constants.mapConstants.mapStyle}
-        initialCenter={Constants.mapConstants.centerOfUSA}
-        zoom={4}
+        initialCenter={Constants.mapConstants.centers[mapScope]}
+        center={Constants.mapConstants.centers[mapScope]}
+        zoom={Constants.mapConstants.zoomLevels[mapScope]}
         styles={MapStyle}
         { ...Constants.mapConstants.dontMoveMap }
         onClick={ () => this.updatePopupState(null) }
@@ -86,7 +72,7 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showInfoWindow}
         >
-          { this.getPopupForActiveMarker() }
+          <MapPopup state={this.state}/>
         </InfoWindow>
       </Map>
     )

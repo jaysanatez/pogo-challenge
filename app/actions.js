@@ -1,6 +1,5 @@
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
-export const SET_STATUS = 'SET_STATUS'
 
 export const FETCH_TRAINERS = 'FETCH_TRAINERS'
 export const CREATE_TRAINER = 'CREATE_TRAINER'
@@ -12,10 +11,20 @@ export const UPDATE_TRAINER = 'UPDATE_TRAINER'
 export const CREATE_CATCH = 'CREATE_CATCH'
 export const FETCH_CATCHES = 'FETCH_CATCHES'
 
+export const SET_STATUS = 'SET_STATUS'
+export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
+
 export function setStatus(message) {
   return {
     type: SET_STATUS,
     message,
+  }
+}
+
+export function setMapScope(scope) {
+  return {
+    type: SET_MAP_SCOPE,
+    scope,
   }
 }
 

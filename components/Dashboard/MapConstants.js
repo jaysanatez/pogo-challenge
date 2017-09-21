@@ -12,9 +12,15 @@ const mapStyle = {
   position: 'relative',
 }
 
-const centerOfUSA = {
-  lat: 38.8258,
-  lng: -96.6852,
+const centers = {
+  USA: {
+    lat: 38.8258,
+    lng: -96.6852,
+  },
+  World: {
+    lat: 27.5,
+    lng: 0.05,
+  },
 }
 
 const dontMoveMap = {
@@ -25,11 +31,17 @@ const dontMoveMap = {
   draggable: false,
 }
 
+const zoomLevels = {
+  USA: 4,
+  World: 2,
+}
+
 const mapConstants = {
   containerStyle,
   mapStyle,
-  centerOfUSA,
+  centers,
   dontMoveMap,
+  zoomLevels,
 }
 
 // popup constants
