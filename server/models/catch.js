@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 var Moment   = require('moment')
 var utils    = require('../../shared/utils')
+var geocoder = require('../geocoder')
 
 var Schema   = mongoose.Schema
 var ObjectId = Schema.Types.ObjectId
@@ -42,11 +43,25 @@ var createCatch = (data, userId, next) => {
       lat: loc.lat,
       lng: loc.lng,
     }
-  } else {
-    // get it from the geocoding service
-  }
 
-  newCatch.save(next)
+    newCatch.save(next)
+  } else {
+    var callback = (err, _catch) => {
+      if (err) {
+        next(err, null)
+        return
+      }
+
+      if (!_catch) {
+        next('Error! The catch could not be saved.', null)
+        return
+      }
+
+      _catch.save(next)
+    }
+
+    geocoder.getCoordinates(newCatch, callback)
+  }
 }
 
 module.exports = {
