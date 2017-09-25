@@ -1,55 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Moment from 'moment'
 import commaNumber from 'comma-number'
-import toPercentage from 'to-percentage'
 
+import { calculateLevelUpData } from './levelUpCalculator'
 import {
   LONG_DATE_STRING,
-  minXPForLevel,
-  getLevelForXP,
   getTrainerLevel,
 } from '../../shared/utils'
 
 const lastN = 7
-
 export default class LevelUpComponent extends Component {
-  calcXpTilNextLevel(xp) {
-    const level = parseInt(getLevelForXP(xp))
-    const nextLevel = level + 1
-    const currentLevelXp = minXPForLevel[level]
-    const rawPercent = (xp - currentLevelXp) / (minXPForLevel[nextLevel] - currentLevelXp)
-
-    return {
-      nextLevel,
-      xpTilNextLevel: minXPForLevel[nextLevel] - xp,
-      percentTowardsNextLevel: toPercentage(rawPercent, 1)
-    }
-  }
-
-  createLevelUpData(updates) {
-    updates.sort((u1, u2) => {
-      return new Date(u1.date) - new Date(u2.date)
-    })
-
-    const num = Math.min(lastN, updates.length)
-    const lastNUpdates = updates.slice(updates.length - num)
-
-    const dailyAvg = parseInt((lastNUpdates[num - 1].value - lastNUpdates[0].value) / (num - 1))
-    const { nextLevel, xpTilNextLevel, percentTowardsNextLevel } = this.calcXpTilNextLevel(lastNUpdates[num - 1].value)
-    const daysTilNextLevel =  Math.ceil(xpTilNextLevel / dailyAvg)
-    const projectedLevelUpDate = Moment().add(daysTilNextLevel, 'days').format(LONG_DATE_STRING)
-
-    return {
-      dailyAvg,
-      nextLevel,
-      xpTilNextLevel,
-      daysTilNextLevel,
-      projectedLevelUpDate,
-      percentTowardsNextLevel,
-    }
-  }
-
   render() {
     const { updates } = this.props
 
@@ -58,7 +18,7 @@ export default class LevelUpComponent extends Component {
       return null
     }
 
-    const data = this.createLevelUpData(updates)
+    const data = calculateLevelUpData(updates, lastN)
     return (
       <div className="mt-3">
         <div className="card mt-3">
