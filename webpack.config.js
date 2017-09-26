@@ -16,6 +16,12 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        GOOGLE_MAPS_KEY: JSON.stringify(process.env.GOOGLE_MAPS_KEY),
+        GEONAMES_API_USER: JSON.stringify(process.env.GEONAMES_API_USER),
+      },
+    })
   ],
   module: {
     loaders: [{

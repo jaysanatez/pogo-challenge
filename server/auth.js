@@ -9,7 +9,7 @@ var JwtStrategy = passportJwt.Strategy
 
 var jwtOptions = {}
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
-jwtOptions.secretOrKey = config.getConfigValue('jwtSecret')
+jwtOptions.secretOrKey = config.getConfigValue('JWT_SECRET')
 
 var addAuth = app => {
   var strategy = new JwtStrategy(jwtOptions, (jwtPayload, next) => {

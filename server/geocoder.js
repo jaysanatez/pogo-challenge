@@ -4,7 +4,7 @@ var config   = require('../config')
 const options = {
   provider: 'google',
   formatter: null,
-  apiKey: config.getConfigValue('googleMapsKey'),
+  apiKey: config.getConfigValue('GOOGLE_MAPS_KEY'),
 }
 
 const geocoder = Geocoder(options)
