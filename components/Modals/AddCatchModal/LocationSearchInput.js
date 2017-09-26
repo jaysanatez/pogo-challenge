@@ -57,7 +57,7 @@ export default class LocationSearchInput extends Component {
 
     const q = encodeURIComponent(input)
     const user = getConfigValue('GEONAMES_API_USER')
-    const url = 'https://api.geonames.org/searchJSON?q=' + q + '&featureClass=P&country=US&fuzzy=0.5&username=' + user
+    const url = 'https://secure.geonames.org/searchJSON?q=' + q + '&featureClass=P&country=US&fuzzy=0.5&username=' + user
     this.lazyFetch(url, callback)
   }
 

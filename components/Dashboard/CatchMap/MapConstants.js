@@ -24,11 +24,7 @@ const centers = {
 }
 
 const dontMoveMap = {
-  zoomControl: false,
-  scaleControl: false,
   scrollwheel: false,
-  disableDoubleClickZoom: true,
-  draggable: false,
 }
 
 const zoomLevels = {

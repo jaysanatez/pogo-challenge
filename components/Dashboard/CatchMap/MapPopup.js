@@ -21,7 +21,7 @@ export default class MapPopup extends Component {
         <div className="row">
           <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
           <div className="col" style={Constants.popupConstants.textStyle}>
-            You caught a { pokemon.name } in { activeMarker.title } on { dateStr }
+            { pokemon.name } was caught in { activeMarker.title } on { dateStr }.
           </div>
         </div>
       </div>
