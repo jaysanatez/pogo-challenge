@@ -31,7 +31,7 @@ export default class UserCatchTable extends Component {
       null
 
     return (
-      <tr key={ new Date(c.date).getTime() }>
+      <tr key={ c._id }>
         <td>{ pokemon ? pokemon.name : '' }</td>
         <td>{ c.locationName }</td>
         <td>{ formatDate(c.date, LONG_DATE_STRING) }</td>
