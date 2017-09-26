@@ -10,7 +10,7 @@ var addRoutes             = require('./server/addRoutes')
 var db                    = require('./server/db')
 
 var app = new express()
-var port = 8000
+var port = process.env.PORT || 8000
 
 // FRONT_END
 
