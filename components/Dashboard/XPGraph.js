@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
+import Moment from 'moment'
 
 import {
   formatDate,
@@ -31,12 +32,16 @@ export default class XPGraph extends Component {
     }
 
     var highestXp = 0
+    var ticks = []
     var data = []
+
     updates.forEach(u => {
       highestXp = Math.max(highestXp, u.value)
-      const date = new Date(u.date)
+      const date = new Date(u.date).getTime()
+
+      ticks.push(date)
       data.push({
-        date: formatDate(date, SHORT_DATE_STRING),
+        date,
         value: u.value,
       })
     })
@@ -46,6 +51,7 @@ export default class XPGraph extends Component {
     return {
       data,
       nextLevelXp,
+      ticks,
     }
   }
 
@@ -63,9 +69,10 @@ export default class XPGraph extends Component {
       return null
     }
 
-    const { data, nextLevelXp } = this.createXpData(updates)
+    const { data, nextLevelXp, ticks } = this.createXpData(updates)
     const { mult, label } = this.getXpGraphScale(data)
     const userColor = '#4285F4'
+    const timeToDateString = time => Moment(time).format(SHORT_DATE_STRING)
 
     return (
       <div>
@@ -80,6 +87,10 @@ export default class XPGraph extends Component {
             <XAxis
               dataKey="date"
               padding={{ left: 10, right: 10 }}
+              type="number"
+              domain={['dataMin', 'dataMax']}
+              tickFormatter={timeToDateString}
+              ticks={ticks}
             />
             <YAxis
               type="number"
@@ -88,7 +99,7 @@ export default class XPGraph extends Component {
               tickFormatter={lab => lab / mult}
             />
             <ReferenceLine y={nextLevelXp} stroke={userColor} strokeDasharray="3 3" />
-            <Tooltip formatter={val => commaNumber(val)}/>
+            <Tooltip formatter={val => commaNumber(val)} labelFormatter={timeToDateString} />
           </LineChart>
         </ResponsiveContainer>
       </div>
