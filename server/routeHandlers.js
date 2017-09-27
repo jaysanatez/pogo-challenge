@@ -105,7 +105,7 @@ var verifyTrainer = (req, res) => {
     // update user
     user.password = req.body.password
     user.status = Lookups.Status.VERIFIED
-    user.lastUpdated = new Date()
+    user.lastUpdated = Moment.utc()
 
     user.save((err, user) => {
       if (err || !user)
@@ -177,7 +177,7 @@ var updateXPHandler = (req, res) => {
       user.xpUpdates = user.xpUpdates.concat(req.body)
     }
 
-    user.lastUpdated = new Date()
+    user.lastUpdated = Moment.utc()
     user.save((err, user) => {
       if (err || !user)
         return res.status(500).json({ message: 'Error! Could not save the user changes.' })
