@@ -15,7 +15,7 @@ var userSchema = new Schema({
   team: Number,
   xpUpdates: [{
   	value: Number,
-  	date: Date,
+  	date: String,
   }],
 })
 
@@ -69,7 +69,7 @@ var createNewUser = (data, next) => {
   var newUser = new model()
   Object.assign(newUser, data)
 
-  newUser.lastUpdated = new Date()
+  newUser.lastUpdated = Moment.utc()
   newUser.xpUpdates = []
   newUser.status = Lookups.Status.CREATED
 

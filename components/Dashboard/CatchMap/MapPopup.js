@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Constants from './MapConstants'
-import { formatDate, LONG_DATE_STRING } from '../../../shared/utils'
 import { getPokemonForId } from '../../../assets/utils'
 
 export default class MapPopup extends Component {
@@ -13,7 +12,6 @@ export default class MapPopup extends Component {
       return <div/>
 
     const imgSrc = require('../../../assets/pokemon/' + _catch.pokemonId + '.png')
-    const dateStr = formatDate(_catch.date, LONG_DATE_STRING)
     const pokemon = getPokemonForId(_catch.pokemonId)
 
     return (
@@ -21,7 +19,7 @@ export default class MapPopup extends Component {
         <div className="row">
           <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
           <div className="col" style={Constants.popupConstants.textStyle}>
-            { pokemon.name } was caught in { activeMarker.title } on { dateStr }.
+            { pokemon.name } was caught in { activeMarker.title } on { _catch.date }.
           </div>
         </div>
       </div>

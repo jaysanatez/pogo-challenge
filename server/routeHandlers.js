@@ -105,7 +105,7 @@ var verifyTrainer = (req, res) => {
     // update user
     user.password = req.body.password
     user.status = Lookups.Status.VERIFIED
-    user.lastUpdated = new Date()
+    user.lastUpdated = Moment.utc()
 
     user.save((err, user) => {
       if (err || !user)
@@ -122,13 +122,14 @@ var verifyTrainer = (req, res) => {
 //  2. there is a previous update with greater xp
 //  3. there is a future update with less xp
 var verifyXpUpdate = (updates, update) => {
-  if (Moment().diff(update.date, 'days') < 0)
+  var d = Moment(update.date)
+  if (Moment().diff(d, 'days') < 0)
     return 'Error! You cannot post updates for future dates.'
 
   var message
   updates.forEach(u => {
     // negative if update is more recent
-    const dateDiff = Moment(u.date).diff(update.date, 'days')
+    const dateDiff = Moment(u.date).diff(d, 'days')
     const valDiff = u.value - update.value
 
     // value will be negative if corrupt case 1 or 2 are true
@@ -160,8 +161,6 @@ var updateXPHandler = (req, res) => {
       return res.status(500).json({ message: 'Error! Insufficient data provided.'})
     }
 
-    update.date = Moment(update.date, utils.LONG_DATE_STRING)
-
     const message = verifyXpUpdate(user.xpUpdates, update)
     if (message)
       return res.status(500).json({ message })
@@ -177,7 +176,7 @@ var updateXPHandler = (req, res) => {
       user.xpUpdates = user.xpUpdates.concat(req.body)
     }
 
-    user.lastUpdated = new Date()
+    user.lastUpdated = Moment.utc()
     user.save((err, user) => {
       if (err || !user)
         return res.status(500).json({ message: 'Error! Could not save the user changes.' })
