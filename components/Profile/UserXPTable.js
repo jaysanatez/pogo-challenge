@@ -4,8 +4,6 @@ import commaNumber from 'comma-number'
 
 import ProfileTable from './ProfileTable'
 import {
-  formatDate,
-  LONG_DATE_STRING,
   getLevelForXP,
 } from '../../shared/utils'
 
@@ -30,7 +28,7 @@ export default class UserXPTable extends Component {
       <tr key={ new Date(u.date).getTime() }>
         <td>{ commaNumber(u.value) }</td>
         <td>{ getLevelForXP(u.value) }</td>
-        <td>{ formatDate(u.date, LONG_DATE_STRING) }</td>
+        <td>{ u.date }</td>
       </tr>
     )
   }

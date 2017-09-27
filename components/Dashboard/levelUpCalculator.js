@@ -25,13 +25,15 @@ export function calculateLevelUpData(updates, lastN) {
     return new Date(u1.date) - new Date(u2.date)
   })
 
+  const createDate = date => Moment(new Date(date))
+
   const num = Math.min(lastN, updates.length)
   const lastNUpdates = updates.slice(updates.length - num)
 
   const update0 = lastNUpdates[0]
   const updateN = lastNUpdates[num - 1]
-  const dateN = Moment(updateN.date)
-  const daysBetween = dateN.diff(Moment(update0.date), 'days')
+  const dateN = createDate(updateN.date)
+  const daysBetween = dateN.diff(createDate(update0.date), 'days')
 
   const dailyAvg = parseInt((updateN.value - update0.value) / daysBetween)
   const { nextLevel, xpTilNextLevel, percentTowardsNextLevel } = calcXpTilNextLevel(lastNUpdates[num - 1].value)

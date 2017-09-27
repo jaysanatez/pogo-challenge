@@ -34,8 +34,9 @@ export default class XPGraph extends Component {
     var data = []
     updates.forEach(u => {
       highestXp = Math.max(highestXp, u.value)
+      const date = new Date(u.date)
       data.push({
-        date: formatDate(u.date, SHORT_DATE_STRING),
+        date: formatDate(date, SHORT_DATE_STRING),
         value: u.value,
       })
     })
