@@ -15,8 +15,22 @@ import {
 
 export default class Trainers extends Component {
   renderTableData() {
-    const { trainer, trainers, onTrainerDelete } = this.props
+    const {
+      trainer,
+      trainers,
+      catches,
+      onTrainerDelete,
+    } = this.props
     var rows = []
+    var catchMap = {}
+
+    catches.forEach(c => {
+      const id = c.userId
+      if (catchMap[id])
+        catchMap[id] += 1
+      else
+        catchMap[id] = 1
+    })
 
     var onDelete = trainer => {
       return evt => {
@@ -35,6 +49,7 @@ export default class Trainers extends Component {
         </button>) :
         null
 
+      const defaultCount = t.status == Status.VERIFIED ? 0 : ''
       rows.push(
         <tr key={t.username}>
           <td>{ t.username }</td>
@@ -42,6 +57,7 @@ export default class Trainers extends Component {
           <td>{ StatusStrings[t.status] }</td>
           <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
+          <td>{ catchMap[t._id] || defaultCount }</td>
           <td>{ formatDate(t.lastUpdated, DATE_TIME_STRING) }</td>
           <td>
             { button }
@@ -73,6 +89,7 @@ export default class Trainers extends Component {
               <th>Status</th>
               <th>Role</th>
               <th># XP Updates</th>
+              <th># Catches</th>
               <th>Last Updated</th>
               <th>Actions</th>
             </tr>
@@ -91,6 +108,7 @@ export default class Trainers extends Component {
 Trainers.propTypes = {
   trainer: PropTypes.object,
   trainers: PropTypes.array.isRequired,
+  catches: PropTypes.array.isRequired,
   onTrainerCreate: PropTypes.func.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,
 }
