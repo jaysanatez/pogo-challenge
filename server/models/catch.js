@@ -1,6 +1,4 @@
 var mongoose = require('mongoose')
-var Moment   = require('moment')
-var utils    = require('../../shared/utils')
 var geocoder = require('../geocoder')
 
 var Schema   = mongoose.Schema
@@ -9,7 +7,7 @@ var ObjectId = Schema.Types.ObjectId
 var catchSchema = new Schema({
   userId: ObjectId,
   pokemonId: Number,
-  date: Date,
+  date: String,
   locationName: String,
   cord: {
   	lat: Number,
@@ -35,7 +33,7 @@ var createCatch = (data, userId, next) => {
 
   newCatch.pokemonId = data.pokemonId
   newCatch.userId = userId
-  newCatch.date = Moment(data.date, utils.LONG_DATE_STRING)
+  newCatch.date = data.date
   newCatch.locationName = loc.name
 
   if (loc.lat && loc.lng) {

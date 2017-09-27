@@ -3,10 +3,6 @@ import PropTypes from 'prop-types'
 
 import ProfileTable from './ProfileTable'
 import { getPokemonForId } from '../../assets/utils'
-import {
-  formatDate,
-  LONG_DATE_STRING,
-} from '../../shared/utils'
 
 export default class UserCatchTable extends Component {
   constructor(props) {
@@ -34,7 +30,7 @@ export default class UserCatchTable extends Component {
       <tr key={ c._id }>
         <td>{ pokemon ? pokemon.name : '' }</td>
         <td>{ c.locationName }</td>
-        <td>{ formatDate(c.date, LONG_DATE_STRING) }</td>
+        <td>{ c.date }</td>
         <td>{ check }</td>
       </tr>
     )
