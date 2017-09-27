@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-import { MapScopes } from './displayOptions'
+import { MapScopes, UserScopes } from './displayOptions'
 import {
   LOGIN,
   LOGOUT,
   SET_STATUS,
   SET_MAP_SCOPE,
+  SET_USER_SCOPE,
   FETCH_TRAINERS,
   CREATE_TRAINER,
   DELETE_TRAINER,
@@ -16,7 +17,7 @@ import {
 } from './actions'
 
 const trainerActions = [LOGIN, LOGOUT, SET_STATUS, FETCH_TRAINER, VERIFY_TRAINER, UPDATE_TRAINER]
-const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES, SET_MAP_SCOPE]
+const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES, SET_MAP_SCOPE, SET_USER_SCOPE]
 
 function trainerReducer(state = {
   trainer: JSON.parse(localStorage.getItem('trainer')),
@@ -42,6 +43,7 @@ function dashboardReducer(state = {
   trainers: [],
   catches: null,
   mapScope: MapScopes.USA,
+  userScope: UserScopes.ME,
 }, action) {
   if (dashboardActions.indexOf(action.type) == -1)
     return state
@@ -49,6 +51,7 @@ function dashboardReducer(state = {
   var trainers = action.trainers || state.trainers
   var catches = action.catches || state.catches
   var mapScope = action.scope ||  state.mapScope
+  var userScope = action.scope || state.userScope
   var message = action.message
 
   if (action.type == CREATE_TRAINER && action.trainer) {
@@ -70,6 +73,7 @@ function dashboardReducer(state = {
     trainers,
     catches,
     mapScope,
+    userScope,
     message,
   }
 }

@@ -1,4 +1,4 @@
-import { setStatus, setMapScope } from '../app/actions'
+import { setStatus, setMapScope, setUserScope } from '../app/actions'
 import {
   loginTrainer,
   logoutTrainer,
@@ -25,7 +25,7 @@ function consolidateMessageFromReducers(reducers) {
 export const mapStateToProps = state => {
   const { trainerReducer, dashboardReducer } = state
   const { trainer } = trainerReducer
-  const { trainers, catches, mapScope } = dashboardReducer
+  const { trainers, catches, mapScope, userScope } = dashboardReducer
 
   const message = consolidateMessageFromReducers([
     trainerReducer,
@@ -38,6 +38,7 @@ export const mapStateToProps = state => {
     trainers,
     catches,
     mapScope,
+    userScope,
   }
 }
 
@@ -79,8 +80,11 @@ export const mapDispatchToProps = dispatch => {
     fetchCatches: () => {
       fetchCatches(dispatch)
     },
-    setMapScope : scope => {
+    setMapScope: scope => {
       dispatch(setMapScope(scope))
     },
+    setUserScope: scope => {
+      dispatch(setUserScope(scope))
+    }
   }
 }
