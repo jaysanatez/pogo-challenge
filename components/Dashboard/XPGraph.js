@@ -60,19 +60,21 @@ export default class XPGraph extends Component {
     const { data, nextLevelXps } = this.createXpData(trainersToShow)
     const { mult, label } = this.getXpGraphScale(data)
     const highestNextLevelUp = Math.max.apply(null, Object.values(nextLevelXps))
-
-    const userColor = '#4285F4'
     const timeToDateString = time => Moment(time).format(SHORT_DATE_STRING)
+
+    const colors = ['#0099CC', '#00C851', '#FF8800', '#FF4444']
+    const colorMap = {}
+    trainers.forEach((t, idx) => colorMap[t.username] = colors[idx])
 
     const lines = []
     const refLines = []
     Object.keys(nextLevelXps).forEach(k => {
       lines.push(
-        <Line key={k + '-line'} type="monotone" dataKey={k} stroke={userColor}/>
+        <Line key={k + '-line'} type="monotone" dataKey={k} stroke={colorMap[k]}/>
       )
 
       refLines.push(
-        <ReferenceLine key={k + '-ref'} y={nextLevelXps[k]} stroke={userColor} strokeDasharray="3 3" /> // todo: color based off k
+        <ReferenceLine key={k + '-ref'} y={nextLevelXps[k]} stroke={colorMap[k]} strokeDasharray="3 3" />
       )
     })
 
