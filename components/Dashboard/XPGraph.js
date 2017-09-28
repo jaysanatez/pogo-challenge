@@ -18,7 +18,11 @@ import {
   YAxis,
   Tooltip,
   ReferenceLine,
+  Legend,
 } from 'recharts'
+
+const BASE_HEIGHT = 300
+const LEGEND_HEIGHT = 40
 
 export default class XPGraph extends Component {
   createXpData(trainers) {
@@ -50,9 +54,15 @@ export default class XPGraph extends Component {
     }
   }
 
+  getLegend(justMe) {
+    return justMe ? null : 
+      (<Legend verticalAlign="bottom" height={LEGEND_HEIGHT}/>)
+  }
+
   render() {
     const { trainer, trainers, userScope } = this.props
-    const trainersToShow = userScope == UserScopes.ME ? [trainer] : trainers
+    const justMe = userScope == UserScopes.ME
+    const trainersToShow = justMe ? [trainer] : trainers
     if (!trainersToShow.length) {
       return null
     }
@@ -84,10 +94,11 @@ export default class XPGraph extends Component {
           XP Growth
           <small className="text-muted ml-2">In { label }</small>
         </h3>
-        <ResponsiveContainer height={300} width="100%" className="mt-3">
+        <ResponsiveContainer height={justMe ? BASE_HEIGHT : (BASE_HEIGHT + LEGEND_HEIGHT) } width="100%" className="mt-3">
           <LineChart data={data}>
             { lines }
             { refLines }
+            { this.getLegend(justMe) }
             <CartesianGrid stroke="#ccc"/>
             <XAxis
               dataKey="date"
