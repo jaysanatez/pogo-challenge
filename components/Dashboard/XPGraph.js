@@ -80,7 +80,7 @@ export default class XPGraph extends Component {
     const refLines = []
     Object.keys(nextLevelXps).forEach(k => {
       lines.push(
-        <Line key={k + '-line'} type="monotone" dataKey={k} stroke={colorMap[k]}/>
+        <Line key={k + '-line'} type="monotone" dataKey={k} stroke={colorMap[k]} connectNulls={true}/>
       )
 
       refLines.push(
