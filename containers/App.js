@@ -46,9 +46,11 @@ class App extends Component {
   renderBody() {
     const {
       trainer,
+      trainers,
       catches,
       fetchCurrentTrainer,
       fetchCatches,
+      fetchTrainers,
     } = this.props
 
     if (this.isVerifiedTrainer(trainer) && !trainer.xpUpdates) {
@@ -58,6 +60,11 @@ class App extends Component {
 
     if (this.isVerifiedTrainer(trainer) && !catches) {
       fetchCatches()
+      return (<LoadingThrobber/>)
+    }
+
+    if (this.isVerifiedTrainer(trainer) && !trainers.length) {
+      fetchTrainers()
       return (<LoadingThrobber/>)
     }
 

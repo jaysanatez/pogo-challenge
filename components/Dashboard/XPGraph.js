@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
 import Moment from 'moment'
 
+import { UserScopes } from '../../app/displayOptions'
+import mergeTrainerData from './mergeTrainerData'
 import {
   formatDate,
   SHORT_DATE_STRING,
-  minXPForLevel,
-  getLevelForXP,
 } from '../../shared/utils'
 import {
   ResponsiveContainer,
@@ -21,58 +21,60 @@ import {
 } from 'recharts'
 
 export default class XPGraph extends Component {
-  createXpData(updates) {
-    updates.sort((u1, u2) => {
-      return new Date(u1.date) - new Date(u2.date)
+  createXpData(trainers) {
+    var { data, nextLevelXps } = mergeTrainerData(trainers)
+
+    data.sort((a, b) => {
+      return new Date(a.date) - new Date(b.date)
     })
 
-    const UPDATE_LIMIT = 30
-    if (updates.length > UPDATE_LIMIT) {
-      updates = updates.slice(0, UPDATE_LIMIT)
+    const DATA_LIMIT = 30
+    if (data.length > DATA_LIMIT) {
+      data = data.slice(data.length - DATA_LIMIT)
     }
 
-    var highestXp = 0
-    var ticks = []
-    var data = []
-
-    updates.forEach(u => {
-      highestXp = Math.max(highestXp, u.value)
-      const date = new Date(u.date).getTime()
-
-      ticks.push(date)
-      data.push({
-        date,
-        value: u.value,
-      })
-    })
-
-    const level = parseInt(getLevelForXP(highestXp))
-    const nextLevelXp = minXPForLevel[level + 1]
     return {
       data,
-      nextLevelXp,
-      ticks,
+      nextLevelXps,
     }
   }
 
   getXpGraphScale(data) {
-    const mult = data.find(d => d.value > 1000000) ? 1000000 : 1000
+    const mil = 1000000
+    const mult = data.some(d => {
+      return Object.keys(d).some(k => k != 'date' && d[k] > mil)
+    }) ? mil : 1000
     return {
       mult,
-      label: mult == 1000000 ? 'Millions' : 'Thousands'
+      label: mult == mil ? 'Millions' : 'Thousands'
     }
   }
 
   render() {
-    const { updates } = this.props
-    if (!updates.length) {
+    const { trainer, trainers, userScope } = this.props
+    const trainersToShow = userScope == UserScopes.ME ? [trainer] : trainers
+    if (!trainersToShow.length) {
       return null
     }
 
-    const { data, nextLevelXp, ticks } = this.createXpData(updates)
+    const { data, nextLevelXps } = this.createXpData(trainersToShow)
     const { mult, label } = this.getXpGraphScale(data)
+    const highestNextLevelUp = Math.max.apply(null, Object.values(nextLevelXps))
+
     const userColor = '#4285F4'
     const timeToDateString = time => Moment(time).format(SHORT_DATE_STRING)
+
+    const lines = []
+    const refLines = []
+    Object.keys(nextLevelXps).forEach(k => {
+      lines.push(
+        <Line key={k + '-line'} type="monotone" dataKey={k} stroke={userColor}/>
+      )
+
+      refLines.push(
+        <ReferenceLine key={k + '-ref'} y={nextLevelXps[k]} stroke={userColor} strokeDasharray="3 3" /> // todo: color based off k
+      )
+    })
 
     return (
       <div>
@@ -82,7 +84,8 @@ export default class XPGraph extends Component {
         </h3>
         <ResponsiveContainer height={300} width="100%" className="mt-3">
           <LineChart data={data}>
-            <Line type="monotone" dataKey="value" stroke={userColor}/>
+            { lines }
+            { refLines }
             <CartesianGrid stroke="#ccc"/>
             <XAxis
               dataKey="date"
@@ -90,15 +93,14 @@ export default class XPGraph extends Component {
               type="number"
               domain={['dataMin', 'dataMax']}
               tickFormatter={timeToDateString}
-              ticks={ticks}
+              ticks={data.map(d => d.date)}
             />
             <YAxis
               type="number"
-              domain={['auto', nextLevelXp]}
+              domain={['auto', highestNextLevelUp]}
               padding={{ top: 20, bottom: 20 }}
               tickFormatter={lab => lab / mult}
             />
-            <ReferenceLine y={nextLevelXp} stroke={userColor} strokeDasharray="3 3" />
             <Tooltip formatter={val => commaNumber(val)} labelFormatter={timeToDateString} />
           </LineChart>
         </ResponsiveContainer>
@@ -108,5 +110,7 @@ export default class XPGraph extends Component {
 }
 
 XPGraph.propTypes = {
-  updates: PropTypes.array.isRequired,
+  trainer: PropTypes.object.isRequired,
+  trainers: PropTypes.array.isRequired,
+  userScope: PropTypes.string.isRequired,
 }

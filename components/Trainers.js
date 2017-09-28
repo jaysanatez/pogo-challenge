@@ -72,12 +72,6 @@ export default class Trainers extends Component {
 
   render() {
     const { trainers, onTrainerCreate } = this.props
-
-    if (trainers.length == 0) {
-      this.props.fetchTrainers()
-      return (<LoadingThrobber/> )
-    }
-
     return (
       <div>
         <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#createTrainerModal">Add Trainer</button>

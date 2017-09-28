@@ -10,6 +10,7 @@ export default class Dashboard extends Component {
   render() {
     const {
       trainer,
+      trainers,
       catches,
       mapScope,
       userScope,
@@ -21,11 +22,12 @@ export default class Dashboard extends Component {
       return null
     }
 
+    const trainersToShow = trainers.filter(t => t.xpUpdates.length > 0)
     const updates = trainer.xpUpdates || []
     return (
       <div className="mt-3">
         <DashboardHeader setUserScope={setUserScope}/>
-        <XPGraph updates={updates}/>
+        <XPGraph trainer={trainer} trainers={trainersToShow} userScope={userScope}/>
         <LevelUpComponent updates={updates}/>
 
         <CatchMap
@@ -41,6 +43,7 @@ export default class Dashboard extends Component {
 
 Dashboard.propTypes = {
   trainer: PropTypes.object,
+  trainers: PropTypes.array.isRequired,
   catches: PropTypes.array.isRequired,
   mapScope: PropTypes.string.isRequired,
   userScope: PropTypes.string.isRequired,
