@@ -3,20 +3,30 @@ import PropTypes from 'prop-types'
 import LevelUpCard from './LevelUpCard'
 
 export default class LevelUpCarousel extends Component {
+  buildCards(trainers, lastN) {
+    var cards = []
+    var hasActive = false
+
+    trainers.forEach(t => {
+      const active = hasActive ? '' : ' active'
+      const classes = 'carousel-item' + active
+      hasActive = true
+
+      cards.push(
+        <div className={classes} key={t.username}>
+          <LevelUpCard trainer={t} showHeader={true} lastN={lastN}/>
+        </div>
+      )
+    })
+
+    return cards
+  }
   render() {
-    const { data } = this.props
+    const { trainers, lastN } = this.props
     return (
       <div id="levelUpCarousel" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner" role="listbox">
-          <div className="carousel-item active">
-            <LevelUpCard data={data} showHeader={true}/>
-          </div>
-          <div className="carousel-item">
-            <LevelUpCard data={data} showHeader={true}/>
-          </div>
-          <div className="carousel-item">
-            <LevelUpCard data={data} showHeader={true}/>
-          </div>
+          { this.buildCards(trainers, lastN) }
         </div>
         <a className="carousel-control-prev" href="#levelUpCarousel" role="button" data-slide="prev" style={{ width: "30px" }}>
           <i className="fa fa-chevron-left" style={{ color: "#ccc" }}></i>
@@ -30,5 +40,6 @@ export default class LevelUpCarousel extends Component {
 }
 
 LevelUpCard.LevelUpCarousel = {
-  data: PropTypes.object.isRequired,
+  trainers: PropTypes.array.isRequired,
+  lastN: PropTypes.number.isRequired,
 }

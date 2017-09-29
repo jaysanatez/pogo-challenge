@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import LevelUpCard from './LevelUpCard'
-import LevelUpCarousel from './LevelUpCarousel' 
-import { calculateLevelUpData } from './levelUpCalculator'
+import LevelUpCarousel from './LevelUpCarousel'
 
 import {
   LONG_DATE_STRING,
@@ -14,19 +13,22 @@ const lastN = 7
 export default class LevelUpComponent extends Component {
   render() {
     const { trainers } = this.props
-    if (!trainers.length) {
+
+    const trainersToShow = []
+    trainers.forEach(t => {
+      const trainerLevel = getTrainerLevel(t)
+      if (trainerLevel && trainerLevel < 40 && t.xpUpdates.length > 1) {
+        trainersToShow.push(t)
+      }
+    })
+
+    if (!trainersToShow.length) {
       return null
     }
 
-    const trainerLevel = getTrainerLevel(trainers[0])
-    if (!trainerLevel || trainerLevel == 40) {
-      return null
-    }
-
-    const data = calculateLevelUpData(trainers[0].xpUpdates, lastN)
-    const component = trainers.length > 1 ?
-      <LevelUpCarousel data={data}/> :
-      <LevelUpCard data={data} showHeader={false}/>
+    const component = trainersToShow.length > 1 ?
+      <LevelUpCarousel trainers={trainersToShow} lastN={lastN}/> :
+      <LevelUpCard trainer={trainersToShow[0]} showHeader={false} lastN={lastN}/>
 
     return (
       <div className="card mt-3" style={{ width: "100%" }}>
