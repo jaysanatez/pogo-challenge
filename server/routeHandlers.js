@@ -122,19 +122,20 @@ var verifyTrainer = (req, res) => {
 //  2. there is a previous update with greater xp
 //  3. there is a future update with less xp
 var verifyXpUpdate = (updates, update) => {
-  var d = Moment(update.date)
+  var d = Moment(update.date, utils.LONG_DATE_STRING)
   if (Moment().diff(d, 'days') < 0)
     return 'Error! You cannot post updates for future dates.'
 
   var message
   updates.forEach(u => {
     // negative if update is more recent
-    const dateDiff = Moment(u.date).diff(d, 'days')
+    const uDate = Moment(u.date, utils.LONG_DATE_STRING)
+    const dateDiff = uDate.diff(d, 'days')
     const valDiff = u.value - update.value
 
     // value will be negative if corrupt case 1 or 2 are true
     if (dateDiff * valDiff < 0)
-      message = 'Error! XP must increase with time, this conflicts with your XP on ' + Moment(u.date).format(utils.SHORT_DATE_STRING)
+      message = 'Error! XP must increase with time, this conflicts with your XP on ' + u.date
   })
 
   return message
@@ -142,8 +143,9 @@ var verifyXpUpdate = (updates, update) => {
 
 var updateWithSameDay = (updates, update) => {
   var date = null
+  var _date = Moment(update.date, utils.LONG_DATE_STRING)
   updates.forEach(u => {
-    if (Moment(u.date).isSame(update.date))
+    if (Moment(u.date, utils.LONG_DATE_STRING).isSame(_date))
       date = u
   })
 

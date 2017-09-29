@@ -25,7 +25,7 @@ export function calculateLevelUpData(updates, lastN) {
     return new Date(u1.date) - new Date(u2.date)
   })
 
-  const createDate = date => Moment(new Date(date))
+  const createDate = date => Moment(date, LONG_DATE_STRING)
 
   const num = Math.min(lastN, updates.length)
   const lastNUpdates = updates.slice(updates.length - num)
