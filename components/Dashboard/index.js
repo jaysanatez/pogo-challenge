@@ -28,7 +28,7 @@ export default class Dashboard extends Component {
       <div className="mt-3">
         <DashboardHeader setUserScope={setUserScope}/>
         <XPGraph trainer={trainer} trainers={trainersToShow} userScope={userScope}/>
-        <LevelUpComponent updates={updates}/>
+        <LevelUpComponent updates={updates} userScope={userScope}/>
 
         <CatchMap
           trainer={trainer}

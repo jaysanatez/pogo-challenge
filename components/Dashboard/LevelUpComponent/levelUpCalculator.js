@@ -5,7 +5,7 @@ import {
   LONG_DATE_STRING,
   minXPForLevel,
   getLevelForXP,
-} from '../../shared/utils'
+} from '../../../shared/utils'
 
 function calcXpTilNextLevel(xp) {
   const level = parseInt(getLevelForXP(xp))
