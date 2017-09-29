@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
+var Moment   = require('moment')
+
 var Lookups  = require('../../shared/lookups')
 var Schema   = mongoose.Schema
 
