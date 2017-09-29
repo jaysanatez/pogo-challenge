@@ -11,14 +11,22 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { visible: false }
+    this.state = { showInfoWindow: false }
     this.updatePopupState = this.updatePopupState.bind(this)
   }
 
   updatePopupState(marker, _catch) {
+    var trainerName
+    if (marker && _catch) {
+      const whoCaughtIt = this.props.trainers.find(t => t._id == _catch.userId)
+      const isMe = whoCaughtIt.username == this.props.trainer.username
+      trainerName = isMe ? 'you' : whoCaughtIt.username
+    }
+
     this.state = {
       showInfoWindow: marker != null,
       activeMarker: marker,
+      trainerName,
       _catch,
     }
 
@@ -27,9 +35,7 @@ export class MapContainer extends Component {
 
   getMarkers(trainer, catches) {
     var markers = []
-    catches.filter(c => {
-      return c.userId == trainer._id
-    }).forEach(c => {
+    catches.forEach(c => {
       if (!c.cord)
         return
 
@@ -65,7 +71,7 @@ export class MapContainer extends Component {
         zoom={Constants.mapConstants.zoomLevels[mapScope]}
         styles={MapStyle}
         { ...Constants.mapConstants.dontMoveMap }
-        onClick={ () => this.updatePopupState(null) }
+        onClick={ () => this.updatePopupState() }
       >
         { this.getMarkers(trainer, catches) }
         <InfoWindow

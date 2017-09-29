@@ -32,9 +32,11 @@ export default class Dashboard extends Component {
 
         <CatchMap
           trainer={trainer}
+          trainers={trainers}
           catches={catches}
           mapScope={mapScope}
           setMapScope={setMapScope}
+          userScope={userScope}
         />
       </div>
     )

@@ -50,8 +50,8 @@ function dashboardReducer(state = {
 
   var trainers = action.trainers || state.trainers
   var catches = action.catches || state.catches
-  var mapScope = action.scope ||  state.mapScope
-  var userScope = action.scope || state.userScope
+  var mapScope = state.mapScope
+  var userScope = state.userScope
   var message = action.message
 
   if (action.type == CREATE_TRAINER && action.trainer) {
@@ -66,6 +66,14 @@ function dashboardReducer(state = {
 
   if (action.type == CREATE_CATCH && action.catch) {
     catches = catches.concat(action.catch)
+  }
+
+  if (action.type == SET_MAP_SCOPE && action.scope) {
+    mapScope = action.scope
+  }
+
+  if (action.type == SET_USER_SCOPE && action.scope) {
+    userScope = action.scope
   }
 
   return {
