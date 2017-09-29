@@ -7,7 +7,7 @@ import { getPokemonForId } from '../../../assets/utils'
 export default class MapPopup extends Component {
   
   render() {
-    const { activeMarker, _catch } = this.props.state
+    const { activeMarker, _catch, trainerName } = this.props.state
     if (!activeMarker || !_catch)
       return <div/>
 
@@ -19,7 +19,7 @@ export default class MapPopup extends Component {
         <div className="row">
           <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
           <div className="col" style={Constants.popupConstants.textStyle}>
-            { pokemon.name } was caught in { activeMarker.title } on { _catch.date }.
+            { pokemon.name } was caught in { activeMarker.title } on { _catch.date } by { trainerName }.
           </div>
         </div>
       </div>

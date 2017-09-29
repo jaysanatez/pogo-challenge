@@ -13,6 +13,7 @@ export const FETCH_CATCHES = 'FETCH_CATCHES'
 
 export const SET_STATUS = 'SET_STATUS'
 export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
+export const SET_USER_SCOPE = 'SET_USER_SCOPE'
 
 export function setStatus(message) {
   return {
@@ -24,6 +25,13 @@ export function setStatus(message) {
 export function setMapScope(scope) {
   return {
     type: SET_MAP_SCOPE,
+    scope,
+  }
+}
+
+export function setUserScope(scope) {
+  return {
+    type: SET_USER_SCOPE,
     scope,
   }
 }

@@ -46,9 +46,11 @@ class App extends Component {
   renderBody() {
     const {
       trainer,
+      trainers,
       catches,
       fetchCurrentTrainer,
       fetchCatches,
+      fetchTrainers,
     } = this.props
 
     if (this.isVerifiedTrainer(trainer) && !trainer.xpUpdates) {
@@ -58,6 +60,11 @@ class App extends Component {
 
     if (this.isVerifiedTrainer(trainer) && !catches) {
       fetchCatches()
+      return (<LoadingThrobber/>)
+    }
+
+    if (this.isVerifiedTrainer(trainer) && !trainers.length) {
+      fetchTrainers()
       return (<LoadingThrobber/>)
     }
 
@@ -103,6 +110,7 @@ App.propTypes = {
   trainers: PropTypes.array.isRequired,
   catches: PropTypes.array,
   mapScope: PropTypes.string.isRequired,
+  userScope: PropTypes.string.isRequired,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
@@ -113,6 +121,7 @@ App.propTypes = {
   fetchCurrentTrainer: PropTypes.func.isRequired,
   setStatus: PropTypes.func.isRequired,
   setMapScope: PropTypes.func.isRequired,
+  setUserScope: PropTypes.func.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
   fetchCatches: PropTypes.func.isRequired,

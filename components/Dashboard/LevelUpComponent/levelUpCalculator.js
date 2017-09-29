@@ -5,7 +5,7 @@ import {
   LONG_DATE_STRING,
   minXPForLevel,
   getLevelForXP,
-} from '../../shared/utils'
+} from '../../../shared/utils'
 
 function calcXpTilNextLevel(xp) {
   const level = parseInt(getLevelForXP(xp))
@@ -25,7 +25,7 @@ export function calculateLevelUpData(updates, lastN) {
     return new Date(u1.date) - new Date(u2.date)
   })
 
-  const createDate = date => Moment(new Date(date))
+  const createDate = date => Moment(date, LONG_DATE_STRING)
 
   const num = Math.min(lastN, updates.length)
   const lastNUpdates = updates.slice(updates.length - num)
