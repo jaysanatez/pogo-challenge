@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import LevelUpCard from './LevelUpCard'
 import LevelUpCarousel from './LevelUpCarousel'
-
 import {
   LONG_DATE_STRING,
   getTrainerLevel,
@@ -14,12 +13,9 @@ export default class LevelUpComponent extends Component {
   render() {
     const { trainers } = this.props
 
-    const trainersToShow = []
-    trainers.forEach(t => {
+    const trainersToShow = trainers.filter(t => {
       const trainerLevel = getTrainerLevel(t)
-      if (trainerLevel && trainerLevel < 40 && t.xpUpdates.length > 1) {
-        trainersToShow.push(t)
-      }
+      return trainerLevel && trainerLevel < 40 && t.xpUpdates.length > 1
     })
 
     if (!trainersToShow.length) {

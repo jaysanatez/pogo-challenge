@@ -10,6 +10,7 @@ export default class LevelUpCard extends Component {
     const data = calculateLevelUpData(trainer.xpUpdates, lastN)
     const header = showHeader ? <h5>{trainer.username}</h5> : null
     const blockStyle = showHeader ? { marginLeft: "30px", marginRight: "30px" } : {}
+
     return (
       <div className="card-block" style={blockStyle}>
         { header }

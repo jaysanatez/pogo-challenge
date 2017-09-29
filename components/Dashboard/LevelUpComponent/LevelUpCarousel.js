@@ -8,6 +8,7 @@ export default class LevelUpCarousel extends Component {
     var hasActive = false
 
     trainers.forEach(t => {
+      // have to set exactly 1 to 'active'
       const active = hasActive ? '' : ' active'
       const classes = 'carousel-item' + active
       hasActive = true
