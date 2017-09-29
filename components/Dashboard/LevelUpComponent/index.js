@@ -5,7 +5,6 @@ import LevelUpCard from './LevelUpCard'
 import LevelUpCarousel from './LevelUpCarousel' 
 import { calculateLevelUpData } from './levelUpCalculator'
 
-import { UserScopes } from '../../../app/displayOptions'
 import {
   LONG_DATE_STRING,
   getTrainerLevel,
@@ -14,20 +13,20 @@ import {
 const lastN = 7
 export default class LevelUpComponent extends Component {
   render() {
-    const { updates, userScope } = this.props
-    if (updates.length < 2) {
+    const { trainers } = this.props
+    if (!trainers.length) {
       return null
     }
 
-    const trainerLevel = getTrainerLevel({ xpUpdates: updates })
+    const trainerLevel = getTrainerLevel(trainers[0])
     if (!trainerLevel || trainerLevel == 40) {
       return null
     }
 
-    const data = calculateLevelUpData(updates, lastN)
-    const component = userScope == UserScopes.ME ?
-      <LevelUpCard data={data} showHeader={false}/> :
-      <LevelUpCarousel data={data}/>
+    const data = calculateLevelUpData(trainers[0].xpUpdates, lastN)
+    const component = trainers.length > 1 ?
+      <LevelUpCarousel data={data}/> :
+      <LevelUpCard data={data} showHeader={false}/>
 
     return (
       <div className="card mt-3" style={{ width: "100%" }}>
@@ -39,6 +38,5 @@ export default class LevelUpComponent extends Component {
 }
 
 LevelUpComponent.propTypes = {
-  updates: PropTypes.array.isRequired,
-  userScope: PropTypes.string.isRequired,
+  trainers: PropTypes.array.isRequired,
 }

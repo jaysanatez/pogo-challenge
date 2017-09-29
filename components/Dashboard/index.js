@@ -5,6 +5,7 @@ import DashboardHeader from './DashboardHeader'
 import LevelUpComponent from './LevelUpComponent'
 import XPGraph from './XPGraph'
 import CatchMap from './CatchMap'
+import { UserScopes } from '../../app/displayOptions'
 
 export default class Dashboard extends Component {
   render() {
@@ -22,13 +23,14 @@ export default class Dashboard extends Component {
       return null
     }
 
-    const trainersToShow = trainers.filter(t => t.xpUpdates.length > 0)
-    const updates = trainer.xpUpdates || []
+    const trainersToShow = userScope == UserScopes.ME ?
+      [trainer] : trainers.filter(t => t.xpUpdates.length > 0)
+
     return (
       <div className="mt-3">
         <DashboardHeader setUserScope={setUserScope}/>
-        <XPGraph trainer={trainer} trainers={trainersToShow} userScope={userScope}/>
-        <LevelUpComponent updates={updates} userScope={userScope}/>
+        <XPGraph trainers={trainersToShow}/>
+        <LevelUpComponent trainers={trainersToShow}/>
 
         <CatchMap
           trainer={trainer}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
 import Moment from 'moment'
 
-import { UserScopes } from '../../app/displayOptions'
 import mergeTrainerData from './mergeTrainerData'
 import {
   formatDate,
@@ -60,14 +59,13 @@ export default class XPGraph extends Component {
   }
 
   render() {
-    const { trainer, trainers, userScope } = this.props
-    const justMe = userScope == UserScopes.ME
-    const trainersToShow = justMe ? [trainer] : trainers
-    if (!trainersToShow.length) {
+    const { trainers } = this.props
+    const justMe = trainers.length == 1
+    if (!trainers.length) {
       return null
     }
 
-    const { data, nextLevelXps } = this.createXpData(trainersToShow)
+    const { data, nextLevelXps } = this.createXpData(trainers)
     const { mult, label } = this.getXpGraphScale(data)
     const highestNextLevelUp = Math.max.apply(null, Object.values(nextLevelXps))
     const timeToDateString = time => Moment(time).format(SHORT_DATE_STRING)
@@ -123,7 +121,5 @@ export default class XPGraph extends Component {
 }
 
 XPGraph.propTypes = {
-  trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
-  userScope: PropTypes.string.isRequired,
 }
