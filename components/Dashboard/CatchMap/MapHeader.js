@@ -13,7 +13,11 @@ export default class MapHeader extends Component {
     var options = []
 
     Object.keys(MapScopes).forEach(s => {
-      options.push(<option key={ MapScopes[s] } id={ MapScopes[s] }>{ MapScopes[s] }</option>)
+      options.push(
+        <option key={ MapScopes[s] } id={ MapScopes[s] }>
+          { MapScopes[s] }
+        </option>
+      )
     })
 
     return options
@@ -39,6 +43,7 @@ export default class MapHeader extends Component {
             className="form-control"
             style={floatLeft}
             onChange={this.onSelectChange}
+            defaultValue={this.props.mapScope}
           >
             { this.getSelectOptions() }
           </select>
@@ -49,5 +54,6 @@ export default class MapHeader extends Component {
 }
 
 MapHeader.propTypes = {
+  mapScope: PropTypes.string.isRequired,
   setMapScope: PropTypes.func.isRequired,
 }

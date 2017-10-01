@@ -28,7 +28,7 @@ export default class CatchMap extends Component {
 
     return (
       <div className="mt-3">
-        <MapHeader setMapScope={setMapScope}/>
+        <MapHeader mapScope={mapScope} setMapScope={setMapScope}/>
         <div className="my-3">
           <MapContainer
             className="mt-3"
