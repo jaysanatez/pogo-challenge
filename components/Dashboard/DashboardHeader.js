@@ -13,7 +13,11 @@ export default class DashboardHeader extends Component {
     var options = []
 
     Object.keys(UserScopes).forEach(s => {
-      options.push(<option key={ UserScopes[s] } id={ UserScopes[s] }>{ UserScopes[s] }</option>)
+      options.push(
+        <option key={ UserScopes[s] } id={ UserScopes[s] }>
+          { UserScopes[s] }
+        </option>
+      )
     })
 
     return options
@@ -39,6 +43,7 @@ export default class DashboardHeader extends Component {
             className="form-control"
             style={floatLeft}
             onChange={this.onSelectChange}
+            defaultValue={this.props.userScope}
           >
             { this.getSelectOptions() }
           </select>
@@ -49,5 +54,6 @@ export default class DashboardHeader extends Component {
 }
 
 DashboardHeader.propTypes = {
+  userScope: PropTypes.string.isRequired,
   setUserScope: PropTypes.func.isRequired,
 }
