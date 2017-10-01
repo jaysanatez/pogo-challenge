@@ -1,3 +1,9 @@
+import { getConfigValue } from '../config.js'
+
+function isDevEnvironment() {
+  return getConfigValue('NODE_ENV') == 'development'
+}
+
 function buildHeaders(body, addAuthHeader) {
   var headers = {}
 
@@ -38,7 +44,9 @@ export default function makeApiRequest(uri, method, body, addAuthHeader, success
   fetch(request).then(function(res) {
     res.text().then(function(text) {
       var data = tryParseJson(text)
-      console.log(data)
+      if (isDevEnvironment()) {
+        console.log(data)
+      }
 
       if (res.ok) {
         success(data)

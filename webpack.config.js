@@ -20,6 +20,7 @@ module.exports = {
       'process.env': {
         GOOGLE_MAPS_KEY: JSON.stringify(process.env.GOOGLE_MAPS_KEY),
         GEONAMES_API_USER: JSON.stringify(process.env.GEONAMES_API_USER),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     })
   ],
