@@ -20,6 +20,10 @@ export default class Navbar extends Component {
     return this.props.trainer ? this.createTab('Profile', '/profile') : null
   }
 
+  renderPokedexTab() {
+    return this.props.trainer ? this.createTab('Pokedex', '/pokedex') : null
+  }
+
   renderTrainersTab() {
     const { trainer } = this.props
     const hasPerms = trainer && trainer.role == Role.ADMIN
@@ -50,6 +54,7 @@ export default class Navbar extends Component {
       <Link to="/" className="navbar-brand">PoGo Challenge</Link>
       <div className="navbar-collapse collapse" id="collapsingNavbar">
         { this.renderProfileTab() }
+        { this.renderPokedexTab() }
         { this.renderTrainersTab() }
         { this.renderAuthComponents() }
       </div>

@@ -28,8 +28,12 @@ const defaultState = {
 }
 
 function trainerReducer(state = defaultState, action) {
-  if (action.type == LOGOUT)
-    return defaultState
+  if (action.type == LOGOUT) {
+    return {
+      ...defaultState,
+      trainer: null,
+    }
+  }
 
   if (trainerActions.indexOf(action.type) == -1)
     return state

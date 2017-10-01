@@ -9,6 +9,7 @@ import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
 import Profile from '../components/Profile'
+import Pokedex from '../components/Pokedex'
 import NotFound from '../components/NotFound'
 import LoadingThrobber from '../components/shared/LoadingThrobber'
 
@@ -75,6 +76,7 @@ class App extends Component {
         <Route path="/trainers" render={this.authorize(Trainers, [Role.ADMIN])}/>
         <Route path="/verify/:trainerId" render={this.unauthorize(Verify)}/>
         <Route path="/profile" render={this.authorize(Profile)}/>
+        <Route path="/pokedex" render={this.authorize(Pokedex)}/>
         <Route path="*" render={this.authorize(NotFound)}/>
       </Switch>
     )
