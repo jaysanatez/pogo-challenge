@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
-import { MapScopes, UserScopes } from './displayOptions'
+import { MapScopes, UserScopes, PokedexPages } from './displayOptions'
 import {
   LOGIN,
   LOGOUT,
   SET_STATUS,
   SET_MAP_SCOPE,
   SET_USER_SCOPE,
+  SET_POKEDEX_PAGE,
   FETCH_TRAINERS,
   CREATE_TRAINER,
   DELETE_TRAINER,
@@ -18,6 +19,7 @@ import {
 
 const trainerActions = [LOGIN, LOGOUT, SET_STATUS, FETCH_TRAINER, VERIFY_TRAINER, UPDATE_TRAINER]
 const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES, SET_MAP_SCOPE, SET_USER_SCOPE]
+const pokedexActions = [SET_POKEDEX_PAGE]
 
 const defaultState = {
   trainer: JSON.parse(localStorage.getItem('trainer')),
@@ -25,6 +27,7 @@ const defaultState = {
   catches: null,
   mapScope: MapScopes.USA,
   userScope: UserScopes.ME,
+  pokedexPage: PokedexPages.LEGENDARY,
 }
 
 function trainerReducer(state = defaultState, action) {
@@ -89,7 +92,22 @@ function dashboardReducer(state = defaultState, action) {
   }
 }
 
+function pokedexReducer(state = defaultState, action) {
+  if (action.type == LOGOUT)
+    return defaultState
+
+  if (pokedexActions.indexOf(action.type) == -1)
+    return state
+
+  const pokedexPage = action.page || state.pokedexPage
+  return {
+    ...state,
+    pokedexPage,
+  }
+}
+
 export default combineReducers({
   trainerReducer,
   dashboardReducer,
+  pokedexReducer,
 })
