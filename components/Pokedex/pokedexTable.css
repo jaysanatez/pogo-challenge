@@ -1,6 +1,7 @@
 .table-nonfluid {
    width: auto !important;
    margin: auto;
+   font-size: 10pt;
 }
 
 .table-nonfluid th {
