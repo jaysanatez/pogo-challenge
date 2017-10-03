@@ -57,6 +57,7 @@ export default class Trainers extends Component {
           <td>{ StatusStrings[t.status] }</td>
           <td>{ RoleStrings[t.role] }</td>
           <td>{ t.xpUpdates.length }</td>
+          <td>{ t.pokedex.length }</td>
           <td>{ catchMap[t._id] || defaultCount }</td>
           <td>{ formatDate(t.lastUpdated, DATE_TIME_STRING) }</td>
           <td>
@@ -83,6 +84,7 @@ export default class Trainers extends Component {
               <th>Status</th>
               <th>Role</th>
               <th># XP Updates</th>
+              <th>Pokedex Count</th>
               <th># Catches</th>
               <th>Last Updated</th>
               <th>Actions</th>

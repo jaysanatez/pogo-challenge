@@ -21,13 +21,14 @@ const handleUserAuth = (dispatch, data, resp) => {
     return
   }
 
-  const trainerLessXp = {
+  const trainerLight = {
     ...trainer,
     xpUpdates: null,
+    pokedex: null,
   }
 
   localStorage.setItem('id_token', token)
-  localStorage.setItem('trainer', JSON.stringify(trainerLessXp))
+  localStorage.setItem('trainer', JSON.stringify(trainerLight))
 
   dispatch(resp({ trainer }))
 }

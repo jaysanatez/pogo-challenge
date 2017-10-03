@@ -54,7 +54,7 @@ class App extends Component {
       fetchTrainers,
     } = this.props
 
-    if (this.isVerifiedTrainer(trainer) && !trainer.xpUpdates) {
+    if (this.isVerifiedTrainer(trainer) && (!trainer.xpUpdates || !trainer.pokedex)) {
       fetchCurrentTrainer()
       return (<LoadingThrobber/>)
     }

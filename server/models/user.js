@@ -19,6 +19,10 @@ var userSchema = new Schema({
   	value: Number,
   	date: String,
   }],
+  pokedex: [{
+    pokemonId: Number,
+    date: String,
+  }],
 })
 
 // can't use => syntax - this keyword throws error
@@ -50,13 +54,14 @@ userSchema.methods.toClientDto = function() {
     lastUpdated: this.lastUpdated,
     team: this.team,
     xpUpdates: this.xpUpdates,
+    pokedex: this.pokedex,
   }
 }
 
 var model = mongoose.model('User', userSchema)
 
 var fetchAll = next => {
-  model.find({}, 'username role status lastUpdated team xpUpdates', next)
+  model.find({}, 'username role status lastUpdated team xpUpdates pokedex', next)
 }
 
 var findById = (id, next) => {
@@ -72,8 +77,9 @@ var createNewUser = (data, next) => {
   Object.assign(newUser, data)
 
   newUser.lastUpdated = Moment.utc()
-  newUser.xpUpdates = []
   newUser.status = Lookups.Status.CREATED
+  newUser.xpUpdates = []
+  newUser.pokedex = []
 
   newUser.save(next)
 }
