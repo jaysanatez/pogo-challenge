@@ -45,7 +45,7 @@ export default class PokedexTabs extends Component {
     })
 
     return (
-      <ul className="nav nav-tabs">
+      <ul className="nav nav-tabs mt-3">
         { tabs }
       </ul>
     )

@@ -1,0 +1,8 @@
+.table-nonfluid {
+   width: auto !important;
+   margin: auto;
+}
+
+.table-nonfluid th {
+  width: 100px;
+}
