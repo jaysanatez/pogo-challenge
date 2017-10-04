@@ -14,6 +14,15 @@ export default class PokedexTable extends Component {
     }
   }
 
+  getPokedexCheck(date) {
+    return (
+      <div>
+        <i className="fa fa-check fa-2x" aria-hidden="true"></i>
+        <span className="check-text">{ date }</span>
+      </div>
+    )
+  }
+
   getAddPokedexLink(pokemon) {
     return (
       <a
@@ -40,11 +49,11 @@ export default class PokedexTable extends Component {
         var content
 
         if (dateStr)
-          content = 'Caught ' + dateStr
+          content = this.getPokedexCheck(dateStr)
         else if (t._id == trainer._id)
           content = this.getAddPokedexLink(p)
 
-        return <td key={t._id}>{ content }</td>
+        return <td key={t._id} style={{ textAlign: "center" }}>{ content }</td>
       })
 
       return (
