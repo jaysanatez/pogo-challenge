@@ -120,3 +120,7 @@ export function fetchCatches(dispatch) {
     dispatch(fetchCatchesResponse())
   })
 }
+
+export function onAddPokedex(dispatch, pokemonId, date) {
+  console.log(pokemonId, date)
+}

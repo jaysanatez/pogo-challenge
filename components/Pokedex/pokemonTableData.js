@@ -27,6 +27,5 @@ export default function(pokemon, trainers) {
   	data[p.id] = dateStrs
   })
 
-  console.log(data)
   return data
 }

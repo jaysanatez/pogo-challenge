@@ -3,15 +3,28 @@ import PropTypes from 'prop-types'
 
 import PokedexTabs from './PokedexTabs'
 import PokedexTable from './PokedexTable'
+import AddPokedexModal from '../Modals/AddPokedexModal'
 import { PokedexPages } from '../../app/displayOptions'
 
 export default class Pokedex extends Component {
+  constructor(props) {
+    super(props)
+    this.pokemonToAdd = {}
+    this.onAddPokemon = this.onAddPokemon.bind(this)
+  }
+
+  onAddPokemon(pokemon) {
+    this.pokemonToAdd = pokemon
+    this.forceUpdate()
+  }
+
   render() {
     const {
       trainer,
       trainers,
       pokedexPage,
       setPokedexPage,
+      onAddPokedex,
     } = this.props
 
     const trainersWithData = trainers.filter(t => t.xpUpdates.length > 0)
@@ -23,7 +36,10 @@ export default class Pokedex extends Component {
           trainer={trainer}
           trainers={trainersWithData}
           pokedexPage={pokedexPage}
+          onAddPokemon={this.onAddPokemon}
         />
+
+        <AddPokedexModal pokemon={this.pokemonToAdd} onAddClick={onAddPokedex}/>
       </div>
     )
   }
@@ -34,4 +50,5 @@ Pokedex.propTypes = {
   trainers: PropTypes.array.isRequired,
   pokedexPage: PropTypes.object.isRequired,
   setPokedexPage: PropTypes.func.isRequired,
+  onAddPokedex: PropTypes.func.isRequired,
 }

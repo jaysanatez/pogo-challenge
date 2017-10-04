@@ -129,6 +129,7 @@ App.propTypes = {
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
   fetchCatches: PropTypes.func.isRequired,
+  onAddPokedex: PropTypes.func.isRequired,
 }
 
 export default connect(

@@ -17,6 +17,7 @@ import {
   updateXp,
   createCatch,
   fetchCatches,
+  onAddPokedex,
 } from '../api/'
 
 function consolidateMessageFromReducers(reducers) {
@@ -87,6 +88,9 @@ export const mapDispatchToProps = dispatch => {
     },
     fetchCatches: () => {
       fetchCatches(dispatch)
+    },
+    onAddPokedex: (pokemonId, date) => {
+      onAddPokedex(dispatch, pokemonId, date)
     },
     setMapScope: scope => {
       dispatch(setMapScope(scope))

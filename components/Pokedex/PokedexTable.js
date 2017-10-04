@@ -7,6 +7,26 @@ import pokemonTableData from './pokemonTableData'
 import './pokedexTable.css'
 
 export default class PokedexTable extends Component {
+  onLinkClick(pokemon, event) {
+    return (event) => {
+      this.props.onAddPokemon(pokemon)
+      event.preventDefault()
+    }
+  }
+
+  getAddPokedexLink(pokemon) {
+    return (
+      <a
+        href="#"
+        data-toggle="modal"
+        data-target="#addPokedexModal"
+        onClick={this.onLinkClick(pokemon)}
+      >
+        Add
+      </a>
+    )
+  }
+
   getTableHeaders(trainers) {
     return trainers.map(t => {
       return <th key={t.username}>{t.username}</th>
@@ -22,7 +42,7 @@ export default class PokedexTable extends Component {
         if (dateStr)
           content = 'Caught ' + dateStr
         else if (t._id == trainer._id)
-          content = 'Add'
+          content = this.getAddPokedexLink(p)
 
         return <td key={t._id}>{ content }</td>
       })
@@ -75,4 +95,5 @@ PokedexTable.propTypes = {
   trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
   pokedexPage: PropTypes.object.isRequired,
+  onAddPokemon: PropTypes.func.isRequired,
 }
