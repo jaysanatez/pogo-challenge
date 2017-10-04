@@ -22,6 +22,7 @@ export default class Pokedex extends Component {
     const {
       trainer,
       trainers,
+      catches,
       pokedexPage,
       setPokedexPage,
       onAddPokedex,
@@ -35,6 +36,7 @@ export default class Pokedex extends Component {
         <PokedexTable
           trainer={trainer}
           trainers={trainersWithData}
+          catches={catches}
           pokedexPage={pokedexPage}
           onAddPokemon={this.onAddPokemon}
         />
@@ -48,6 +50,7 @@ export default class Pokedex extends Component {
 Pokedex.propTypes = {
   trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
+  catches: PropTypes.array.isRequired,
   pokedexPage: PropTypes.object.isRequired,
   setPokedexPage: PropTypes.func.isRequired,
   onAddPokedex: PropTypes.func.isRequired,
