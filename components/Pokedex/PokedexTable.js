@@ -76,11 +76,12 @@ export default class PokedexTable extends Component {
       pokedexPage,
       trainer,
       trainers,
+      catches,
     } = this.props
 
     const ids = pokedexGroups[pokedexPage.text]
     const pokemon = ids.map(id => getPokemonForId(id))
-    const data = pokemonTableData(pokemon, trainers)
+    const data = pokemonTableData(pokemon, trainers, catches)
 
     return (
       <div className="mt-3">
@@ -103,6 +104,7 @@ export default class PokedexTable extends Component {
 PokedexTable.propTypes = {
   trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
+  catches: PropTypes.array.isRequired,
   pokedexPage: PropTypes.object.isRequired,
   onAddPokemon: PropTypes.func.isRequired,
 }
