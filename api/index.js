@@ -10,6 +10,7 @@ import {
   updateTrainerResponse,
   createCatchReponse,
   fetchCatchesResponse,
+  addPokedexResponse,
 } from '../app/actions'
 
 const handleUserAuth = (dispatch, data, resp) => {
@@ -21,13 +22,14 @@ const handleUserAuth = (dispatch, data, resp) => {
     return
   }
 
-  const trainerLessXp = {
+  const trainerLight = {
     ...trainer,
     xpUpdates: null,
+    pokedex: null,
   }
 
   localStorage.setItem('id_token', token)
-  localStorage.setItem('trainer', JSON.stringify(trainerLessXp))
+  localStorage.setItem('trainer', JSON.stringify(trainerLight))
 
   dispatch(resp({ trainer }))
 }
@@ -117,5 +119,13 @@ export function fetchCatches(dispatch) {
     dispatch(fetchCatchesResponse(data))
   }, () => {
     dispatch(fetchCatchesResponse())
+  })
+}
+
+export function onAddPokedex(dispatch, pokedexData) {
+  makeApiRequest('/api/trainers/pokedex', 'POST', pokedexData, true, data => {
+    dispatch(addPokedexResponse(data))
+  }, () => {
+    dispatch(addPokedexResponse())
   })
 }

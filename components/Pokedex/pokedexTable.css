@@ -1,0 +1,13 @@
+.table-nonfluid {
+   width: auto !important;
+   margin: auto;
+   font-size: 10pt;
+}
+
+.table-nonfluid th {
+  width: 100px;
+}
+
+.check-text {
+  font-size: 8pt;
+}

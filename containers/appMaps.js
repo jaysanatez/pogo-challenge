@@ -1,4 +1,10 @@
-import { setStatus, setMapScope, setUserScope } from '../app/actions'
+import {
+  setStatus,
+  setMapScope,
+  setUserScope,
+  setPokedexPage,
+} from '../app/actions'
+
 import {
   loginTrainer,
   logoutTrainer,
@@ -11,6 +17,7 @@ import {
   updateXp,
   createCatch,
   fetchCatches,
+  onAddPokedex,
 } from '../api/'
 
 function consolidateMessageFromReducers(reducers) {
@@ -23,9 +30,10 @@ function consolidateMessageFromReducers(reducers) {
 }
 
 export const mapStateToProps = state => {
-  const { trainerReducer, dashboardReducer } = state
+  const { trainerReducer, dashboardReducer, pokedexReducer } = state
   const { trainer } = trainerReducer
   const { trainers, catches, mapScope, userScope } = dashboardReducer
+  const { pokedexPage } = pokedexReducer
 
   const message = consolidateMessageFromReducers([
     trainerReducer,
@@ -39,6 +47,7 @@ export const mapStateToProps = state => {
     catches,
     mapScope,
     userScope,
+    pokedexPage,
   }
 }
 
@@ -80,11 +89,17 @@ export const mapDispatchToProps = dispatch => {
     fetchCatches: () => {
       fetchCatches(dispatch)
     },
+    onAddPokedex: data => {
+      onAddPokedex(dispatch, data)
+    },
     setMapScope: scope => {
       dispatch(setMapScope(scope))
     },
     setUserScope: scope => {
       dispatch(setUserScope(scope))
+    },
+    setPokedexPage: page => {
+      dispatch(setPokedexPage(page))
     }
   }
 }

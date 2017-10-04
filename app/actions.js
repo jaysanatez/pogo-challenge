@@ -10,10 +10,12 @@ export const UPDATE_TRAINER = 'UPDATE_TRAINER'
 
 export const CREATE_CATCH = 'CREATE_CATCH'
 export const FETCH_CATCHES = 'FETCH_CATCHES'
+export const ADD_POKEDEX = 'ADD_POKEDEX'
 
 export const SET_STATUS = 'SET_STATUS'
 export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
 export const SET_USER_SCOPE = 'SET_USER_SCOPE'
+export const SET_POKEDEX_PAGE = 'SET_POKEDEX_PAGE'
 
 export function setStatus(message) {
   return {
@@ -33,6 +35,13 @@ export function setUserScope(scope) {
   return {
     type: SET_USER_SCOPE,
     scope,
+  }
+}
+
+export function setPokedexPage(page) {
+  return {
+    type: SET_POKEDEX_PAGE,
+    page,
   }
 }
 
@@ -101,6 +110,13 @@ export function createCatchReponse(data) {
 export function fetchCatchesResponse(data) {
   return {
     type: FETCH_CATCHES,
+    ...data,
+  }
+}
+
+export function addPokedexResponse(data) {
+  return {
+    type: ADD_POKEDEX,
     ...data,
   }
 }

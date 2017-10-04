@@ -175,7 +175,7 @@ var updateXPHandler = (req, res) => {
         return u == existingUpdate ? update : u
       })
     } else {
-      user.xpUpdates = user.xpUpdates.concat(req.body)
+      user.xpUpdates = user.xpUpdates.concat(update)
     }
 
     user.lastUpdated = Moment.utc()
@@ -212,6 +212,30 @@ var createCatchHandler = (req, res) => {
   })
 }
 
+var addPokedexHandler = (req, res) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not locate user.' })
+
+    // verify the data is accurate (return null if nothing wrong)
+    const data = req.body
+    if (!data.date || !data.pokemonId || data.pokemonId <= 0) {
+      return res.status(500).json({ message: 'Error! Insufficient data provided.'})
+    }
+
+    user.pokedex = user.pokedex.concat(data)
+    user.lastUpdated = Moment.utc()
+    user.save((err, user) => {
+      if (err || !user)
+        return res.status(500).json({ message: 'Error! Could not save the user changes.' })
+
+      res.json({
+        trainer: user.toClientDto(),
+      })
+    })
+  })
+}
+
 module.exports = {
   loginHandler,
   fetchTrainersHandler,
@@ -223,4 +247,5 @@ module.exports = {
   updateXPHandler,
   fetchAllCatchesHandler,
   createCatchHandler,
+  addPokedexHandler,
 }

@@ -9,6 +9,7 @@ import LoginScreen from '../components/LoginScreen'
 import Trainers from '../components/Trainers'
 import Verify from '../components/Verify'
 import Profile from '../components/Profile'
+import Pokedex from '../components/Pokedex'
 import NotFound from '../components/NotFound'
 import LoadingThrobber from '../components/shared/LoadingThrobber'
 
@@ -53,7 +54,7 @@ class App extends Component {
       fetchTrainers,
     } = this.props
 
-    if (this.isVerifiedTrainer(trainer) && !trainer.xpUpdates) {
+    if (this.isVerifiedTrainer(trainer) && (!trainer.xpUpdates || !trainer.pokedex)) {
       fetchCurrentTrainer()
       return (<LoadingThrobber/>)
     }
@@ -68,6 +69,11 @@ class App extends Component {
       return (<LoadingThrobber/>)
     }
 
+    // reflect trainer state changes back to trainers state
+    const me = trainers.findIndex(t => t._id == trainer._id)
+    if (me >= 0)
+      trainers[me] = trainer
+
     return (
       <Switch>
         <Route exact path="/" render={this.authorize(Dashboard)}/>
@@ -75,6 +81,7 @@ class App extends Component {
         <Route path="/trainers" render={this.authorize(Trainers, [Role.ADMIN])}/>
         <Route path="/verify/:trainerId" render={this.unauthorize(Verify)}/>
         <Route path="/profile" render={this.authorize(Profile)}/>
+        <Route path="/pokedex" render={this.authorize(Pokedex)}/>
         <Route path="*" render={this.authorize(NotFound)}/>
       </Switch>
     )
@@ -111,6 +118,7 @@ App.propTypes = {
   catches: PropTypes.array,
   mapScope: PropTypes.string.isRequired,
   userScope: PropTypes.string.isRequired,
+  pokedexPage: PropTypes.object.isRequired,
   onLoginClick: PropTypes.func.isRequired,
   onLogoutClick: PropTypes.func.isRequired,
   fetchTrainers: PropTypes.func.isRequired,
@@ -122,9 +130,11 @@ App.propTypes = {
   setStatus: PropTypes.func.isRequired,
   setMapScope: PropTypes.func.isRequired,
   setUserScope: PropTypes.func.isRequired,
+  setPokedexPage: PropTypes.func.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
   fetchCatches: PropTypes.func.isRequired,
+  onAddPokedex: PropTypes.func.isRequired,
 }
 
 export default connect(

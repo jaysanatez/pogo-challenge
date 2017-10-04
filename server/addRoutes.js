@@ -14,6 +14,7 @@ module.exports = app => {
   app.post('/api/trainers', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.createTrainerHandler)
   app.delete('/api/trainers/:id', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.deleteTrainerHandler)
   app.get('/api/trainers/current', authFunc, routeHandlers.fetchCurrentTrainerHandler)
+  app.post('/api/trainers/pokedex', authFunc, routeHandlers.addPokedexHandler)
 
   app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
   app.get('/api/catches', authFunc, routeHandlers.fetchAllCatchesHandler)
