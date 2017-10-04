@@ -18,8 +18,11 @@ export default class AddPokedexModal extends Component {
 
   onClick() {
     const { onAddClick, pokemon } = this.props
-    const dateStr = formatDate(this.selectedDay, LONG_DATE_STRING)
-    onAddClick(pokemon.id, dateStr)
+    const date = formatDate(this.selectedDay, LONG_DATE_STRING)
+    onAddClick({
+      pokemonId: pokemon.id,
+      date,
+    })
   }
 
   onDateChange(date) {

@@ -69,6 +69,11 @@ class App extends Component {
       return (<LoadingThrobber/>)
     }
 
+    // reflect trainer state changes back to trainers state
+    const me = trainers.findIndex(t => t._id == trainer._id)
+    if (me >= 0)
+      trainers[me] = trainer
+
     return (
       <Switch>
         <Route exact path="/" render={this.authorize(Dashboard)}/>

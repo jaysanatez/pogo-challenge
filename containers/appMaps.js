@@ -89,8 +89,8 @@ export const mapDispatchToProps = dispatch => {
     fetchCatches: () => {
       fetchCatches(dispatch)
     },
-    onAddPokedex: (pokemonId, date) => {
-      onAddPokedex(dispatch, pokemonId, date)
+    onAddPokedex: data => {
+      onAddPokedex(dispatch, data)
     },
     setMapScope: scope => {
       dispatch(setMapScope(scope))

@@ -10,6 +10,7 @@ import {
   updateTrainerResponse,
   createCatchReponse,
   fetchCatchesResponse,
+  addPokedexResponse,
 } from '../app/actions'
 
 const handleUserAuth = (dispatch, data, resp) => {
@@ -121,6 +122,10 @@ export function fetchCatches(dispatch) {
   })
 }
 
-export function onAddPokedex(dispatch, pokemonId, date) {
-  console.log(pokemonId, date)
+export function onAddPokedex(dispatch, pokedexData) {
+  makeApiRequest('/api/trainers/pokedex', 'POST', pokedexData, true, data => {
+    dispatch(addPokedexResponse(data))
+  }, () => {
+    dispatch(addPokedexResponse())
+  })
 }

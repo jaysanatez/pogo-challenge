@@ -10,6 +10,7 @@ export const UPDATE_TRAINER = 'UPDATE_TRAINER'
 
 export const CREATE_CATCH = 'CREATE_CATCH'
 export const FETCH_CATCHES = 'FETCH_CATCHES'
+export const ADD_POKEDEX = 'ADD_POKEDEX'
 
 export const SET_STATUS = 'SET_STATUS'
 export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
@@ -109,6 +110,13 @@ export function createCatchReponse(data) {
 export function fetchCatchesResponse(data) {
   return {
     type: FETCH_CATCHES,
+    ...data,
+  }
+}
+
+export function addPokedexResponse(data) {
+  return {
+    type: ADD_POKEDEX,
     ...data,
   }
 }
