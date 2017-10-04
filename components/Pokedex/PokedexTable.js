@@ -24,6 +24,9 @@ export default class PokedexTable extends Component {
   }
 
   getAddPokedexLink(pokemon) {
+    if (pokemon.disabled)
+      return null
+
     return (
       <a
         href="#"
