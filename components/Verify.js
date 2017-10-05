@@ -26,9 +26,9 @@ export default class Verify extends Component {
 
   renderVerifyForm(trainer, message) {
     var flash = message ?
-      (<div className="alert alert-danger mt-3" role="alert">
+      <div className="alert alert-danger mt-3" role="alert">
         { message }
-      </div>) :
+      </div> :
       null
 
   	return (
@@ -64,12 +64,12 @@ export default class Verify extends Component {
 
     if (!trainer) {
       fetchTrainer(trainerId)
-      return (<LoadingThrobber/>)
+      return <LoadingThrobber/>
     } else if (trainer.status == Status.CREATED) {
       return this.renderVerifyForm(trainer, message)
-    } else {
-      return null
     }
+      
+    return null
   }
 }
 

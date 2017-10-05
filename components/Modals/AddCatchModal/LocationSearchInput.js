@@ -4,7 +4,7 @@ import { AsyncCreatable } from 'react-select'
 import toTitleCase from 'to-title-case'
 import _ from 'underscore'
 
-import { getConfigValue } from '../../../config'
+import { getConfigValue } from '../../../shared/config'
 import 'react-select/dist/react-select.css'
 
 const getObjForGeoname = g => {

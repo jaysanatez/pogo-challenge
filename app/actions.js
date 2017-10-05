@@ -17,6 +17,8 @@ export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
 export const SET_USER_SCOPE = 'SET_USER_SCOPE'
 export const SET_POKEDEX_PAGE = 'SET_POKEDEX_PAGE'
 
+// direct state change
+
 export function setStatus(message) {
   return {
     type: SET_STATUS,
@@ -42,6 +44,16 @@ export function setPokedexPage(page) {
   return {
     type: SET_POKEDEX_PAGE,
     page,
+  }
+}
+
+// state change from api response
+
+// TODO: reuse this instead of specific methods
+export function responseAction(type, data) {
+  return {
+    type,
+    ...data,
   }
 }
 

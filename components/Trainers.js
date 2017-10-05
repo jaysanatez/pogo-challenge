@@ -14,7 +14,25 @@ import {
 } from '../shared/lookups'
 
 export default class Trainers extends Component {
-  renderTableData() {
+  renderTableHeader() {
+    return (
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Team</th>
+          <th>Status</th>
+          <th>Role</th>
+          <th># XP Updates</th>
+          <th>Pokedex Count</th>
+          <th># Catches</th>
+          <th>Last Updated</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+    )
+  }
+
+  renderTableBody() {
     const {
       trainer,
       trainers,
@@ -68,7 +86,11 @@ export default class Trainers extends Component {
       )
     })
 
-    return rows
+    return (
+      <tbody>
+        { rows }
+      </tbody>
+    )
   }
 
   render() {
@@ -77,24 +99,9 @@ export default class Trainers extends Component {
       <div>
         <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#createTrainerModal">Add Trainer</button>
         <table className="table table-hover table-responsive mt-3">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Team</th>
-              <th>Status</th>
-              <th>Role</th>
-              <th># XP Updates</th>
-              <th>Pokedex Count</th>
-              <th># Catches</th>
-              <th>Last Updated</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            { this.renderTableData() }
-          </tbody>
+          { this.renderTableHeader()}
+          { this.renderTableBody() }
         </table>
-
         <CreateTrainerModal onTrainerCreate={onTrainerCreate}/>
       </div>
     )

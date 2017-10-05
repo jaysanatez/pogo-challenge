@@ -1,9 +1,11 @@
 var passport      = require('passport')
 var path          = require('path')
 var passport      = require('passport')
+
 var auth          = require('./auth')
-var routeHandlers = require('./routeHandlers')
 var Lookups       = require('../shared/lookups')
+var routeHandlers = require('./routeHandlers')
+var catchHandlers = require('./catchHandlers')
 
 module.exports = app => {
 
@@ -17,8 +19,8 @@ module.exports = app => {
   app.post('/api/trainers/pokedex', authFunc, routeHandlers.addPokedexHandler)
 
   app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
-  app.get('/api/catches', authFunc, routeHandlers.fetchAllCatchesHandler)
-  app.post('/api/catches', authFunc, routeHandlers.createCatchHandler)
+  app.get('/api/catches', authFunc, catchHandlers.fetchAllCatchesHandler)
+  app.post('/api/catches', authFunc, catchHandlers.createCatchHandler)
 
   // public routes
   app.post('/api/login', routeHandlers.loginHandler)
