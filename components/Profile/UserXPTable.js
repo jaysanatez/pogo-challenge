@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
 
 import ProfileTable from './ProfileTable'
-import {
-  getLevelForXP,
-} from '../../shared/utils'
+import { getLevelForXP } from '../../shared/utils'
 
 export default class UserXPTable extends Component {
   constructor(props) {

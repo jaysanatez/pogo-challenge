@@ -40,8 +40,13 @@ export default class ProfileTable extends Component {
       return (<p className="mt-3 text-center">{ emptyText }</p>)
     }
 
+    const tableStyle = {
+      maxHeight: '250px',
+      overflow: 'auto',
+    }
+
   	return (
-      <div className="mt-3" style={{ maxHeight: "250px", overflow: "auto" }}>
+      <div className="mt-3" style={tableStyle}>
         <table className="table table-hover table-sm">
           { this.renderHeader(headerTitles) }
           { this.renderBody(data, getRowFunc) }

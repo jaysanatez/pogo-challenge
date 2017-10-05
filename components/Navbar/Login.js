@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import NavAuthButton from './NavAuthButton'
 
 export default class Login extends Component {
   constructor(props) {
@@ -19,20 +20,11 @@ export default class Login extends Component {
 
   render() {
     return (
-      <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
-        <form className="form-inline my-2 my-lg-0" onSubmit={e => e.preventDefault()}>
-          <input className="form-control mr-sm-2" type="text" ref="username" placeholder="Username"/>
-          <input className="form-control mr-sm-2" type="password" ref="password" placeholder="Password"/>
-          <button
-            className="btn my-sm-0"
-            type="submit"
-            onClick={this.onClick}
-            style={{cursor:"pointer"}}
-          >
-            Login
-          </button>
-        </form>
-      </ul>
+      <form className="form-inline my-2 my-lg-0" onSubmit={e => e.preventDefault()}>
+        <input className="form-control mr-sm-2" type="text" ref="username" placeholder="Username"/>
+        <input className="form-control mr-sm-2" type="password" ref="password" placeholder="Password"/>
+        <NavAuthButton text="Login" type="submit" onClick={this.onClick}/>
+      </form>
     )
   }
 }
