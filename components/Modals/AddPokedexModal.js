@@ -12,8 +12,8 @@ export default class AddPokedexModal extends Component {
     super(props)
 
     this.onDateChange = this.onDateChange.bind(this)
-    this.onClick = this.onClick.bind(this)
     this.selectedDay = Moment()
+    this.onClick = this.onClick.bind(this)
   }
 
   onClick() {

@@ -16,16 +16,13 @@ export default class PokemonSearchInput extends Component {
   }
 
   buildPokemonOptions() {
-    var options = []
-    pokemonData.pokemon.forEach(p => {
-      options.push({
+    return pokemonData.pokemon.map(p => {
+      return {
         value: p.id,
         label: p.name,
         disabled: p.disabled,
-      })
+      }
     })
-
-    return options
   }
 
   onSelectPokemonChange(value) { 

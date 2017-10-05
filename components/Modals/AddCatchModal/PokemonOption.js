@@ -12,34 +12,35 @@ export default class PokemonOption extends Component {
   }
 
   onMouseDown(event) {
+    const { onSelect, option } = this.props
     event.preventDefault()
     event.stopPropagation()
-    this.props.onSelect(this.props.option, event)
+    onSelect(option, event)
   }
 
   onMouseEnter(event) {
-    this.props.onFocus(this.props.option, event)
+    const { onFocus, option } = this.props
+    onFocus(option, event)
   }
 
   onMouseMove(event) {
-    if (this.props.isFocused) {
-      return
-    }
-
-    this.props.onFocus(this.props.option, event)
+    const { isFocused, onFocus, option } = this.props
+    if (!isFocused)
+      onFocus(option, event)
   }
 
   render() {
-    const imgSrc = getSrcForPokemonId(this.props.option.value)
+    const { option, className, children } = this.props
+    const imgSrc = getSrcForPokemonId(option.value)
     return (
-      <div className={this.props.className}
+      <div className={className}
         onMouseDown={this.onMouseDown}
         onMouseEnter={this.onMouseEnter}
         onMouseMove={this.onMouseMove}
-        title={this.props.option.title}
+        title={option.title}
       >
         <img style={imgStyle} src={imgSrc}/>
-        {this.props.children}
+        { children }
       </div>
     )
   }

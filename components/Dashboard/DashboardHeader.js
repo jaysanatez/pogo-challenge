@@ -34,8 +34,13 @@ export default class DashboardHeader extends Component {
       maxWidth: '150px',
     }
 
+    const headerStyle = {
+      overflow: 'hidden',
+      marginBottom: '20px',
+    }
+
     return (
-      <div style={{ overflow: "hidden", marginBottom: "20px" }}>
+      <div style={headerStyle}>
         <h3 style={floatLeft}>Dashboard</h3>
         <form>
           <select
