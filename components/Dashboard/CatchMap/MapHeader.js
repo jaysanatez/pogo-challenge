@@ -34,7 +34,7 @@ export default class MapHeader extends Component {
       maxWidth: '150px',
     }
 
-  return (
+    return (
       <div style={{ overflow: "hidden" }}>
         <h3 style={floatLeft}>Catch Map</h3>
         <form>

@@ -12,10 +12,9 @@ export default class AddCatchModal extends Component {
   constructor(props) {
     super(props)
 
-    this.selectedPokemonValue = null
-    this.selectedLocationValue = null
-    this.locationInput = null
-    this.selectedDay = Moment()
+    this.state = {
+      selectedDay: Moment(),
+    }
 
     this.onPokemonValueChange = this.onPokemonValueChange.bind(this)
     this.onLocationValueChange = this.onLocationValueChange.bind(this)
@@ -24,32 +23,35 @@ export default class AddCatchModal extends Component {
   }
 
   onPokemonValueChange(value) {
-    this.selectedPokemonValue = value
+    this.state.selectedPokemonValue = value
   }
 
   onLocationValueChange(value) {
-    this.selectedLocationValue = value
+    this.state.selectedLocationValue = value
   }
 
   onDateChange(date) {
-    this.selectedDay = date
+    this.state.selectedDay = date
     this.forceUpdate()
   }
 
   onClick() {
-    if (!this.selectedPokemonValue || !this.selectedLocationValue) {
-      this.props.setStatus('Error! Insufficient data provided.')
+    const { selectedPokemonValue, selectedLocationValue, selectedDay } = this.state
+    const { setStatus, onCatchCreate } = this.props
+
+    if (!selectedPokemonValue || !selectedLocationValue) {
+      setStatus('Error! Insufficient data provided.')
       return
     }
 
-    const loc = this.selectedLocationValue
+    const loc = selectedLocationValue
     const data = {
-      pokemonId: this.selectedPokemonValue.value,
+      pokemonId: selectedPokemonValue.value,
       location: loc,
-      date: formatDate(this.selectedDay, LONG_DATE_STRING),
+      date: formatDate(selectedDay, LONG_DATE_STRING),
     }
 
-    this.props.onCatchCreate(data)
+    onCatchCreate(data)
   }
 
   render() {
@@ -65,7 +67,7 @@ export default class AddCatchModal extends Component {
           <LocationSearchInput onChange={this.onLocationValueChange}/>
           <div className="form-group">
             <DatePicker
-              selected={this.selectedDay}
+              selected={this.state.selectedDay}
               onChange={this.onDateChange}
               maxDate={Moment()}
               placeholderText="Select a day"

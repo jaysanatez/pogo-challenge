@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from 'google-maps-react'
 
-import { getConfigValue } from '../../../config'
+import { getConfigValue } from '../../../shared/config'
 import MapStyle from './MapStyle'
 import Constants from './MapConstants'
 import MapPopup from './MapPopup'
@@ -17,9 +17,11 @@ export class MapContainer extends Component {
 
   updatePopupState(marker, _catch) {
     var trainerName
+    const { trainer, trainers } = this.props
+
     if (marker && _catch) {
-      const whoCaughtIt = this.props.trainers.find(t => t._id == _catch.userId)
-      const isMe = whoCaughtIt.username == this.props.trainer.username
+      const whoCaughtIt = trainers.find(t => t._id == _catch.userId)
+      const isMe = whoCaughtIt.username == trainer.username
       trainerName = isMe ? 'you' : whoCaughtIt.username
     }
 
@@ -34,12 +36,11 @@ export class MapContainer extends Component {
   }
 
   getMarkers(trainer, catches) {
-    var markers = []
-    catches.forEach(c => {
+    return catches.map(c => {
       if (!c.cord)
-        return
+        return null
 
-      markers.push(
+      return (
         <Marker
           key={c._id}
           title={c.locationName}
@@ -49,8 +50,6 @@ export class MapContainer extends Component {
         />
       )
     })
-
-    return markers
   }
 
   render() {
@@ -71,7 +70,7 @@ export class MapContainer extends Component {
         zoom={Constants.mapConstants.zoomLevels[mapScope]}
         styles={MapStyle}
         { ...Constants.mapConstants.dontMoveMap }
-        onClick={ () => this.updatePopupState() }
+        onClick={this.updatePopupStates}
       >
         { this.getMarkers(trainer, catches) }
         <InfoWindow

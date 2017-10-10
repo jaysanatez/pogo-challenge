@@ -55,7 +55,7 @@ export default class XPGraph extends Component {
 
   getLegend(justMe) {
     return justMe ? null : 
-      (<Legend verticalAlign="bottom" height={LEGEND_HEIGHT}/>)
+      <Legend verticalAlign="bottom" height={LEGEND_HEIGHT}/>
   }
 
   render() {
@@ -72,7 +72,7 @@ export default class XPGraph extends Component {
 
     const colors = ['#0099CC', '#00C851', '#FF8800', '#FF4444']
     const colorMap = {}
-    trainers.forEach((t, idx) => colorMap[t.username] = colors[idx])
+    trainers.forEach((t, idx) => colorMap[t.username] = colors[idx % colors.length])
 
     const lines = []
     const refLines = []

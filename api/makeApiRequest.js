@@ -1,4 +1,4 @@
-import { getConfigValue } from '../config.js'
+import { getConfigValue } from '../shared/config.js'
 
 function isDevEnvironment() {
   return getConfigValue('NODE_ENV') == 'development'

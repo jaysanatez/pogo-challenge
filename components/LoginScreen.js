@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 export default class LoginScreen extends Component {
   render() {
     const { message } = this.props
-    const flash = message ? (
+    const flash = message ?
       <div className="alert alert-danger" role="alert">
         { message }
-      </div>
-    ) : null
+      </div> :
+      null
 
     return (
       <div>

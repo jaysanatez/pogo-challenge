@@ -24,6 +24,7 @@ export default class LevelUpCarousel extends Component {
   }
   render() {
     const { trainers, lastN } = this.props
+
     return (
       <div id="levelUpCarousel" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner" role="listbox">

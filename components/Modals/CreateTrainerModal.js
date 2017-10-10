@@ -16,13 +16,14 @@ export default class CreateTrainerModal extends Component {
   }
 
   renderEnumOptions(Enum, stringMap) {
-    var options = []
-    Object.keys(Enum).forEach(e => {
+    return Object.keys(Enum).map(e => {
       var eVal = Enum[e]
-      options.push(<option key={ eVal } id={ eVal }>{ stringMap[eVal] }</option>)
+      return (
+        <option key={ eVal } id={ eVal }>
+          { stringMap[eVal] }
+        </option>
+      )
     })
-
-    return options
   }
 
   onClick() {

@@ -1,7 +1,6 @@
 var Moment  = require('moment')
 
 var User    = require('./models/user')
-var Catch   = require('./models/catch')
 var Lookups = require('../shared/lookups')
 var auth    = require('./auth')
 var utils   = require('../shared/utils')
@@ -9,12 +8,13 @@ var utils   = require('../shared/utils')
 const handleUserAuth = (user, res) => {
   // invalid user status
   const statusMessages = {
-    2: 'Error! User has not been verified.',
-    3: 'Error! User is disabled.',
+    [Lookups.Status.CREATED]: 'Error! User has not been verified.',
+    [Lookups.Status.DISABLED]: 'Error! User is disabled.',
   }
 
-  if (user.status != Lookups.Status.VERIFIED) {
-    return res.status(401).json({ message: statusMessages[user.status] })
+  const message = statusMessages[user.status]
+  if (message) {
+    return res.status(401).json({ message })
   }
 
   // we got ourselves a login
@@ -190,28 +190,6 @@ var updateXPHandler = (req, res) => {
   })
 }
 
-var fetchAllCatchesHandler = (req, res) => {
-  Catch.fetchAll((err, catches) => {
-    if (err || !catches)
-      return res.status(500).json({ message: 'Error! Could not fetch catches.' })
-
-    res.json({
-      catches,
-    })
-  })
-}
-
-var createCatchHandler = (req, res) => {
-  Catch.createCatch(req.body, req.user._id, (err, catchLoc) => {
-    if (err || !catchLoc)
-      return res.status(500).json({ message: (err || 'Error! Could not create catch.') })
-
-    res.json({
-      catch: catchLoc,
-    })
-  })
-}
-
 var addPokedexHandler = (req, res) => {
   User.findById(req.user._id, (err, user) => {
     if (err || !user)
@@ -245,7 +223,5 @@ module.exports = {
   fetchCurrentTrainerHandler,
   verifyTrainer,
   updateXPHandler,
-  fetchAllCatchesHandler,
-  createCatchHandler,
   addPokedexHandler,
 }

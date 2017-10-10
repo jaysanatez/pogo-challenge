@@ -30,7 +30,7 @@ export default class Navbar extends Component {
     return hasPerms ? this.createTab('Trainers', '/trainers') : null
   }
 
-  renderAuthComponents() {
+  renderAuthComponent() {
     const {
       trainer,
       onLoginClick,
@@ -38,9 +38,9 @@ export default class Navbar extends Component {
     } = this.props
 
     if (trainer && trainer.status == Status.VERIFIED) {
-      return ( <Logout name={trainer.username} onLogoutClick={onLogoutClick} /> )
+      return <Logout name={trainer.username} onLogoutClick={onLogoutClick} />
     } else {
-      return ( <Login onLoginClick={onLoginClick} />)
+      return <Login onLoginClick={onLoginClick} />
     }
   }
 
@@ -56,7 +56,9 @@ export default class Navbar extends Component {
         { this.renderProfileTab() }
         { this.renderPokedexTab() }
         { this.renderTrainersTab() }
-        { this.renderAuthComponents() }
+        <ul className="nav navbar-nav ml-auto w-100 justify-content-end">
+          { this.renderAuthComponent() }
+        </ul>
       </div>
     </nav>
     )

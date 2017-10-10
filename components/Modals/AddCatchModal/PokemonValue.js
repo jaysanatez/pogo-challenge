@@ -4,9 +4,10 @@ import { imgStyle, getSrcForPokemonId } from './shared'
 
 export default class PokemonValue extends Component {
   render() {
-    const imgSrc = getSrcForPokemonId(this.props.value.value)
+    const { value, title } = this.props.value
+    const imgSrc = getSrcForPokemonId(value)
     return (
-      <div className="Select-value" title={this.props.value.title}>
+      <div className="Select-value" title={title}>
         <span className="Select-value-label">
           <img style={imgStyle} src={imgSrc}/>
           {this.props.children}

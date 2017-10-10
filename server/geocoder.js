@@ -1,5 +1,5 @@
 var Geocoder = require('node-geocoder')
-var config   = require('../config')
+var config   = require('../shared/config')
 
 const options = {
   provider: 'google',
