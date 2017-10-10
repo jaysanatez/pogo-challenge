@@ -28,6 +28,7 @@ export default class Trainers extends Component {
     const rows = trainers.map(t => {
       return (
         <TrainerTableRow
+          key={t.username}
           trainer={t}
           numCatches={catchMap[t._id]}
           onTrainerDelete={onTrainerDelete}

@@ -37,7 +37,7 @@ export default class AddCatchModal extends Component {
 
   onClick() {
     const { selectedPokemonValue, selectedLocationValue, selectedDay } = this.state
-    const { setStatus, onCatchCreate } = props
+    const { setStatus, onCatchCreate } = this.props
 
     if (!selectedPokemonValue || !selectedLocationValue) {
       setStatus('Error! Insufficient data provided.')

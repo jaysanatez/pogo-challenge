@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 export default class NavAuthButton extends Component {
   render() {
-  	const { text, type, onClick } = props
-  	return (
-  	  <button
+    const { text, type, onClick } = this.props
+    return (
+      <button
         className="btn my-sm-0"
         type={type}
         onClick={onClick}
@@ -13,7 +13,7 @@ export default class NavAuthButton extends Component {
       >
        { text }
       </button>
-  	)
+    )
   }
 }
 

@@ -39,7 +39,7 @@ export default class TrainerTableRow extends Component {
       null
 
     return (
-      <tr key={t.username}>
+      <tr>
         <td>{ t.username }</td>
         <td>{ TeamStrings[t.team] }</td>
         <td>{ StatusStrings[t.status] }</td>

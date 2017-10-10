@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 auth.addAuth(app)
 addRoutes(app)
-// db.connect()
+db.connect()
 
 app.listen(port, error => {
   if (error) {
