@@ -20,17 +20,18 @@ export default class Trainers extends Component {
     catches.forEach(c => {
       const id = c.userId
       if (catchMap[id])
-        catchMap[id] += 1
+        catchMap[id].push(c)
       else
-        catchMap[id] = 1
+        catchMap[id] = [c]
     })
 
     const rows = trainers.map(t => {
+      const catches = catchMap[t._id] || []
       return (
         <TrainerTableRow
           key={t.username}
           trainer={t}
-          numCatches={catchMap[t._id]}
+          catches={catches}
           onTrainerDelete={onTrainerDelete}
           showDeleteButton={trainer.username != t.username}
           showVerifyLink={t.status == Status.CREATED}

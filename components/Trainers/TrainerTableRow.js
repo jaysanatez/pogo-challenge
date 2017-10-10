@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { formatDate, DATE_TIME_STRING } from '../../shared/utils'
+import PokedexGroups from '../Pokedex/pokedexGroups'
 import {
   Status,
   TeamStrings,
@@ -13,7 +14,7 @@ export default class TrainerTableRow extends Component {
   render() {
     const {
       trainer,
-      numCatches,
+      catches,
       onTrainerDelete,
       showDeleteButton,
       showVerifyLink
@@ -21,6 +22,15 @@ export default class TrainerTableRow extends Component {
 
     const t = trainer
     const defaultCount = t.status == Status.VERIFIED ? 0 : ''
+    const catchCount = catches.length || defaultCount
+
+    var uniquePokedexCount = 0
+    const allPokemon = trainer.pokedex.slice().concat(catches)
+    if (allPokemon.length) {
+      const pokedexIds = Object.values(PokedexGroups).reduce((a,b) => a.concat(b))
+      const pokemonIds = allPokemon.map(p => p.pokemonId).filter(p => pokedexIds.includes(p))
+      uniquePokedexCount = new Set(pokemonIds).size
+    }
 
     var onDelete = trainer => {
       return evt => {
@@ -45,8 +55,8 @@ export default class TrainerTableRow extends Component {
         <td>{ StatusStrings[t.status] }</td>
         <td>{ RoleStrings[t.role] }</td>
         <td>{ t.xpUpdates.length }</td>
-        <td>{ t.pokedex.length }</td>
-        <td>{ numCatches || defaultCount }</td>
+        <td>{ uniquePokedexCount }</td>
+        <td>{ catchCount }</td>
         <td>{ formatDate(t.lastUpdated, DATE_TIME_STRING) }</td>
         <td>
           { button }
@@ -59,7 +69,7 @@ export default class TrainerTableRow extends Component {
 
 TrainerTableRow.propTypes = {
   trainer: PropTypes.object.isRequired,
-  numCatches: PropTypes.number,
+  catches: PropTypes.array.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,
   showDeleteButton: PropTypes.bool.isRequired,
   showVerifyLink: PropTypes.bool.isRequired,
