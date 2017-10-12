@@ -8,6 +8,11 @@ export const UserScopes = {
   EVERYONE: 'Everyone',
 }
 
+export const PokedexDisplays = {
+  COLLAPSED: 'Collapsed',
+  EXPANDED: 'Expanded',
+}
+
 export const PokedexPages = {
   LEGENDARY: {
     text: 'Legendary',

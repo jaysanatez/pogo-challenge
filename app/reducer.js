@@ -1,9 +1,16 @@
 import { combineReducers } from 'redux'
-import { MapScopes, UserScopes, PokedexPages } from './displayOptions'
+import {
+  MapScopes,
+  UserScopes,
+  PokedexDisplays,
+  PokedexPages,
+} from './displayOptions'
+
 import {
   SET_STATUS,
   SET_MAP_SCOPE,
   SET_USER_SCOPE,
+  SET_POKEDEX_DISPLAY,
   SET_POKEDEX_PAGE,
   LOGIN,
   LOGOUT,
@@ -17,7 +24,7 @@ import {
 
 const trainerActions = [LOGIN, LOGOUT, SET_STATUS, FETCH_TRAINER]
 const dashboardActions = [FETCH_TRAINERS, CREATE_TRAINER, DELETE_TRAINER, CREATE_CATCH, FETCH_CATCHES, SET_MAP_SCOPE, SET_USER_SCOPE]
-const pokedexActions = [SET_POKEDEX_PAGE]
+const pokedexActions = [SET_POKEDEX_DISPLAY, SET_POKEDEX_PAGE]
 
 const defaultState = {
   trainer: JSON.parse(localStorage.getItem('trainer')),
@@ -25,6 +32,7 @@ const defaultState = {
   catches: null,
   mapScope: MapScopes.USA,
   userScope: UserScopes.ME,
+  pokedexDisplay: PokedexDisplays.COLLAPSED,
   pokedexPage: PokedexPages.LEGENDARY,
 }
 
@@ -97,9 +105,12 @@ function pokedexReducer(state = defaultState, action) {
   if (pokedexActions.indexOf(action.type) == -1)
     return state
 
+  const pokedexDisplay = action.display || state.pokedexDisplay
   const pokedexPage = action.page || state.pokedexPage
+
   return {
     ...state,
+    pokedexDisplay,
     pokedexPage,
   }
 }

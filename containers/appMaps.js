@@ -2,6 +2,7 @@ import {
   setStatus,
   setMapScope,
   setUserScope,
+  setPokedexDisplay,
   setPokedexPage,
 } from '../app/actions'
 
@@ -33,7 +34,7 @@ export const mapStateToProps = state => {
   const { trainerReducer, dashboardReducer, pokedexReducer } = state
   const { trainer } = trainerReducer
   const { trainers, catches, mapScope, userScope } = dashboardReducer
-  const { pokedexPage } = pokedexReducer
+  const { pokedexDisplay, pokedexPage } = pokedexReducer
 
   const message = consolidateMessageFromReducers([
     trainerReducer,
@@ -47,6 +48,7 @@ export const mapStateToProps = state => {
     catches,
     mapScope,
     userScope,
+    pokedexDisplay,
     pokedexPage,
   }
 }
@@ -97,6 +99,9 @@ export const mapDispatchToProps = dispatch => {
     },
     setUserScope: scope => {
       dispatch(setUserScope(scope))
+    },
+    setPokedexDisplay: display => {
+      dispatch(setPokedexDisplay(display))
     },
     setPokedexPage: page => {
       dispatch(setPokedexPage(page))
