@@ -27,7 +27,13 @@ export default class ToggleHeader extends Component {
       title,
       enumObject,
       value,
+      marginBottom,
     } = this.props
+
+    const divStyle = {
+      overflow: 'hidden',
+      marginBottom: marginBottom,
+    }
 
     const floatLeft = {
       float: 'left',
@@ -35,12 +41,8 @@ export default class ToggleHeader extends Component {
       maxWidth: '150px',
     }
 
-    const headerStyle = {
-      overflow: 'hidden',
-    }
-
     return (
-      <div style={headerStyle}>
+      <div style={divStyle}>
         <h3 style={floatLeft}>{ title }</h3>
         <form>
           <select
@@ -58,9 +60,14 @@ export default class ToggleHeader extends Component {
   }
 }
 
+ToggleHeader.defaultProps = {
+	marginBottom: '0px',
+}
+
 ToggleHeader.propTypes = {
   title: PropTypes.string.isRequired,
   enumObject: PropTypes.object.isRequired,
   value: PropTypes.string.isRequired,
   onValueChange: PropTypes.func.isRequired,
+  marginBottom: PropTypes.string,
 }

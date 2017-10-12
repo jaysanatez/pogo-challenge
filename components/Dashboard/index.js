@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import DashboardHeader from './DashboardHeader'
+import ToggleHeader from '../shared/ToggleHeader'
 import LevelUpComponent from './LevelUpComponent'
 import XPGraph from './XPGraph'
 import CatchMap from './CatchMap'
@@ -28,7 +28,13 @@ export default class Dashboard extends Component {
 
     return (
       <div className="mt-3">
-        <DashboardHeader userScope={userScope} setUserScope={setUserScope}/>
+        <ToggleHeader
+          title="Dashboard"
+          enumObject={UserScopes}
+          value={userScope}
+          onValueChange={setUserScope}
+          marginBottom="20px"
+        />
         <XPGraph trainers={trainersToShow}/>
         <LevelUpComponent trainers={trainersToShow}/>
 

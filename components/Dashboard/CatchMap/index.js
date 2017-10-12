@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { UserScopes } from '../../../app/displayOptions'
-import MapHeader from './MapHeader'
+import { UserScopes, MapScopes } from '../../../app/displayOptions'
+import ToggleHeader from '../../shared/ToggleHeader'
 import MapContainer from './MapContainer'
 
 export default class CatchMap extends Component {
@@ -28,7 +28,12 @@ export default class CatchMap extends Component {
 
     return (
       <div className="mt-3">
-        <MapHeader mapScope={mapScope} setMapScope={setMapScope}/>
+        <ToggleHeader
+          title="Catch Map"
+          enumObject={MapScopes}
+          value={mapScope}
+          onValueChange={setMapScope}
+        />
         <div className="my-3">
           <MapContainer
             className="mt-3"
