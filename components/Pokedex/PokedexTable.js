@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import pokedexGroups from './pokedexGroups'
-import { getPokemonForId } from '../../assets/utils'
 import pokemonTableData from './pokemonTableData'
+import { getPokemonForId } from '../../assets/utils'
+import { PokedexDisplays } from '../../app/displayOptions'
 import './pokedexTable.css'
 
 export default class PokedexTable extends Component {
@@ -45,19 +46,27 @@ export default class PokedexTable extends Component {
     })
   }
 
-  getRowsForData(trainer, trainers, pokemon, data) {
+  getRowsForData(trainer, trainers, pokemon, data, isCollapsed) {
     return pokemon.map(p => {
+      var everyoneHasIt = true
       const trainerData = trainers.map(t => {
         const dateStr = data[p.id][t.username]
         var content
 
+        // if dateStr is null, trainer has not caught it
         if (dateStr)
           content = this.getPokedexCheck(dateStr)
-        else if (t._id == trainer._id)
-          content = this.getAddPokedexLink(p)
+        else {
+          everyoneHasIt = false
+          if (t._id == trainer._id)
+           content = this.getAddPokedexLink(p)
+        }
 
         return <td key={t._id} style={{ textAlign: "center" }}>{ content }</td>
       })
+
+      if (isCollapsed && (p.disabled || everyoneHasIt))
+          return null
 
       return (
         <tr key={p.id}>
@@ -76,15 +85,17 @@ export default class PokedexTable extends Component {
 
   render() {
     const {
-      pokedexPage,
       trainer,
       trainers,
       catches,
+      pokedexDisplay,
+      pokedexPage,
     } = this.props
 
     const ids = pokedexGroups[pokedexPage.text]
     const pokemon = ids.map(id => getPokemonForId(id))
     const data = pokemonTableData(pokemon, trainers, catches)
+    const isCollapsed = pokedexDisplay == PokedexDisplays.COLLAPSED
 
     return (
       <div className="mt-3">
@@ -96,7 +107,7 @@ export default class PokedexTable extends Component {
             </tr>
           </thead>
           <tbody>
-            { this.getRowsForData(trainer, trainers, pokemon, data) }
+            { this.getRowsForData(trainer, trainers, pokemon, data, isCollapsed) }
           </tbody>
         </table>
       </div>
@@ -108,6 +119,7 @@ PokedexTable.propTypes = {
   trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
   catches: PropTypes.array.isRequired,
+  pokedexDisplay: PropTypes.string.isRequired,
   pokedexPage: PropTypes.object.isRequired,
   onAddPokemon: PropTypes.func.isRequired,
 }

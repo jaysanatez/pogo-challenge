@@ -1,6 +1,7 @@
 export const SET_STATUS = 'SET_STATUS'
 export const SET_MAP_SCOPE = 'SET_MAP_SCOPE'
 export const SET_USER_SCOPE = 'SET_USER_SCOPE'
+export const SET_POKEDEX_DISPLAY = 'SET_POKEDEX_DISPLAY'
 export const SET_POKEDEX_PAGE = 'SET_POKEDEX_PAGE'
 
 export const LOGIN = 'LOGIN'
@@ -34,6 +35,13 @@ export function setUserScope(scope) {
   return {
     type: SET_USER_SCOPE,
     scope,
+  }
+}
+
+export function setPokedexDisplay(display) {
+  return {
+    type: SET_POKEDEX_DISPLAY,
+    display,
   }
 }
 
