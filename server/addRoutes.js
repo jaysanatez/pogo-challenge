@@ -5,7 +5,6 @@ var passport      = require('passport')
 var auth          = require('./auth')
 var Lookups       = require('../shared/lookups')
 var routeHandlers = require('./routeHandlers')
-var catchHandlers = require('./catchHandlers')
 
 module.exports = app => {
 
@@ -17,10 +16,8 @@ module.exports = app => {
   app.delete('/api/trainers/:id', authFunc, auth.authenticateRoles([Lookups.Role.ADMIN]), routeHandlers.deleteTrainerHandler)
   app.get('/api/trainers/current', authFunc, routeHandlers.fetchCurrentTrainerHandler)
   app.post('/api/trainers/pokedex', authFunc, routeHandlers.addPokedexHandler)
-
-  app.post('/api/xp/update', authFunc, routeHandlers.updateXPHandler)
-  app.get('/api/catches', authFunc, catchHandlers.fetchAllCatchesHandler)
-  app.post('/api/catches', authFunc, catchHandlers.createCatchHandler)
+  app.post('/api/trainers/xpupdates', authFunc, routeHandlers.updateXPHandler)
+  app.post('/api/trainers/catches', authFunc, routeHandlers.createCatchHandler)
 
   // public routes
   app.post('/api/login', routeHandlers.loginHandler)

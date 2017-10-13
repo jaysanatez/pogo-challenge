@@ -10,20 +10,17 @@ export default class CatchMap extends Component {
     const {
       trainer,
       trainers,
-      catches,
       mapScope,
       userScope,
       setMapScope,
     } = this.props
 
-    var myCatches = catches.filter(c => c.userId == trainer._id)
-    var uniqueCatchesByOthers = []
+    var catchesToShow = trainer.catches
     if (userScope == UserScopes.EVERYONE) {
       // we want catches of other locations where I have not caught one
-      const sameLocationNameOrCords = (c1, c2) => (c1.locationName == c2.locationName || c1.cord == c2.cord)
-      uniqueCatchesByOthers = catches.filter(c1 => {
-        return !myCatches.includes(c1) && !myCatches.some(c2 => sameLocationNameOrCords(c1, c2))
-      })
+      const otherTrainers = trainers.filter(t => t._id != trainer._id)
+      const otherCatches = otherTrainers.map(t => t.catches).reduce((a, b) => a.concat(b))
+      catchesToShow = catchesToShow.concat(otherCatches)
     }
 
     return (
@@ -39,7 +36,7 @@ export default class CatchMap extends Component {
             className="mt-3"
             trainer={trainer}
             trainers={trainers}
-            catches={myCatches.concat(uniqueCatchesByOthers)}
+            catches={catchesToShow}
             mapScope={mapScope}
           />
         </div>
@@ -51,7 +48,6 @@ export default class CatchMap extends Component {
 CatchMap.propTypes = {
   trainer: PropTypes.object.isRequired,
   trainers: PropTypes.array.isRequired,
-  catches: PropTypes.array.isRequired,
   mapScope: PropTypes.string.isRequired,
   userScope: PropTypes.string.isRequired,
   setMapScope: PropTypes.func.isRequired,

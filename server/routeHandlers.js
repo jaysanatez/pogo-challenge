@@ -1,9 +1,10 @@
-var Moment  = require('moment')
+var Moment   = require('moment')
 
-var User    = require('./models/user')
-var Lookups = require('../shared/lookups')
-var auth    = require('./auth')
-var utils   = require('../shared/utils')
+var User     = require('./models/user')
+var Lookups  = require('../shared/lookups')
+var auth     = require('./auth')
+var utils    = require('../shared/utils')
+var geocoder = require('./geocoder')
 
 const handleUserAuth = (user, res) => {
   // invalid user status
@@ -190,6 +191,60 @@ var updateXPHandler = (req, res) => {
   })
 }
 
+var createCatch = (data, next) => {
+  const loc = data.location
+  var _catch = {
+    pokemonId: data.pokemonId,
+    date: data.date,
+    locationName: loc.name,
+  }
+
+  if (loc.lat && loc.lng) {
+    _catch.cord = loc
+    next(null, _catch)
+  } else {
+    var callback = (err, _catch) => {
+      if (err) {
+        next(err, null)
+      } else if (!_catch) {
+        next('Error! The catch could not be saved.', null)
+      } else {
+        next(null, _catch)
+      }
+    }
+
+    geocoder.getCoordinates(_catch, callback)
+  }
+}
+
+var createCatchHandler = (req, res) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err || !user)
+      return res.status(500).json({ message: 'Error! Could not locate user.' })
+
+    // verify the data is accurate (return null if nothing wrong)
+    const data = req.body
+    if (!data.location || !data.location.name || !data.date ||
+        !data.pokemonId || data.pokemonId < 0 || data.pokemonId > 251) {
+      return res.status(500).json({ message: 'Error! Insufficient data provided.'})
+    }
+
+    createCatch(data, (err, _catch) => {
+      user.catches = user.catches.concat(_catch)
+      user.lastUpdated = Moment.utc()
+      
+      user.save((err, user) => {
+        if (err || !user)
+          return res.status(500).json({ message: 'Error! Could not save the user changes' })
+
+        res.json({
+          trainer: user.toClientDto(),
+        })
+      })
+    })
+  })
+}
+
 var addPokedexHandler = (req, res) => {
   User.findById(req.user._id, (err, user) => {
     if (err || !user)
@@ -223,5 +278,6 @@ module.exports = {
   fetchCurrentTrainerHandler,
   verifyTrainer,
   updateXPHandler,
+  createCatchHandler,
   addPokedexHandler,
 }

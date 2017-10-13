@@ -11,9 +11,7 @@ export const FETCH_TRAINER = 'FETCH_TRAINER'
 export const FETCH_TRAINERS = 'FETCH_TRAINERS'
 export const CREATE_TRAINER = 'CREATE_TRAINER'
 export const DELETE_TRAINER = 'DELETE_TRAINER'
-
 export const CREATE_CATCH = 'CREATE_CATCH'
-export const FETCH_CATCHES = 'FETCH_CATCHES'
 
 // direct state change
 
