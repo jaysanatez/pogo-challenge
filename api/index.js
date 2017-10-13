@@ -2,11 +2,10 @@ import makeApiRequest from './makeApiRequest'
 import {
   LOGIN,
   LOGOUT,
-  FETCH_TRAINER,
-  FETCH_TRAINERS,
+  UPDATE_TRAINER,
+  UPDATE_TRAINERS,
   CREATE_TRAINER,
   DELETE_TRAINER,
-  CREATE_CATCH,
   responseAction,
 } from '../app/actions'
 
@@ -49,9 +48,9 @@ export function logoutTrainer(dispatch) {
 
 export function fetchTrainers(dispatch) {
   makeApiRequest('/api/trainers', 'GET', null, true, data => {
-    dispatch(responseAction(FETCH_TRAINERS, data))
+    dispatch(responseAction(UPDATE_TRAINERS, data))
   }, () => {
-    dispatch(responseAction(FETCH_TRAINERS))
+    dispatch(responseAction(UPDATE_TRAINERS))
   })
 }
 
@@ -73,17 +72,17 @@ export function deleteTrainer(dispatch, trainerId) {
 
 export function fetchTrainer(dispatch, trainerId) {
   makeApiRequest('/api/trainers/' + trainerId, 'GET', null, false, data => {
-    dispatch(responseAction(FETCH_TRAINER, data))
+    dispatch(responseAction(UPDATE_TRAINER, data))
   }, () => {
-    dispatch(responseAction(FETCH_TRAINER))
+    dispatch(responseAction(UPDATE_TRAINER))
   })
 }
 
 export function fetchCurrentTrainer(dispatch) {
   makeApiRequest('api/trainers/current', 'GET', null, true, data => {
-    dispatch(responseAction(FETCH_TRAINER, data))
+    dispatch(responseAction(UPDATE_TRAINER, data))
   }, () => {
-    dispatch(responseAction(FETCH_TRAINER))
+    dispatch(responseAction(UPDATE_TRAINER))
   })
 }
 
@@ -98,24 +97,24 @@ export function verifyTrainer(dispatch, trainerId, password) {
 
 export function updateXp(dispatch, xpUpdate) {
   makeApiRequest('/api/trainers/xpupdates', 'POST', xpUpdate, true, data => {
-    dispatch(responseAction(FETCH_TRAINER, data))
+    dispatch(responseAction(UPDATE_TRAINER, data))
   }, error => {
-    dispatch(responseAction(FETCH_TRAINER, error))
+    dispatch(responseAction(UPDATE_TRAINER, error))
   })
 }
 
 export function createCatch(dispatch, catchData) {
   makeApiRequest('/api/trainers/catches', 'POST', catchData, true, data => {
-    dispatch(responseAction(FETCH_TRAINER, data))
+    dispatch(responseAction(UPDATE_TRAINER, data))
   }, error => {
-    dispatch(responseAction(FETCH_TRAINER, error))
+    dispatch(responseAction(UPDATE_TRAINER, error))
   })
 }
 
 export function onAddPokedex(dispatch, pokedexData) {
   makeApiRequest('/api/trainers/pokedex', 'POST', pokedexData, true, data => {
-    dispatch(responseAction(FETCH_TRAINER, data))
+    dispatch(responseAction(UPDATE_TRAINER, data))
   }, () => {
-    dispatch(responseAction(FETCH_TRAINER))
+    dispatch(responseAction(UPDATE_TRAINER))
   })
 }

@@ -7,11 +7,10 @@ export const SET_POKEDEX_PAGE = 'SET_POKEDEX_PAGE'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 
-export const FETCH_TRAINER = 'FETCH_TRAINER'
-export const FETCH_TRAINERS = 'FETCH_TRAINERS'
+export const UPDATE_TRAINER = 'FETCH_TRAINER'
+export const UPDATE_TRAINERS = 'FETCH_TRAINERS'
 export const CREATE_TRAINER = 'CREATE_TRAINER'
 export const DELETE_TRAINER = 'DELETE_TRAINER'
-export const CREATE_CATCH = 'CREATE_CATCH'
 
 // direct state change
 
