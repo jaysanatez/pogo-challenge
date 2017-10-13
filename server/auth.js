@@ -2,7 +2,7 @@ var passport    = require('passport')
 var passportJwt = require('passport-jwt')
 var jwt         = require('jsonwebtoken')
 var config      = require('../shared/config')
-var User        = require('./models/user')
+var User        = require('./user')
 
 var ExtractJwt  = passportJwt.ExtractJwt
 var JwtStrategy = passportJwt.Strategy

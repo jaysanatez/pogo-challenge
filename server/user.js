@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 var bcrypt   = require('bcrypt-nodejs')
 var Moment   = require('moment')
 
-var Lookups  = require('../../shared/lookups')
+var Lookups  = require('../shared/lookups')
 var Schema   = mongoose.Schema
 
 var userSchema = new Schema({
@@ -23,6 +23,15 @@ var userSchema = new Schema({
     pokemonId: Number,
     date: String,
   }],
+  catches: [{
+    pokemonId: Number,
+    date: String,
+    locationName: String,
+    cord: {
+      lat: Number,
+      lng: Number,
+    },
+  }]
 })
 
 // can't use => syntax - this keyword throws error
@@ -55,13 +64,14 @@ userSchema.methods.toClientDto = function() {
     team: this.team,
     xpUpdates: this.xpUpdates,
     pokedex: this.pokedex,
+    catches: this.catches,
   }
 }
 
 var model = mongoose.model('User', userSchema)
 
 var fetchAll = next => {
-  model.find({}, 'username role status lastUpdated team xpUpdates pokedex', next)
+  model.find({}, 'username role status lastUpdated team xpUpdates pokedex catches', next)
 }
 
 var findById = (id, next) => {
@@ -80,6 +90,7 @@ var createNewUser = (data, next) => {
   newUser.status = Lookups.Status.CREATED
   newUser.xpUpdates = []
   newUser.pokedex = []
+  newUser.catches = []
 
   newUser.save(next)
 }

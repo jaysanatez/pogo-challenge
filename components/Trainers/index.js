@@ -12,26 +12,14 @@ export default class Trainers extends Component {
     const {
       trainer,
       trainers,
-      catches,
       onTrainerDelete,
     } = this.props
 
-    var catchMap = {}
-    catches.forEach(c => {
-      const id = c.userId
-      if (catchMap[id])
-        catchMap[id].push(c)
-      else
-        catchMap[id] = [c]
-    })
-
     const rows = trainers.map(t => {
-      const catches = catchMap[t._id] || []
       return (
         <TrainerTableRow
           key={t.username}
           trainer={t}
-          catches={catches}
           onTrainerDelete={onTrainerDelete}
           showDeleteButton={trainer.username != t.username}
           showVerifyLink={t.status == Status.CREATED}
@@ -50,7 +38,14 @@ export default class Trainers extends Component {
     const { trainers, onTrainerCreate } = this.props
     return (
       <div>
-        <button type="button" className="btn btn-primary mt-3" data-toggle="modal" data-target="#createTrainerModal">Add Trainer</button>
+        <button
+          type="button"
+          className="btn btn-primary mt-3"
+          data-toggle="modal"
+          data-target="#createTrainerModal"
+        >
+          Add Trainer
+        </button>
         <table className="table table-hover table-responsive mt-3">
           <TrainerTableHeader/>
           { this.renderTableBody() }
@@ -64,7 +59,6 @@ export default class Trainers extends Component {
 Trainers.propTypes = {
   trainer: PropTypes.object,
   trainers: PropTypes.array.isRequired,
-  catches: PropTypes.array.isRequired,
   onTrainerCreate: PropTypes.func.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,
 }

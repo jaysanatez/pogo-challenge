@@ -13,7 +13,7 @@
 // if trainer has caught the pokemon, data[pokemon.id][trainer.username] is the date string
 // if trainer hasn't caught the pokemon, data[pokemon.id][trainer.username] is null
 
-export default function(pokemon, trainers, catches) {
+export default function(pokemon, trainers) {
   var data = {}
 
   pokemon.forEach(p => {
@@ -21,7 +21,7 @@ export default function(pokemon, trainers, catches) {
     trainers.forEach(t => {
       var entry = t.pokedex.find(d => d.pokemonId == p.id)
       if (!entry)
-        entry = catches.find(c => c.pokemonId == p.id && c.userId == t._id)
+        entry = t.catches.find(c => c.pokemonId == p.id)
 
       if (entry)
       	dateStrs[t.username] = entry.date

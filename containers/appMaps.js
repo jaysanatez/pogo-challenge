@@ -17,7 +17,6 @@ import {
   verifyTrainer,
   updateXp,
   createCatch,
-  fetchCatches,
   onAddPokedex,
 } from '../api/'
 
@@ -33,7 +32,7 @@ function consolidateMessageFromReducers(reducers) {
 export const mapStateToProps = state => {
   const { trainerReducer, dashboardReducer, pokedexReducer } = state
   const { trainer } = trainerReducer
-  const { trainers, catches, mapScope, userScope } = dashboardReducer
+  const { trainers, mapScope, userScope } = dashboardReducer
   const { pokedexDisplay, pokedexPage } = pokedexReducer
 
   const message = consolidateMessageFromReducers([
@@ -45,7 +44,6 @@ export const mapStateToProps = state => {
     trainer,
     message,
     trainers,
-    catches,
     mapScope,
     userScope,
     pokedexDisplay,
@@ -87,9 +85,6 @@ export const mapDispatchToProps = dispatch => {
     },
     onCatchCreate: data => {
       createCatch(dispatch, data)
-    },
-    fetchCatches: () => {
-      fetchCatches(dispatch)
     },
     onAddPokedex: data => {
       onAddPokedex(dispatch, data)

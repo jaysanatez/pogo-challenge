@@ -7,7 +7,6 @@ import {
   CREATE_TRAINER,
   DELETE_TRAINER,
   CREATE_CATCH,
-  FETCH_CATCHES,
   responseAction,
 } from '../app/actions'
 
@@ -24,6 +23,7 @@ const handleUserAuth = (dispatch, data, key) => {
     ...trainer,
     xpUpdates: null,
     pokedex: null,
+    catches: null,
   }
 
   localStorage.setItem('id_token', token)
@@ -97,7 +97,7 @@ export function verifyTrainer(dispatch, trainerId, password) {
 }
 
 export function updateXp(dispatch, xpUpdate) {
-  makeApiRequest('/api/xp/update', 'POST', xpUpdate, true, data => {
+  makeApiRequest('/api/trainers/xpupdates', 'POST', xpUpdate, true, data => {
     dispatch(responseAction(FETCH_TRAINER, data))
   }, error => {
     dispatch(responseAction(FETCH_TRAINER, error))
@@ -105,18 +105,10 @@ export function updateXp(dispatch, xpUpdate) {
 }
 
 export function createCatch(dispatch, catchData) {
-  makeApiRequest('/api/catches', 'POST', catchData, true, data => {
-    dispatch(responseAction(CREATE_CATCH, data))
+  makeApiRequest('/api/trainers/catches', 'POST', catchData, true, data => {
+    dispatch(responseAction(FETCH_TRAINER, data))
   }, error => {
-    dispatch(responseAction(CREATE_CATCH, error))
-  })
-}
-
-export function fetchCatches(dispatch) {
-  makeApiRequest('/api/catches', 'GET', null, true, data => {
-    dispatch(responseAction(FETCH_CATCHES, data))
-  }, () => {
-    dispatch(responseAction(FETCH_CATCHES))
+    dispatch(responseAction(FETCH_TRAINER, error))
   })
 }
 

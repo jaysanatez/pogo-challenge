@@ -14,18 +14,16 @@ export default class TrainerTableRow extends Component {
   render() {
     const {
       trainer,
-      catches,
       onTrainerDelete,
       showDeleteButton,
-      showVerifyLink
+      showVerifyLink,
     } = this.props
 
     const t = trainer
-    const defaultCount = t.status == Status.VERIFIED ? 0 : ''
-    const catchCount = catches.length || defaultCount
+    const catchCount = t.catches.length
 
     var uniquePokedexCount = 0
-    const allPokemon = trainer.pokedex.slice().concat(catches)
+    const allPokemon = trainer.pokedex.slice().concat(t.catches)
     if (allPokemon.length) {
       const pokedexIds = Object.values(PokedexGroups).reduce((a,b) => a.concat(b))
       const pokemonIds = allPokemon.map(p => p.pokemonId).filter(p => pokedexIds.includes(p))
@@ -69,7 +67,6 @@ export default class TrainerTableRow extends Component {
 
 TrainerTableRow.propTypes = {
   trainer: PropTypes.object.isRequired,
-  catches: PropTypes.array.isRequired,
   onTrainerDelete: PropTypes.func.isRequired,
   showDeleteButton: PropTypes.bool.isRequired,
   showVerifyLink: PropTypes.bool.isRequired,

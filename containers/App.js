@@ -53,19 +53,12 @@ class App extends Component {
     const {
       trainer,
       trainers,
-      catches,
       fetchCurrentTrainer,
-      fetchCatches,
       fetchTrainers,
     } = this.props
 
-    if (this.isVerifiedTrainer(trainer) && (!trainer.xpUpdates || !trainer.pokedex)) {
+    if (this.isVerifiedTrainer(trainer) && (!trainer.xpUpdates || !trainer.pokedex || !trainer.catches)) {
       fetchCurrentTrainer()
-      return (<LoadingThrobber/>)
-    }
-
-    if (this.isVerifiedTrainer(trainer) && !catches) {
-      fetchCatches()
       return (<LoadingThrobber/>)
     }
 
@@ -120,7 +113,6 @@ App.propTypes = {
   trainer: PropTypes.object,
   message: PropTypes.string,
   trainers: PropTypes.array.isRequired,
-  catches: PropTypes.array,
   mapScope: PropTypes.string.isRequired,
   userScope: PropTypes.string.isRequired,
   pokedexDisplay: PropTypes.string.isRequired,
@@ -140,7 +132,6 @@ App.propTypes = {
   setPokedexPage: PropTypes.func.isRequired,
   onXPUpdate: PropTypes.func.isRequired,
   onCatchCreate: PropTypes.func.isRequired,
-  fetchCatches: PropTypes.func.isRequired,
   onAddPokedex: PropTypes.func.isRequired,
 }
 

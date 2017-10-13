@@ -12,7 +12,6 @@ export default class Dashboard extends Component {
     const {
       trainer,
       trainers,
-      catches,
       mapScope,
       userScope,
       setMapScope,
@@ -41,7 +40,6 @@ export default class Dashboard extends Component {
         <CatchMap
           trainer={trainer}
           trainers={trainers}
-          catches={catches}
           mapScope={mapScope}
           setMapScope={setMapScope}
           userScope={userScope}
@@ -54,7 +52,6 @@ export default class Dashboard extends Component {
 Dashboard.propTypes = {
   trainer: PropTypes.object,
   trainers: PropTypes.array.isRequired,
-  catches: PropTypes.array.isRequired,
   mapScope: PropTypes.string.isRequired,
   userScope: PropTypes.string.isRequired,
   setMapScope: PropTypes.func.isRequired,
