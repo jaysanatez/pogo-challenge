@@ -57,8 +57,7 @@ class App extends Component {
       fetchTrainers,
     } = this.props
 
-    const allDataLoaded = trainer.xpUpdates && trainer.pokedex && trainer.catches
-    if (this.isVerifiedTrainer(trainer) && !allDataLoaded) {
+    if (this.isVerifiedTrainer(trainer) && (!trainer.xpUpdates || !trainer.pokedex || !trainer.catches)) {
       fetchCurrentTrainer()
       return (<LoadingThrobber/>)
     }

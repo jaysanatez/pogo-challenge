@@ -23,6 +23,7 @@ const handleUserAuth = (dispatch, data, key) => {
     ...trainer,
     xpUpdates: null,
     pokedex: null,
+    catches: null,
   }
 
   localStorage.setItem('id_token', token)

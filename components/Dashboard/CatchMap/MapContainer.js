@@ -11,31 +11,35 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { showInfoWindow: false }
+    this.state = {}
     this.updatePopupState = this.updatePopupState.bind(this)
   }
 
-  updatePopupState(marker, _catch) {
-    var trainerName
+  getNameForCatch(_catch) {
     const { trainer, trainers } = this.props
+    const t = trainers.find(_t => _t.catches.some(c => c._id == _catch._id))
 
-    if (marker && _catch) {
-      const whoCaughtIt = trainers.find(t => t._id == _catch.userId)
-      const isMe = whoCaughtIt.username == trainer.username
-      trainerName = isMe ? 'you' : whoCaughtIt.username
+    if (t && t.username == trainer.username) {
+      return 'you'
+    } else if (t) {
+      return t.username
+    } else {
+      return 'someone'
     }
+  }
 
+  updatePopupState(marker, _catch, trainerName) {
+    const { trainer, trainers } = this.props
     this.state = {
-      showInfoWindow: marker != null,
       activeMarker: marker,
-      trainerName,
+      trainerName: this.getNameForCatch(_catch),
       _catch,
     }
 
     this.forceUpdate()
   }
 
-  getMarkers(trainer, catches) {
+  getMarkers(catches) {
     return catches.map(c => {
       if (!c.cord)
         return null
@@ -55,7 +59,6 @@ export class MapContainer extends Component {
   render() {
     const {
       google,
-      trainer,
       catches,
       mapScope,
     } = this.props
@@ -72,10 +75,10 @@ export class MapContainer extends Component {
         { ...Constants.mapConstants.dontMoveMap }
         onClick={this.updatePopupStates}
       >
-        { this.getMarkers(trainer, catches) }
+        { this.getMarkers(catches) }
         <InfoWindow
           marker={this.state.activeMarker}
-          visible={this.state.showInfoWindow}
+          visible={this.state.activeMarker != null}
         >
           <MapPopup state={this.state}/>
         </InfoWindow>
