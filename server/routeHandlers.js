@@ -1,6 +1,6 @@
 var Moment   = require('moment')
 
-var User     = require('./models/user')
+var User     = require('./user')
 var Lookups  = require('../shared/lookups')
 var auth     = require('./auth')
 var utils    = require('../shared/utils')
