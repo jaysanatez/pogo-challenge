@@ -2379,6 +2379,1422 @@
         "Grass"
       ],
       "disabled": true
+    },
+    {
+      "id": 252,
+      "num": "252",
+      "name": "Treecko",
+      "img": "252.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 253,
+      "num": "253",
+      "name": "Grovyle",
+      "img": "253.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 254,
+      "num": "254",
+      "name": "Sceptile",
+      "img": "254.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 255,
+      "num": "255",
+      "name": "Torchic",
+      "img": "255.png",
+      "type": [
+        "Fire"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 256,
+      "num": "256",
+      "name": "Combusken",
+      "img": "256.png",
+      "type": [
+        "Fire",
+        "Fighting"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 257,
+      "num": "257",
+      "name": "Blaziken",
+      "img": "257.png",
+      "type": [
+        "Fire",
+        "Fighting"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 258,
+      "num": "258",
+      "name": "Mudkip",
+      "img": "258.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 259,
+      "num": "259",
+      "name": "Marshtomp",
+      "img": "259.png",
+      "type": [
+        "Water",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 260,
+      "num": "260",
+      "name": "Swampert",
+      "img": "260.png",
+      "type": [
+        "Water",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 261,
+      "num": "261",
+      "name": "Poochyena",
+      "img": "261.png",
+      "type": [
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 262,
+      "num": "262",
+      "name": "Mightyena",
+      "img": "262.png",
+      "type": [
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 263,
+      "num": "263",
+      "name": "Zigzagoon",
+      "img": "263.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 264,
+      "num": "264",
+      "name": "Linoone",
+      "img": "264.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 265,
+      "num": "265",
+      "name": "Wurmple",
+      "img": "265.png",
+      "type": [
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 266,
+      "num": "266",
+      "name": "Silcoon",
+      "img": "266.png",
+      "type": [
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 267,
+      "num": "267",
+      "name": "Beautifly",
+      "img": "267.png",
+      "type": [
+        "Bug",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 268,
+      "num": "268",
+      "name": "Cascoon",
+      "img": "268.png",
+      "type": [
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 269,
+      "num": "269",
+      "name": "Dustox",
+      "img": "269.png",
+      "type": [
+        "Bug",
+        "Poison"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 270,
+      "num": "270",
+      "name": "Lotad",
+      "img": "270.png",
+      "type": [
+        "Water",
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 271,
+      "num": "271",
+      "name": "Lombre",
+      "img": "271.png",
+      "type": [
+        "Water",
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 272,
+      "num": "272",
+      "name": "Ludicolo",
+      "img": "272.png",
+      "type": [
+        "Water",
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 273,
+      "num": "273",
+      "name": "Seedot",
+      "img": "273.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 274,
+      "num": "274",
+      "name": "Nuzleaf",
+      "img": "274.png",
+      "type": [
+        "Grass",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 275,
+      "num": "275",
+      "name": "Shiftry",
+      "img": "275.png",
+      "type": [
+        "Grass",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 276,
+      "num": "276",
+      "name": "Taillow",
+      "img": "276.png",
+      "type": [
+        "Normal",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 277,
+      "num": "277",
+      "name": "Swellow",
+      "img": "277.png",
+      "type": [
+        "Normal",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 278,
+      "num": "278",
+      "name": "Wingull",
+      "img": "278.png",
+      "type": [
+        "Water",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 279,
+      "num": "279",
+      "name": "Pelipper",
+      "img": "279.png",
+      "type": [
+        "Water",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 280,
+      "num": "280",
+      "name": "Ralts",
+      "img": "280.png",
+      "type": [
+        "Psychic",
+        "Fairy"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 281,
+      "num": "281",
+      "name": "Kirlia",
+      "img": "281.png",
+      "type": [
+        "Psychic",
+        "Fairy"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 282,
+      "num": "282",
+      "name": "Gardevoir",
+      "img": "282.png",
+      "type": [
+        "Psychic",
+        "Fairy"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 283,
+      "num": "283",
+      "name": "Surskit",
+      "img": "283.png",
+      "type": [
+        "Bug",
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 284,
+      "num": "284",
+      "name": "Masquerain",
+      "img": "284.png",
+      "type": [
+        "Bug",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 285,
+      "num": "285",
+      "name": "Shroomish",
+      "img": "285.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 286,
+      "num": "286",
+      "name": "Breloom",
+      "img": "286.png",
+      "type": [
+        "Grass",
+        "Fighting"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 287,
+      "num": "287",
+      "name": "Slakoth",
+      "img": "287.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 288,
+      "num": "288",
+      "name": "Vigoroth",
+      "img": "288.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 289,
+      "num": "289",
+      "name": "Slaking",
+      "img": "289.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 290,
+      "num": "290",
+      "name": "Nincada",
+      "img": "290.png",
+      "type": [
+        "Bug",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 291,
+      "num": "291",
+      "name": "Ninjask",
+      "img": "291.png",
+      "type": [
+        "Bug",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 292,
+      "num": "292",
+      "name": "Shedinja",
+      "img": "292.png",
+      "type": [
+        "Bug",
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 293,
+      "num": "293",
+      "name": "Whismur",
+      "img": "293.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 294,
+      "num": "294",
+      "name": "Loudred",
+      "img": "294.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 295,
+      "num": "295",
+      "name": "Exploud",
+      "img": "295.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 296,
+      "num": "296",
+      "name": "Makuhita",
+      "img": "296.png",
+      "type": [
+        "Fighting"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 297,
+      "num": "297",
+      "name": "Hariyama",
+      "img": "297.png",
+      "type": [
+        "Fighting"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 298,
+      "num": "298",
+      "name": "Azurill",
+      "img": "298.png",
+      "type": [
+        "Normal",
+        "Fairy"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 299,
+      "num": "299",
+      "name": "Nosepass",
+      "img": "299.png",
+      "type": [
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 300,
+      "num": "300",
+      "name": "Skitty",
+      "img": "300.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 301,
+      "num": "301",
+      "name": "Delcatty",
+      "img": "301.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 302,
+      "num": "302",
+      "name": "Sableye",
+      "img": "302.png",
+      "type": [
+        "Dark",
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 303,
+      "num": "303",
+      "name": "Mawile",
+      "img": "303.png",
+      "type": [
+        "Steel",
+        "Fairy"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 304,
+      "num": "304",
+      "name": "Aron",
+      "img": "304.png",
+      "type": [
+        "Steel",
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 305,
+      "num": "305",
+      "name": "Lairon",
+      "img": "305.png",
+      "type": [
+        "Steel",
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 306,
+      "num": "306",
+      "name": "Aggron",
+      "img": "306.png",
+      "type": [
+        "Steel",
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 307,
+      "num": "307",
+      "name": "Meditite",
+      "img": "307.png",
+      "type": [
+        "Fighting",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 308,
+      "num": "308",
+      "name": "Medicham",
+      "img": "308.png",
+      "type": [
+        "Fighting",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 309,
+      "num": "309",
+      "name": "Electrike",
+      "img": "309.png",
+      "type": [
+        "Electric"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 310,
+      "num": "310",
+      "name": "Manectric",
+      "img": "310.png",
+      "type": [
+        "Electric"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 311,
+      "num": "311",
+      "name": "Plusle",
+      "img": "311.png",
+      "type": [
+        "Electric"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 312,
+      "num": "312",
+      "name": "Minun",
+      "img": "312.png",
+      "type": [
+        "Electric"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 313,
+      "num": "313",
+      "name": "Volbeat",
+      "img": "313.png",
+      "type": [
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 314,
+      "num": "314",
+      "name": "Illumise",
+      "img": "314.png",
+      "type": [
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 315,
+      "num": "315",
+      "name": "Roselia",
+      "img": "315.png",
+      "type": [
+        "Grass",
+        "Poison"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 316,
+      "num": "316",
+      "name": "Gulpin",
+      "img": "316.png",
+      "type": [
+        "Poison"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 317,
+      "num": "317",
+      "name": "Swalot",
+      "img": "317.png",
+      "type": [
+        "Poison"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 318,
+      "num": "318",
+      "name": "Carvanha",
+      "img": "318.png",
+      "type": [
+        "Water",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 319,
+      "num": "319",
+      "name": "Sharpedo",
+      "img": "319.png",
+      "type": [
+        "Water",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 320,
+      "num": "320",
+      "name": "Wailmer",
+      "img": "320.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 321,
+      "num": "321",
+      "name": "Wailord",
+      "img": "321.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 322,
+      "num": "322",
+      "name": "Numel",
+      "img": "322.png",
+      "type": [
+        "Fire",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 323,
+      "num": "323",
+      "name": "Camerupt",
+      "img": "323.png",
+      "type": [
+        "Fire",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 324,
+      "num": "324",
+      "name": "Torkoal",
+      "img": "324.png",
+      "type": [
+        "Fire"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 325,
+      "num": "325",
+      "name": "Spoink",
+      "img": "325.png",
+      "type": [
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 326,
+      "num": "326",
+      "name": "Grumpig",
+      "img": "326.png",
+      "type": [
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 327,
+      "num": "327",
+      "name": "Spinda",
+      "img": "327.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 328,
+      "num": "328",
+      "name": "Trapinch",
+      "img": "328.png",
+      "type": [
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 329,
+      "num": "329",
+      "name": "Vibrava",
+      "img": "329.png",
+      "type": [
+        "Ground",
+        "Dragon"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 330,
+      "num": "330",
+      "name": "Flygon",
+      "img": "330.png",
+      "type": [
+        "Ground",
+        "Dragon"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 331,
+      "num": "331",
+      "name": "Cacnea",
+      "img": "331.png",
+      "type": [
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 332,
+      "num": "332",
+      "name": "Cacturne",
+      "img": "332.png",
+      "type": [
+        "Grass",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 333,
+      "num": "333",
+      "name": "Swablu",
+      "img": "333.png",
+      "type": [
+        "Normal",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 334,
+      "num": "334",
+      "name": "Altaria",
+      "img": "334.png",
+      "type": [
+        "Dragon",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 335,
+      "num": "335",
+      "name": "Zangoose",
+      "img": "335.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 336,
+      "num": "336",
+      "name": "Seviper",
+      "img": "336.png",
+      "type": [
+        "Poison"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 337,
+      "num": "337",
+      "name": "Lunatone",
+      "img": "337.png",
+      "type": [
+        "Rock",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 338,
+      "num": "338",
+      "name": "Solrock",
+      "img": "338.png",
+      "type": [
+        "Rock",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 339,
+      "num": "339",
+      "name": "Barboach",
+      "img": "339.png",
+      "type": [
+        "Water",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 340,
+      "num": "340",
+      "name": "Whiscash",
+      "img": "340.png",
+      "type": [
+        "Water",
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 341,
+      "num": "341",
+      "name": "Corphish",
+      "img": "341.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 342,
+      "num": "342",
+      "name": "Crawdaunt",
+      "img": "342.png",
+      "type": [
+        "Water",
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 343,
+      "num": "343",
+      "name": "Baltoy",
+      "img": "343.png",
+      "type": [
+        "Ground",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 344,
+      "num": "344",
+      "name": "Claydol",
+      "img": "344.png",
+      "type": [
+        "Ground",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 345,
+      "num": "345",
+      "name": "Lileep",
+      "img": "345.png",
+      "type": [
+        "Rock",
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 346,
+      "num": "346",
+      "name": "Cradily",
+      "img": "346.png",
+      "type": [
+        "Rock",
+        "Grass"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 347,
+      "num": "347",
+      "name": "Anorith",
+      "img": "347.png",
+      "type": [
+        "Rock",
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 348,
+      "num": "348",
+      "name": "Armaldo",
+      "img": "348.png",
+      "type": [
+        "Rock",
+        "Bug"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 349,
+      "num": "349",
+      "name": "Feebas",
+      "img": "349.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 350,
+      "num": "350",
+      "name": "Milotic",
+      "img": "350.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 351,
+      "num": "351",
+      "name": "Castform",
+      "img": "351.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 352,
+      "num": "352",
+      "name": "Kecleon",
+      "img": "352.png",
+      "type": [
+        "Normal"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 353,
+      "num": "353",
+      "name": "Shuppet",
+      "img": "353.png",
+      "type": [
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 354,
+      "num": "354",
+      "name": "Banette",
+      "img": "354.png",
+      "type": [
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 355,
+      "num": "355",
+      "name": "Duskull",
+      "img": "355.png",
+      "type": [
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 356,
+      "num": "356",
+      "name": "Dusclops",
+      "img": "356.png",
+      "type": [
+        "Ghost"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 357,
+      "num": "357",
+      "name": "Tropius",
+      "img": "357.png",
+      "type": [
+        "Grass",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 358,
+      "num": "358",
+      "name": "Chimecho",
+      "img": "358.png",
+      "type": [
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 359,
+      "num": "359",
+      "name": "Absol",
+      "img": "359.png",
+      "type": [
+        "Dark"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 360,
+      "num": "360",
+      "name": "Wynaut",
+      "img": "360.png",
+      "type": [
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 361,
+      "num": "361",
+      "name": "Snorunt",
+      "img": "361.png",
+      "type": [
+        "Ice"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 362,
+      "num": "362",
+      "name": "Glalie",
+      "img": "362.png",
+      "type": [
+        "Ice"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 363,
+      "num": "363",
+      "name": "Spheal",
+      "img": "363.png",
+      "type": [
+        "Ice",
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 364,
+      "num": "364",
+      "name": "Sealeo",
+      "img": "364.png",
+      "type": [
+        "Ice",
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 365,
+      "num": "365",
+      "name": "Walrein",
+      "img": "365.png",
+      "type": [
+        "Ice",
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 366,
+      "num": "366",
+      "name": "Clamperl",
+      "img": "366.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 367,
+      "num": "367",
+      "name": "Huntail",
+      "img": "367.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 368,
+      "num": "368",
+      "name": "Gorebyss",
+      "img": "368.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 369,
+      "num": "369",
+      "name": "Relicanth",
+      "img": "369.png",
+      "type": [
+        "Water",
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 370,
+      "num": "370",
+      "name": "Luvdisc",
+      "img": "370.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 371,
+      "num": "371",
+      "name": "Bagon",
+      "img": "371.png",
+      "type": [
+        "Dragon"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 372,
+      "num": "372",
+      "name": "Shelgon",
+      "img": "372.png",
+      "type": [
+        "Dragon"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 373,
+      "num": "373",
+      "name": "Salamence",
+      "img": "373.png",
+      "type": [
+        "Dragon",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 374,
+      "num": "374",
+      "name": "Beldum",
+      "img": "374.png",
+      "type": [
+        "Steel",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 375,
+      "num": "375",
+      "name": "Metang",
+      "img": "375.png",
+      "type": [
+        "Steel",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 376,
+      "num": "376",
+      "name": "Metagross",
+      "img": "376.png",
+      "type": [
+        "Steel",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 377,
+      "num": "377",
+      "name": "Regirock",
+      "img": "377.png",
+      "type": [
+        "Rock"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 378,
+      "num": "378",
+      "name": "Regice",
+      "img": "378.png",
+      "type": [
+        "Ice"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 379,
+      "num": "379",
+      "name": "Registeel",
+      "img": "379.png",
+      "type": [
+        "Steel"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 380,
+      "num": "380",
+      "name": "Latias",
+      "img": "380.png",
+      "type": [
+        "Dragon",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 381,
+      "num": "381",
+      "name": "Latios",
+      "img": "381.png",
+      "type": [
+        "Dragon",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 382,
+      "num": "382",
+      "name": "Kyogre",
+      "img": "382.png",
+      "type": [
+        "Water"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 383,
+      "num": "383",
+      "name": "Groudon",
+      "img": "383.png",
+      "type": [
+        "Ground"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 384,
+      "num": "384",
+      "name": "Rayquaza",
+      "img": "384.png",
+      "type": [
+        "Dragon",
+        "Flying"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 385,
+      "num": "385",
+      "name": "Jirachi",
+      "img": "385.png",
+      "type": [
+        "Steel",
+        "Psychic"
+      ],
+      "disabled": true
+    },
+    {
+      "id": 386,
+      "num": "386",
+      "name": "Deoxys",
+      "img": "386.png",
+      "type": [
+        "Psychic"
+      ],
+      "disabled": true
     }
   ]
 }
