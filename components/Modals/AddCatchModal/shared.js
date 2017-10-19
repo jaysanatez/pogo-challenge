@@ -8,8 +8,5 @@ export const imgStyle = {
 }
 
 export const getSrcForPokemonId = id => {
-  if (id > 251) // until I get the gen. 3 assets
-    return null
-
   return require('../../../assets/pokemon/' + id + '.png')
 }

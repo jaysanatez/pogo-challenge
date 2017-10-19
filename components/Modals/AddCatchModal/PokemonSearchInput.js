@@ -25,7 +25,11 @@ export default class PokemonSearchInput extends Component {
     })
   }
 
-  onSelectPokemonChange(value) { 
+  onSelectPokemonChange(value) {
+    if (value.disabled) {
+      return
+    }
+
     this.selectedPokemonValue = value
     this.props.onChange(value)
     this.forceUpdate()
