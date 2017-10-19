@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import commaNumber from 'comma-number'
 
 import { calculateLevelUpData } from './levelUpCalculator'
+import './levelUpCard.css'
 
 export default class LevelUpCard extends Component {
   render() {
@@ -15,16 +16,16 @@ export default class LevelUpCard extends Component {
       <div className="card-block" style={blockStyle}>
         { header }
         <div className="row">
-          <div className="col">Next Level: { data.nextLevel }</div>
-          <div className="col">Progress to Level { data.nextLevel}: { data.percentTowardsNextLevel }</div>
-        </div>
-        <div className="row">
-          <div className="col">Daily Average: { commaNumber(data.dailyAvg) }</div>
-          <div className="col">Days Until Level Up: { data.daysTilNextLevel }</div>
-        </div>
-        <div className="row">
-          <div className="col">XP Needed for Next Level: { commaNumber(data.xpTilNextLevel) }</div>
-          <div className="col">Projected Level Up on { data.projectedLevelUpDate }</div>
+          <div className="col">
+            <div className="card-row">Next Level: { data.nextLevel }</div>
+            <div className="card-row">Daily Average: { commaNumber(data.dailyAvg) }</div>
+            <div className="card-row">XP Needed for Next Level: { commaNumber(data.xpTilNextLevel) }</div>
+          </div>
+          <div className="col">
+            <div className="card-row">Progress to Level { data.nextLevel}: { data.percentTowardsNextLevel }</div>
+            <div className="card-row">Days Until Level Up: { data.daysTilNextLevel }</div>
+            <div className="card-row">Projected Level Up on { data.projectedLevelUpDate }</div>
+          </div>
         </div>
       </div>
     )

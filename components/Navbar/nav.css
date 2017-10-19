@@ -1,0 +1,11 @@
+@media (max-width: 575px) {
+  input {
+    margin-bottom: 5px;
+    margin-right: 70px;
+  }
+
+  .form-inline label {
+  	margin-bottom: 0;
+  	margin-right: 8px;
+  }
+}

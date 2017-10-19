@@ -60,12 +60,20 @@ export default class XPGraph extends Component {
 
   render() {
     const { trainers } = this.props
-    const justMe = trainers.length == 1
-    if (!trainers.length) {
+    if (!trainers.length)
       return null
-    }
 
     const { data, nextLevelXps } = this.createXpData(trainers)
+    if (!data.length) {
+      return (
+        <div>
+          <h3>XP Growth</h3>
+          <p className="mt-3 text-center">Record your XP in the Profile page to view the graph.</p>
+        </div>
+      )
+    }
+
+    const justMe = trainers.length == 1
     const { mult, label } = this.getXpGraphScale(data)
     const highestNextLevelUp = Math.max.apply(null, Object.values(nextLevelXps))
     const timeToDateString = time => Moment(time).format(SHORT_DATE_STRING)
