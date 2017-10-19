@@ -22,6 +22,5 @@ export const PokedexPages = {
   },
   GENERATION_3: {
     text: 'Gen. 3',
-    disabled: true,
   },
 }
