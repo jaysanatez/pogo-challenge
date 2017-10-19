@@ -7,6 +7,7 @@ import {
   DATE_TIME_STRING,
   getTrainerLevel,
 } from '../../shared/utils'
+import './profileHeader.css'
 
 export default class ProfileHeader extends Component {
   render() {
@@ -17,9 +18,13 @@ export default class ProfileHeader extends Component {
       <div className="card mt-3">
         <div className="card-block">
           <h3 className="card-title">{ trainer.username }</h3>
-          <p className="card-text">
-            Level { levelStr } | { TeamStrings[trainer.team] } | Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }
-          </p>
+          <div>
+            <span className="subtitle-piece">Level { levelStr }</span>
+            <span className="subtitle-spacer">|</span>
+            <span className="subtitle-piece">{ TeamStrings[trainer.team] }</span>
+            <span className="subtitle-spacer">|</span>
+            <span className="subtitle-piece">Updated on { formatDate(trainer.lastUpdated, DATE_TIME_STRING) }</span>
+          </div>
         </div>
       </div>
     )

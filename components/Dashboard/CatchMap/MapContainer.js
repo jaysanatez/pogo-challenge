@@ -63,6 +63,9 @@ export class MapContainer extends Component {
       mapScope,
     } = this.props
 
+    if (!catches.length)
+      return <p className="mt-3 text-center">Add a catch in the Profile page to view the catch map.</p>
+
     return (
       <Map
         google={google}
