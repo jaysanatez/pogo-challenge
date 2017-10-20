@@ -2913,8 +2913,7 @@
       "type": [
         "Dark",
         "Ghost"
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": 303,
@@ -3450,8 +3449,7 @@
       "img": "353.png",
       "type": [
         "Ghost"
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": 354,
@@ -3460,8 +3458,7 @@
       "img": "354.png",
       "type": [
         "Ghost"
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": 355,
@@ -3470,8 +3467,7 @@
       "img": "355.png",
       "type": [
         "Ghost"
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": 356,
@@ -3480,8 +3476,7 @@
       "img": "356.png",
       "type": [
         "Ghost"
-      ],
-      "disabled": true
+      ]
     },
     {
       "id": 357,
