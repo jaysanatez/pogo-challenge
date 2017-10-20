@@ -8,6 +8,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -18,6 +21,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -28,6 +34,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -37,6 +46,9 @@
       "img": "4.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -46,6 +58,9 @@
       "img": "5.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -56,6 +71,9 @@
       "type": [
         "Fire",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -65,6 +83,9 @@
       "img": "7.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -74,6 +95,9 @@
       "img": "8.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -83,6 +107,9 @@
       "img": "9.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -92,6 +119,9 @@
       "img": "10.png",
       "type": [
         "Bug"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -101,6 +131,9 @@
       "img": "11.png",
       "type": [
         "Bug"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -111,6 +144,9 @@
       "type": [
         "Bug",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -121,6 +157,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -131,6 +170,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -141,6 +183,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -151,6 +196,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -161,6 +209,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -171,6 +222,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -180,6 +234,9 @@
       "img": "19.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -189,6 +246,9 @@
       "img": "20.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -199,6 +259,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -209,6 +272,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -218,6 +284,9 @@
       "img": "23.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -227,6 +296,9 @@
       "img": "24.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -236,6 +308,9 @@
       "img": "25.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -245,6 +320,9 @@
       "img": "26.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -254,6 +332,9 @@
       "img": "27.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -263,6 +344,9 @@
       "img": "28.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -272,6 +356,9 @@
       "img": "29.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -281,6 +368,9 @@
       "img": "30.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -291,6 +381,9 @@
       "type": [
         "Poison",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -300,6 +393,9 @@
       "img": "32.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -309,6 +405,9 @@
       "img": "33.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -319,6 +418,9 @@
       "type": [
         "Poison",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -328,6 +430,9 @@
       "img": "35.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -337,6 +442,9 @@
       "img": "36.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -346,6 +454,9 @@
       "img": "37.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -355,6 +466,9 @@
       "img": "38.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -365,6 +479,9 @@
       "type": [
         "Normal",
         "Fairy"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -375,6 +492,9 @@
       "type": [
         "Normal",
         "Fairy"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -385,6 +505,9 @@
       "type": [
         "Poison",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -395,6 +518,9 @@
       "type": [
         "Poison",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -405,6 +531,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -415,6 +544,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -425,6 +557,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -435,6 +570,9 @@
       "type": [
         "Bug",
         "Grass"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -445,6 +583,9 @@
       "type": [
         "Bug",
         "Grass"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -455,6 +596,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -465,6 +609,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -474,6 +621,9 @@
       "img": "50.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -483,6 +633,9 @@
       "img": "51.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -492,6 +645,9 @@
       "img": "52.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -501,6 +657,9 @@
       "img": "53.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -510,6 +669,9 @@
       "img": "54.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -519,6 +681,9 @@
       "img": "55.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -528,6 +693,9 @@
       "img": "56.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -537,6 +705,9 @@
       "img": "57.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -546,6 +717,9 @@
       "img": "58.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -555,6 +729,9 @@
       "img": "59.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -564,6 +741,9 @@
       "img": "60.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -573,6 +753,9 @@
       "img": "61.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -583,6 +766,9 @@
       "type": [
         "Water",
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -592,6 +778,9 @@
       "img": "63.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -601,6 +790,9 @@
       "img": "64.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -610,6 +802,9 @@
       "img": "65.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -619,6 +814,9 @@
       "img": "66.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -628,6 +826,9 @@
       "img": "67.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -637,6 +838,9 @@
       "img": "68.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -647,6 +851,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -657,6 +864,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -667,6 +877,9 @@
       "type": [
         "Grass",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -677,6 +890,9 @@
       "type": [
         "Water",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -687,6 +903,9 @@
       "type": [
         "Water",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -697,6 +916,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -707,6 +929,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -717,6 +942,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -726,6 +954,9 @@
       "img": "77.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -735,6 +966,9 @@
       "img": "78.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -745,6 +979,9 @@
       "type": [
         "Water",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -755,6 +992,9 @@
       "type": [
         "Water",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -765,6 +1005,9 @@
       "type": [
         "Electric",
         "Steel"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -775,6 +1018,9 @@
       "type": [
         "Electric",
         "Steel"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -785,6 +1031,10 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1",
+        "regional"
       ]
     },
     {
@@ -795,6 +1045,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -805,6 +1058,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -814,6 +1070,9 @@
       "img": "86.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -824,6 +1083,9 @@
       "type": [
         "Water",
         "Ice"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -833,6 +1095,9 @@
       "img": "88.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -842,6 +1107,9 @@
       "img": "89.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -851,6 +1119,9 @@
       "img": "90.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -861,6 +1132,9 @@
       "type": [
         "Water",
         "Ice"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -871,6 +1145,9 @@
       "type": [
         "Ghost",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -881,6 +1158,9 @@
       "type": [
         "Ghost",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -891,6 +1171,9 @@
       "type": [
         "Ghost",
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -901,6 +1184,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -910,6 +1196,9 @@
       "img": "96.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -919,6 +1208,9 @@
       "img": "97.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -928,6 +1220,9 @@
       "img": "98.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -937,6 +1232,9 @@
       "img": "99.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -946,6 +1244,9 @@
       "img": "100.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -955,6 +1256,9 @@
       "img": "101.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -965,6 +1269,9 @@
       "type": [
         "Grass",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -975,6 +1282,9 @@
       "type": [
         "Grass",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -984,6 +1294,9 @@
       "img": "104.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -993,6 +1306,9 @@
       "img": "105.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1002,6 +1318,9 @@
       "img": "106.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1011,6 +1330,9 @@
       "img": "107.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1020,6 +1342,9 @@
       "img": "108.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1029,6 +1354,9 @@
       "img": "109.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1038,6 +1366,9 @@
       "img": "110.png",
       "type": [
         "Poison"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1048,6 +1379,9 @@
       "type": [
         "Ground",
         "Rock"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1058,6 +1392,9 @@
       "type": [
         "Ground",
         "Rock"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1067,6 +1404,9 @@
       "img": "113.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1076,6 +1416,9 @@
       "img": "114.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1085,6 +1428,10 @@
       "img": "115.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1",
+        "regional"
       ]
     },
     {
@@ -1094,6 +1441,9 @@
       "img": "116.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1103,6 +1453,9 @@
       "img": "117.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1112,6 +1465,9 @@
       "img": "118.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1121,6 +1477,9 @@
       "img": "119.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1130,6 +1489,9 @@
       "img": "120.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1140,6 +1502,9 @@
       "type": [
         "Water",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1150,6 +1515,10 @@
       "type": [
         "Psychic",
         "Fairy"
+      ],
+      "tags": [
+        "gen_1",
+        "regional"
       ]
     },
     {
@@ -1160,6 +1529,9 @@
       "type": [
         "Bug",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1170,6 +1542,9 @@
       "type": [
         "Ice",
         "Psychic"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1179,6 +1554,9 @@
       "img": "125.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1188,6 +1566,9 @@
       "img": "126.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1197,6 +1578,9 @@
       "img": "127.png",
       "type": [
         "Bug"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1206,6 +1590,10 @@
       "img": "128.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1",
+        "regional"
       ]
     },
     {
@@ -1215,6 +1603,9 @@
       "img": "129.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1225,6 +1616,9 @@
       "type": [
         "Water",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1235,6 +1629,9 @@
       "type": [
         "Water",
         "Ice"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1244,6 +1641,9 @@
       "img": "132.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1253,6 +1653,9 @@
       "img": "133.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1262,6 +1665,9 @@
       "img": "134.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1271,6 +1677,9 @@
       "img": "135.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1280,6 +1689,9 @@
       "img": "136.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1289,6 +1701,9 @@
       "img": "137.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1299,6 +1714,9 @@
       "type": [
         "Rock",
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1309,6 +1727,9 @@
       "type": [
         "Rock",
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1319,6 +1740,9 @@
       "type": [
         "Rock",
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1329,6 +1753,9 @@
       "type": [
         "Rock",
         "Water"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1339,6 +1766,9 @@
       "type": [
         "Rock",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1348,6 +1778,9 @@
       "img": "143.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1358,6 +1791,10 @@
       "type": [
         "Ice",
         "Flying"
+      ],
+      "tags": [
+        "gen_1",
+        "legendary"
       ]
     },
     {
@@ -1368,6 +1805,10 @@
       "type": [
         "Electric",
         "Flying"
+      ],
+      "tags": [
+        "gen_1",
+        "legendary"
       ]
     },
     {
@@ -1378,6 +1819,10 @@
       "type": [
         "Fire",
         "Flying"
+      ],
+      "tags": [
+        "gen_1",
+        "legendary"
       ]
     },
     {
@@ -1387,6 +1832,9 @@
       "img": "147.png",
       "type": [
         "Dragon"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1396,6 +1844,9 @@
       "img": "148.png",
       "type": [
         "Dragon"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1406,6 +1857,9 @@
       "type": [
         "Dragon",
         "Flying"
+      ],
+      "tags": [
+        "gen_1"
       ]
     },
     {
@@ -1415,6 +1869,10 @@
       "img": "150.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_1",
+        "legendary"
       ]
     },
     {
@@ -1425,7 +1883,11 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_1",
+        "legendary"
+      ]
     },
     {
       "id": 152,
@@ -1434,6 +1896,9 @@
       "img": "152.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1443,6 +1908,9 @@
       "img": "153.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1452,6 +1920,9 @@
       "img": "154.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1461,6 +1932,9 @@
       "img": "155.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1470,6 +1944,9 @@
       "img": "156.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1479,6 +1956,9 @@
       "img": "157.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1488,6 +1968,9 @@
       "img": "158.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1497,6 +1980,9 @@
       "img": "159.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1506,6 +1992,9 @@
       "img": "160.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1515,6 +2004,9 @@
       "img": "161.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1524,6 +2016,9 @@
       "img": "162.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1534,6 +2029,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1544,6 +2042,9 @@
       "type": [
         "Normal",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1554,6 +2055,9 @@
       "type": [
         "Bug",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1564,6 +2068,9 @@
       "type": [
         "Bug",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1574,6 +2081,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1584,6 +2094,9 @@
       "type": [
         "Bug",
         "Poison"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1594,6 +2107,9 @@
       "type": [
         "Poison",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1604,6 +2120,9 @@
       "type": [
         "Water",
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1614,6 +2133,9 @@
       "type": [
         "Water",
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1623,6 +2145,9 @@
       "img": "172.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1632,6 +2157,9 @@
       "img": "173.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1642,6 +2170,9 @@
       "type": [
         "Normal",
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1651,6 +2182,9 @@
       "img": "175.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1661,6 +2195,9 @@
       "type": [
         "Fairy",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1671,6 +2208,9 @@
       "type": [
         "Psychic",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1681,6 +2221,9 @@
       "type": [
         "Psychic",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1690,6 +2233,9 @@
       "img": "179.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1699,6 +2245,9 @@
       "img": "180.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1708,6 +2257,9 @@
       "img": "181.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1717,6 +2269,9 @@
       "img": "182.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1727,6 +2282,9 @@
       "type": [
         "Water",
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1737,6 +2295,9 @@
       "type": [
         "Water",
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1746,6 +2307,9 @@
       "img": "185.png",
       "type": [
         "Rock"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1755,6 +2319,9 @@
       "img": "186.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1765,6 +2332,9 @@
       "type": [
         "Grass",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1775,6 +2345,9 @@
       "type": [
         "Grass",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1785,6 +2358,9 @@
       "type": [
         "Grass",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1794,6 +2370,9 @@
       "img": "190.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1803,6 +2382,9 @@
       "img": "191.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1812,6 +2394,9 @@
       "img": "192.png",
       "type": [
         "Grass"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1822,6 +2407,9 @@
       "type": [
         "Bug",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1832,6 +2420,9 @@
       "type": [
         "Water",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1842,6 +2433,9 @@
       "type": [
         "Water",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1851,6 +2445,9 @@
       "img": "196.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1860,6 +2457,9 @@
       "img": "197.png",
       "type": [
         "Dark"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1870,6 +2470,9 @@
       "type": [
         "Dark",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1880,6 +2483,9 @@
       "type": [
         "Water",
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1889,6 +2495,9 @@
       "img": "200.png",
       "type": [
         "Ghost"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1898,6 +2507,9 @@
       "img": "201.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1907,6 +2519,9 @@
       "img": "202.png",
       "type": [
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1917,6 +2532,9 @@
       "type": [
         "Normal",
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1926,6 +2544,9 @@
       "img": "204.png",
       "type": [
         "Bug"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1936,6 +2557,9 @@
       "type": [
         "Bug",
         "Steel"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1945,6 +2569,9 @@
       "img": "206.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1955,6 +2582,9 @@
       "type": [
         "Ground",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1965,6 +2595,9 @@
       "type": [
         "Steel",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1974,6 +2607,9 @@
       "img": "209.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1983,6 +2619,9 @@
       "img": "210.png",
       "type": [
         "Fairy"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -1993,6 +2632,9 @@
       "type": [
         "Water",
         "Poison"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2003,6 +2645,9 @@
       "type": [
         "Bug",
         "Steel"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2013,6 +2658,9 @@
       "type": [
         "Bug",
         "Rock"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2023,6 +2671,10 @@
       "type": [
         "Bug",
         "Fighting"
+      ],
+      "tags": [
+        "gen_2",
+        "regional"
       ]
     },
     {
@@ -2033,6 +2685,9 @@
       "type": [
         "Dark",
         "Ice"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2042,6 +2697,9 @@
       "img": "216.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2051,6 +2709,9 @@
       "img": "217.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2060,6 +2721,9 @@
       "img": "218.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2070,6 +2734,9 @@
       "type": [
         "Fire",
         "Rock"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2080,6 +2747,9 @@
       "type": [
         "Ice",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2090,6 +2760,9 @@
       "type": [
         "Ice",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2100,6 +2773,10 @@
       "type": [
         "Water",
         "Rock"
+      ],
+      "tags": [
+        "gen_2",
+        "regional"
       ]
     },
     {
@@ -2109,6 +2786,9 @@
       "img": "223.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2118,6 +2798,9 @@
       "img": "224.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2129,7 +2812,10 @@
         "Ice",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_2"
+      ]
     },
     {
       "id": 226,
@@ -2139,6 +2825,9 @@
       "type": [
         "Water",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2149,6 +2838,9 @@
       "type": [
         "Steel",
         "Flying"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2159,6 +2851,9 @@
       "type": [
         "Dark",
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2169,6 +2864,9 @@
       "type": [
         "Dark",
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2179,6 +2877,9 @@
       "type": [
         "Water",
         "Dragon"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2188,6 +2889,9 @@
       "img": "231.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2197,6 +2901,9 @@
       "img": "232.png",
       "type": [
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2206,6 +2913,9 @@
       "img": "233.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2215,6 +2925,9 @@
       "img": "234.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2225,7 +2938,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_2"
+      ]
     },
     {
       "id": 236,
@@ -2234,6 +2950,9 @@
       "img": "236.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2243,6 +2962,9 @@
       "img": "237.png",
       "type": [
         "Fighting"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2253,6 +2975,9 @@
       "type": [
         "Ice",
         "Psychic"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2262,6 +2987,9 @@
       "img": "239.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2271,6 +2999,9 @@
       "img": "240.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2280,6 +3011,9 @@
       "img": "241.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2289,6 +3023,9 @@
       "img": "242.png",
       "type": [
         "Normal"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2298,6 +3035,10 @@
       "img": "243.png",
       "type": [
         "Electric"
+      ],
+      "tags": [
+        "gen_2",
+        "legendary"
       ]
     },
     {
@@ -2307,6 +3048,10 @@
       "img": "244.png",
       "type": [
         "Fire"
+      ],
+      "tags": [
+        "gen_2",
+        "legendary"
       ]
     },
     {
@@ -2316,6 +3061,10 @@
       "img": "245.png",
       "type": [
         "Water"
+      ],
+      "tags": [
+        "gen_2",
+        "legendary"
       ]
     },
     {
@@ -2326,6 +3075,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2336,6 +3088,9 @@
       "type": [
         "Rock",
         "Ground"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2346,6 +3101,9 @@
       "type": [
         "Rock",
         "Dark"
+      ],
+      "tags": [
+        "gen_2"
       ]
     },
     {
@@ -2356,6 +3114,10 @@
       "type": [
         "Psychic",
         "Flying"
+      ],
+      "tags": [
+        "gen_2",
+        "legendary"
       ]
     },
     {
@@ -2364,10 +3126,14 @@
       "name": "Ho-oh",
       "img": "250.png",
       "type": [
-      	"Fire",
+        "Fire",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_2",
+        "legendary"
+      ]
     },
     {
       "id": 251,
@@ -2378,7 +3144,11 @@
         "Psychic",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_2",
+        "legendary"
+      ]
     },
     {
       "id": 252,
@@ -2388,7 +3158,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 253,
@@ -2398,7 +3171,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 254,
@@ -2408,7 +3184,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 255,
@@ -2418,7 +3197,10 @@
       "type": [
         "Fire"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 256,
@@ -2429,7 +3211,10 @@
         "Fire",
         "Fighting"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 257,
@@ -2440,7 +3225,10 @@
         "Fire",
         "Fighting"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 258,
@@ -2450,7 +3238,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 259,
@@ -2461,7 +3252,10 @@
         "Water",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 260,
@@ -2472,7 +3266,10 @@
         "Water",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 261,
@@ -2482,7 +3279,10 @@
       "type": [
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 262,
@@ -2492,7 +3292,10 @@
       "type": [
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 263,
@@ -2502,7 +3305,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 264,
@@ -2512,7 +3318,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 265,
@@ -2522,7 +3331,10 @@
       "type": [
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 266,
@@ -2532,7 +3344,10 @@
       "type": [
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 267,
@@ -2543,7 +3358,10 @@
         "Bug",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 268,
@@ -2553,7 +3371,10 @@
       "type": [
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 269,
@@ -2564,7 +3385,10 @@
         "Bug",
         "Poison"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 270,
@@ -2575,7 +3399,10 @@
         "Water",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 271,
@@ -2586,7 +3413,10 @@
         "Water",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 272,
@@ -2597,7 +3427,10 @@
         "Water",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 273,
@@ -2607,7 +3440,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 274,
@@ -2618,7 +3454,10 @@
         "Grass",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 275,
@@ -2629,7 +3468,10 @@
         "Grass",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 276,
@@ -2640,7 +3482,10 @@
         "Normal",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 277,
@@ -2651,7 +3496,10 @@
         "Normal",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 278,
@@ -2662,7 +3510,10 @@
         "Water",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 279,
@@ -2673,7 +3524,10 @@
         "Water",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 280,
@@ -2684,7 +3538,10 @@
         "Psychic",
         "Fairy"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 281,
@@ -2695,7 +3552,10 @@
         "Psychic",
         "Fairy"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 282,
@@ -2706,7 +3566,10 @@
         "Psychic",
         "Fairy"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 283,
@@ -2717,7 +3580,10 @@
         "Bug",
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 284,
@@ -2728,7 +3594,10 @@
         "Bug",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 285,
@@ -2738,7 +3607,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 286,
@@ -2749,7 +3621,10 @@
         "Grass",
         "Fighting"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 287,
@@ -2759,7 +3634,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 288,
@@ -2769,7 +3647,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 289,
@@ -2779,7 +3660,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 290,
@@ -2790,7 +3674,10 @@
         "Bug",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 291,
@@ -2801,7 +3688,10 @@
         "Bug",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 292,
@@ -2812,7 +3702,10 @@
         "Bug",
         "Ghost"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 293,
@@ -2822,7 +3715,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 294,
@@ -2832,7 +3728,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 295,
@@ -2842,7 +3741,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 296,
@@ -2852,7 +3754,10 @@
       "type": [
         "Fighting"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 297,
@@ -2862,7 +3767,10 @@
       "type": [
         "Fighting"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 298,
@@ -2873,7 +3781,10 @@
         "Normal",
         "Fairy"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 299,
@@ -2883,7 +3794,10 @@
       "type": [
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 300,
@@ -2893,7 +3807,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 301,
@@ -2903,7 +3820,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 302,
@@ -2913,6 +3833,9 @@
       "type": [
         "Dark",
         "Ghost"
+      ],
+      "tags": [
+        "gen_3"
       ]
     },
     {
@@ -2924,7 +3847,10 @@
         "Steel",
         "Fairy"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 304,
@@ -2935,7 +3861,10 @@
         "Steel",
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 305,
@@ -2946,7 +3875,10 @@
         "Steel",
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 306,
@@ -2957,7 +3889,10 @@
         "Steel",
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 307,
@@ -2968,7 +3903,10 @@
         "Fighting",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 308,
@@ -2979,7 +3917,10 @@
         "Fighting",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 309,
@@ -2989,7 +3930,10 @@
       "type": [
         "Electric"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 310,
@@ -2999,7 +3943,10 @@
       "type": [
         "Electric"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 311,
@@ -3009,7 +3956,10 @@
       "type": [
         "Electric"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 312,
@@ -3019,7 +3969,10 @@
       "type": [
         "Electric"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 313,
@@ -3029,7 +3982,10 @@
       "type": [
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 314,
@@ -3039,7 +3995,10 @@
       "type": [
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 315,
@@ -3050,7 +4009,10 @@
         "Grass",
         "Poison"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 316,
@@ -3060,7 +4022,10 @@
       "type": [
         "Poison"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 317,
@@ -3070,7 +4035,10 @@
       "type": [
         "Poison"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 318,
@@ -3081,7 +4049,10 @@
         "Water",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 319,
@@ -3092,7 +4063,10 @@
         "Water",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 320,
@@ -3102,7 +4076,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 321,
@@ -3112,7 +4089,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 322,
@@ -3123,7 +4103,10 @@
         "Fire",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 323,
@@ -3134,7 +4117,10 @@
         "Fire",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 324,
@@ -3144,7 +4130,10 @@
       "type": [
         "Fire"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 325,
@@ -3154,7 +4143,10 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 326,
@@ -3164,7 +4156,10 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 327,
@@ -3174,7 +4169,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 328,
@@ -3184,7 +4182,10 @@
       "type": [
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 329,
@@ -3195,7 +4196,10 @@
         "Ground",
         "Dragon"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 330,
@@ -3206,7 +4210,10 @@
         "Ground",
         "Dragon"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 331,
@@ -3216,7 +4223,10 @@
       "type": [
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 332,
@@ -3227,7 +4237,10 @@
         "Grass",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 333,
@@ -3238,7 +4251,10 @@
         "Normal",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 334,
@@ -3249,7 +4265,10 @@
         "Dragon",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 335,
@@ -3259,7 +4278,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 336,
@@ -3269,7 +4291,10 @@
       "type": [
         "Poison"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 337,
@@ -3280,7 +4305,10 @@
         "Rock",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 338,
@@ -3291,7 +4319,10 @@
         "Rock",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 339,
@@ -3302,7 +4333,10 @@
         "Water",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 340,
@@ -3313,7 +4347,10 @@
         "Water",
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 341,
@@ -3323,7 +4360,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 342,
@@ -3334,7 +4374,10 @@
         "Water",
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 343,
@@ -3345,7 +4388,10 @@
         "Ground",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 344,
@@ -3356,7 +4402,10 @@
         "Ground",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 345,
@@ -3367,7 +4416,10 @@
         "Rock",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 346,
@@ -3378,7 +4430,10 @@
         "Rock",
         "Grass"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 347,
@@ -3389,7 +4444,10 @@
         "Rock",
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 348,
@@ -3400,7 +4458,10 @@
         "Rock",
         "Bug"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 349,
@@ -3410,7 +4471,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 350,
@@ -3420,7 +4484,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 351,
@@ -3430,7 +4497,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 352,
@@ -3440,7 +4510,10 @@
       "type": [
         "Normal"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 353,
@@ -3449,6 +4522,9 @@
       "img": "353.png",
       "type": [
         "Ghost"
+      ],
+      "tags": [
+        "gen_3"
       ]
     },
     {
@@ -3458,6 +4534,9 @@
       "img": "354.png",
       "type": [
         "Ghost"
+      ],
+      "tags": [
+        "gen_3"
       ]
     },
     {
@@ -3467,6 +4546,9 @@
       "img": "355.png",
       "type": [
         "Ghost"
+      ],
+      "tags": [
+        "gen_3"
       ]
     },
     {
@@ -3476,6 +4558,9 @@
       "img": "356.png",
       "type": [
         "Ghost"
+      ],
+      "tags": [
+        "gen_3"
       ]
     },
     {
@@ -3487,7 +4572,10 @@
         "Grass",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 358,
@@ -3497,7 +4585,10 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 359,
@@ -3507,7 +4598,10 @@
       "type": [
         "Dark"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 360,
@@ -3517,7 +4611,10 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 361,
@@ -3527,7 +4624,10 @@
       "type": [
         "Ice"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 362,
@@ -3537,7 +4637,10 @@
       "type": [
         "Ice"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 363,
@@ -3548,7 +4651,10 @@
         "Ice",
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 364,
@@ -3559,7 +4665,10 @@
         "Ice",
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 365,
@@ -3570,7 +4679,10 @@
         "Ice",
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 366,
@@ -3580,7 +4692,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 367,
@@ -3590,7 +4705,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 368,
@@ -3600,7 +4718,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 369,
@@ -3611,7 +4732,10 @@
         "Water",
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 370,
@@ -3621,7 +4745,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 371,
@@ -3631,7 +4758,10 @@
       "type": [
         "Dragon"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 372,
@@ -3641,7 +4771,10 @@
       "type": [
         "Dragon"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 373,
@@ -3652,7 +4785,10 @@
         "Dragon",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 374,
@@ -3663,7 +4799,10 @@
         "Steel",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 375,
@@ -3674,7 +4813,10 @@
         "Steel",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 376,
@@ -3685,7 +4827,10 @@
         "Steel",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 377,
@@ -3695,7 +4840,10 @@
       "type": [
         "Rock"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 378,
@@ -3705,7 +4853,10 @@
       "type": [
         "Ice"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 379,
@@ -3715,7 +4866,10 @@
       "type": [
         "Steel"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 380,
@@ -3726,7 +4880,10 @@
         "Dragon",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 381,
@@ -3737,7 +4894,10 @@
         "Dragon",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 382,
@@ -3747,7 +4907,10 @@
       "type": [
         "Water"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 383,
@@ -3757,7 +4920,10 @@
       "type": [
         "Ground"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 384,
@@ -3768,7 +4934,10 @@
         "Dragon",
         "Flying"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 385,
@@ -3779,7 +4948,10 @@
         "Steel",
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     },
     {
       "id": 386,
@@ -3789,7 +4961,10 @@
       "type": [
         "Psychic"
       ],
-      "disabled": true
+      "disabled": true,
+      "tags": [
+        "gen_3"
+      ]
     }
   ]
 }

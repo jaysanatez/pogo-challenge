@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import pokemonTableData from './pokemonTableData'
-import { getPokemonForId } from '../../assets/utils'
+import { getPokemonWithTag } from '../../assets/utils'
 import { PokedexDisplays } from '../../app/displayOptions'
 import './pokedexTable.css'
 
@@ -70,7 +70,7 @@ export default class PokedexTable extends Component {
       return (
         <tr key={p.id}>
           <td>
-            <img src={this.getImgSrc(p.id)} style={{ height: "50px", width: "50px" }}/>
+            <img src={this.getImgSrc(p.id)} title={p.name} style={{ height: "50px", width: "50px" }}/>
           </td>
           { trainerData }
         </tr>
@@ -90,7 +90,7 @@ export default class PokedexTable extends Component {
       pokedexPage,
     } = this.props
 
-    const pokemon = pokedexPage.ids.map(id => getPokemonForId(id))
+    const pokemon = getPokemonWithTag(pokedexPage.tag)
     const data = pokemonTableData(pokemon, trainers)
     const isCollapsed = pokedexDisplay == PokedexDisplays.COLLAPSED
 

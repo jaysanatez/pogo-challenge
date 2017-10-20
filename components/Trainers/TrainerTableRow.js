@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { formatDate, DATE_TIME_STRING } from '../../shared/utils'
 import { PokedexPages } from '../../app/displayOptions'
+import { getPokemonWithTag } from '../../assets/utils'
 import {
   Status,
   TeamStrings,
@@ -11,6 +12,12 @@ import {
 } from '../../shared/lookups'
 
 export default class TrainerTableRow extends Component {
+  getPokedexIds() {
+    const pokedexTags = Object.values(PokedexPages).map(p => p.tag)
+    const pokemonForTags = pokedexTags.map(tag => getPokemonWithTag(tag)).reduce((a,b) => a.concat(b))
+    return pokemonForTags.map(p => p.id)
+  }
+
   render() {
     const {
       trainer,
@@ -25,7 +32,7 @@ export default class TrainerTableRow extends Component {
     var uniquePokedexCount = 0
     const allPokemon = trainer.pokedex.slice().concat(t.catches)
     if (allPokemon.length) {
-      const pokedexIds = Object.values(PokedexPages).map(page => page.ids).reduce((a,b) => a.concat(b))
+      const pokedexIds = this.getPokedexIds()
       const pokemonIds = allPokemon.map(p => p.pokemonId).filter(p => pokedexIds.includes(p))
       uniquePokedexCount = new Set(pokemonIds).size
     }
