@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import pokemonTableData from './pokemonTableData'
-import { getPokemonWithTag } from '../../assets/utils'
+import { getPokemonWithTag, getImgSrcForPokemonId } from '../../assets/utils'
 import { PokedexDisplays } from '../../app/displayOptions'
 import './pokedexTable.css'
 
@@ -70,16 +70,12 @@ export default class PokedexTable extends Component {
       return (
         <tr key={p.id}>
           <td>
-            <img src={this.getImgSrc(p.id)} title={p.name} style={{ height: "50px", width: "50px" }}/>
+            <img src={getImgSrcForPokemonId(p.id)} title={p.name} style={{ height: "50px", width: "50px" }}/>
           </td>
           { trainerData }
         </tr>
       )
     })
-  }
-
-  getImgSrc(id) {
-    return require('../../assets/pokemon/' + id + '.png')
   }
 
   render() {

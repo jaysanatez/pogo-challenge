@@ -8,3 +8,7 @@ export function getPokemonForId(id) {
 export function getPokemonWithTag(tag) {
   return pokemonData.pokemon.filter(p => p.tags.includes(tag))
 }
+
+export function getImgSrcForPokemonId(id) {
+  return require('./pokemon/' + id + '.png')
+}

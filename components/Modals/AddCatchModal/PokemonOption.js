@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { imgStyle, getSrcForPokemonId } from './shared'
+import { imgStyle } from './shared'
+import { getImgSrcForPokemonId } from '../../../assets/utils'
 
 export default class PokemonOption extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class PokemonOption extends Component {
 
   render() {
     const { option, className, children } = this.props
-    const imgSrc = getSrcForPokemonId(option.value)
+    const imgSrc = getImgSrcForPokemonId(option.value)
     return (
       <div className={className}
         onMouseDown={this.onMouseDown}

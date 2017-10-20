@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { imgStyle, getSrcForPokemonId } from './shared'
+import { imgStyle } from './shared'
+import { getImgSrcForPokemonId } from '../../../assets/utils'
 
 export default class PokemonValue extends Component {
   render() {
     const { value, title } = this.props.value
-    const imgSrc = getSrcForPokemonId(value)
+    const imgSrc = getImgSrcForPokemonId(value)
     return (
       <div className="Select-value" title={title}>
         <span className="Select-value-label">
