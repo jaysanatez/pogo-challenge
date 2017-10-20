@@ -6,7 +6,3 @@ export const imgStyle = {
   position: 'relative',
   verticalAlign: 'middle',
 }
-
-export const getSrcForPokemonId = id => {
-  return require('../../../assets/pokemon/' + id + '.png')
-}
