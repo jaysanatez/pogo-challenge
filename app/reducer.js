@@ -30,7 +30,7 @@ const defaultState = {
   mapScope: MapScopes.USA,
   userScope: UserScopes.ME,
   pokedexDisplay: PokedexDisplays.COLLAPSED,
-  pokedexPage: PokedexPages.LEGENDARY,
+  pokedexPage: PokedexPages.GENERATION_3,
 }
 
 function trainerReducer(state = defaultState, action) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import pokedexGroups from './pokedexGroups'
 import pokemonTableData from './pokemonTableData'
 import { getPokemonForId } from '../../assets/utils'
 import { PokedexDisplays } from '../../app/displayOptions'
@@ -91,8 +90,7 @@ export default class PokedexTable extends Component {
       pokedexPage,
     } = this.props
 
-    const ids = pokedexGroups[pokedexPage.text]
-    const pokemon = ids.map(id => getPokemonForId(id))
+    const pokemon = pokedexPage.ids.map(id => getPokemonForId(id))
     const data = pokemonTableData(pokemon, trainers)
     const isCollapsed = pokedexDisplay == PokedexDisplays.COLLAPSED
 

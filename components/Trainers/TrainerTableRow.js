@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { formatDate, DATE_TIME_STRING } from '../../shared/utils'
-import PokedexGroups from '../Pokedex/pokedexGroups'
+import { PokedexPages } from '../../app/displayOptions'
 import {
   Status,
   TeamStrings,
@@ -25,7 +25,7 @@ export default class TrainerTableRow extends Component {
     var uniquePokedexCount = 0
     const allPokemon = trainer.pokedex.slice().concat(t.catches)
     if (allPokemon.length) {
-      const pokedexIds = Object.values(PokedexGroups).reduce((a,b) => a.concat(b))
+      const pokedexIds = Object.values(PokedexPages).map(page => page.ids).reduce((a,b) => a.concat(b))
       const pokemonIds = allPokemon.map(p => p.pokemonId).filter(p => pokedexIds.includes(p))
       uniquePokedexCount = new Set(pokemonIds).size
     }
