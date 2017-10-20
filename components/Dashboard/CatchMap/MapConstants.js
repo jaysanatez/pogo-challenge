@@ -42,15 +42,10 @@ const mapConstants = {
 
 // popup constants
 
-const imgSize = '75px'
-const popupStyle = {
-  maxWidth: '200px',
-  height: imgSize,
-}
 
-const imgStyle = {
-  height: imgSize,
-  width: imgSize,
+const popupStyle = {
+  width: '100px',
+  height: '75px',
 }
 
 const textStyle = {
@@ -59,22 +54,23 @@ const textStyle = {
 
 const popupConstants = {
   popupStyle,
-  imgStyle,
   textStyle,
 }
 
 // marker constants
 
-const size = 30
-const pokeballIcon = {
-  url: require('../../../assets/misc/pokeball.png'),
-  scaledSize: {
-    width: size,
-    height: size,
-  },
-  anchor: {
-    x: size / 2,
-    y: size / 2,
+const size = 40
+const pokeballIcon = url => {
+  return {
+    url,
+    scaledSize: {
+      width: size,
+      height: size,
+    },
+    anchor: {
+      x: size / 2,
+      y: size / 2,
+    }
   }
 }
 

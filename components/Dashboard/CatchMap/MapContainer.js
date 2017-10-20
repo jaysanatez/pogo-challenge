@@ -6,6 +6,7 @@ import MapStyle from './MapStyle'
 import Constants from './MapConstants'
 import MapPopup from './MapPopup'
 import { MapScopes } from '../../../app/displayOptions'
+import { getImgSrcForPokemonId } from '../../../assets/utils'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -44,12 +45,13 @@ export class MapContainer extends Component {
       if (!c.cord)
         return null
 
+      const imgSrc = getImgSrcForPokemonId(c.pokemonId) 
       return (
         <Marker
           key={c._id}
           title={c.locationName}
           position={c.cord}
-          icon={Constants.markerConstants.pokeballIcon}
+          icon={Constants.markerConstants.pokeballIcon(imgSrc)}
           onClick={ (props, marker) => this.updatePopupState(marker, c) }
         />
       )

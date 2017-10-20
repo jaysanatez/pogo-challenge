@@ -11,16 +11,11 @@ export default class MapPopup extends Component {
     if (!activeMarker || !_catch)
       return <div/>
 
-    const imgSrc = require('../../../assets/pokemon/' + _catch.pokemonId + '.png')
     const pokemon = getPokemonForId(_catch.pokemonId)
-
     return (
       <div className="container" style={Constants.popupConstants.popupStyle}>
-        <div className="row">
-          <img src={imgSrc} style={Constants.popupConstants.imgStyle}/>
-          <div className="col" style={Constants.popupConstants.textStyle}>
-            { pokemon.name } was caught in { activeMarker.title } on { _catch.date } by { trainerName }.
-          </div>
+        <div className="row" style={Constants.popupConstants.textStyle}>
+          { pokemon.name } was caught in { activeMarker.title } on { _catch.date } by { trainerName }.
         </div>
       </div>
     )
